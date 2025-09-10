@@ -1,0 +1,1096 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Co-Author AI Platform - Investor Valuation</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/antd/5.12.8/reset.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/antd/5.12.8/antd.min.css">
+    <link rel="stylesheet" href="css/liquid-glass.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/antd/5.12.8/antd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+</head>
+<body>
+    <div class="app-container">
+        <!-- Liquid Glass Background -->
+        <div class="liquid-bg">
+            <div class="glass-orb orb-1"></div>
+            <div class="glass-orb orb-2"></div>
+            <div class="glass-orb orb-3"></div>
+            <div class="glass-orb orb-4"></div>
+        </div>
+
+        <!-- Header -->
+        <header class="glass-header">
+            <div class="header-content">
+                <div class="title-section">
+                    <h1 class="main-title">Co-Author AI Platform</h1>
+                    <p class="subtitle">Revolutionary 10M+ Token Context • $49.3B Market Opportunity</p>
+                </div>
+                <div class="scenario-controls glass-card">
+                    <label for="scenario">Investment Scenario:</label>
+                    <select id="scenario" class="glass-select">
+                        <option value="conservative">Conservative (70% Revenue)</option>
+                        <option value="realistic" selected>Realistic (100% Revenue)</option>
+                        <option value="optimistic">Optimistic (130% Revenue)</option>
+                    </select>
+                </div>
+            </div>
+        </header>
+
+        <!-- Navigation Tabs -->
+        <nav class="glass-nav">
+            <div class="nav-tabs">
+                <button class="nav-tab active" data-tab="executive">Executive Summary</button>
+                <button class="nav-tab" data-tab="tokenomics">Tokenomics & Architecture</button>
+                <button class="nav-tab" data-tab="market">Market Analysis</button>
+                <button class="nav-tab" data-tab="financial">Financial Models</button>
+                <button class="nav-tab" data-tab="infrastructure">Infrastructure Deep-Dive</button>
+                <button class="nav-tab" data-tab="revenue">Revenue Modeling</button>
+                <button class="nav-tab" data-tab="valuation">Valuation Methods</button>
+                <button class="nav-tab" data-tab="dcf">DCF Analysis</button>
+                <button class="nav-tab" data-tab="funding">Funding Strategy</button>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            
+            <!-- Executive Summary Tab -->
+            <section class="tab-content active" id="executive">
+                <div class="content-grid">
+                    <div class="glass-card hero-stats">
+                        <h2 class="section-title">Investment Opportunity</h2>
+                        <div class="stats-grid">
+                            <div class="stat-item primary">
+                                <div class="stat-value" id="funding-amount">$10M</div>
+                                <div class="stat-label">Pre-seed Investment</div>
+                                <div class="stat-sublabel">20% Equity Stake</div>
+                            </div>
+                            <div class="stat-item success">
+                                <div class="stat-value" id="projected-valuation">$2.84B</div>
+                                <div class="stat-label">5-Year DCF Valuation</div>
+                                <div class="stat-sublabel">284x Return Multiple</div>
+                            </div>
+                            <div class="stat-item warning">
+                                <div class="stat-value" id="projected-irr">847%</div>
+                                <div class="stat-label">5-Year IRR</div>
+                                <div class="stat-sublabel">Industry Leading</div>
+                            </div>
+                            <div class="stat-item info">
+                                <div class="stat-value" id="months-profitability">19</div>
+                                <div class="stat-label">Months to Profitability</div>
+                                <div class="stat-sublabel">Break-even Point</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="glass-card">
+                        <h3 class="card-title">🚀 Revolutionary Technology</h3>
+                        <div class="tech-highlights">
+                            <div class="tech-item">
+                                <strong>10M+ Token Context</strong>
+                                <span>50x larger than current AI limitations</span>
+                            </div>
+                            <div class="tech-item">
+                                <strong>Hierarchical Memory</strong>
+                                <span>3-tier architecture: Active (200K) → Semantic (2M) → Archive (10M+)</span>
+                            </div>
+                            <div class="tech-item">
+                                <strong>Genetic Algorithm Optimization</strong>
+                                <span>847ms average response time with superior accuracy</span>
+                            </div>
+                            <div class="tech-item">
+                                <strong>Reactive Reasoning Engine</strong>
+                                <span>Real-time context adaptation and learning</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="glass-card">
+                        <h3 class="card-title">📊 Market Opportunity</h3>
+                        <div class="market-overview">
+                            <div class="market-stat">
+                                <div class="market-value">$49.3B</div>
+                                <div class="market-label">Content Writing Economy</div>
+                            </div>
+                            <div class="market-segments-preview">
+                                <div class="segment-preview">Freelancers: $29/month • $2.3M TAM</div>
+                                <div class="segment-preview">Healthcare: $79/month • $850K TAM</div>
+                                <div class="segment-preview">Enterprise: $249/month • $125K TAM</div>
+                                <div class="segment-preview">Government: $1,249/month • $15K TAM</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="glass-card">
+                        <h3 class="card-title">💰 Financial Projections</h3>
+                        <div class="financial-preview">
+                            <div class="year-projection">
+                                <span class="year">2025</span>
+                                <span class="revenue">$2.1M</span>
+                                <span class="growth">Launch Year</span>
+                            </div>
+                            <div class="year-projection">
+                                <span class="year">2027</span>
+                                <span class="revenue">$85.4M</span>
+                                <span class="growth">+285% CAGR</span>
+                            </div>
+                            <div class="year-projection highlight">
+                                <span class="year">2030</span>
+                                <span class="revenue">$723.4M</span>
+                                <span class="growth">65.9% EBITDA</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Tokenomics & Architecture Tab -->
+            <section class="tab-content" id="tokenomics">
+                <div class="content-grid">
+                    <div class="glass-card full-width">
+                        <h2 class="section-title">🏗️ Technical Architecture & Tokenomics</h2>
+                        
+                        <div class="architecture-grid">
+                            <div class="arch-layer">
+                                <h4>Layer 1: Active Working Memory</h4>
+                                <div class="layer-details">
+                                    <div class="detail-item">
+                                        <span class="detail-label">Capacity:</span>
+                                        <span class="detail-value">200,000 tokens</span>
+                                    </div>
+                                    <div class="detail-item">
+                                        <span class="detail-label">Purpose:</span>
+                                        <span class="detail-value">Real-time processing & immediate context</span>
+                                    </div>
+                                    <div class="detail-item">
+                                        <span class="detail-label">Latency:</span>
+                                        <span class="detail-value">&lt;100ms access time</span>
+                                    </div>
+                                    <div class="detail-item">
+                                        <span class="detail-label">Cost per 1K tokens:</span>
+                                        <span class="detail-value">$0.002 (premium tier)</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="arch-layer">
+                                <h4>Layer 2: Semantic Memory Cache</h4>
+                                <div class="layer-details">
+                                    <div class="detail-item">
+                                        <span class="detail-label">Capacity:</span>
+                                        <span class="detail-value">2,000,000 tokens</span>
+                                    </div>
+                                    <div class="detail-item">
+                                        <span class="detail-label">Purpose:</span>
+                                        <span class="detail-value">Contextual relationships & patterns</span>
+                                    </div>
+                                    <div class="detail-item">
+                                        <span class="detail-label">Latency:</span>
+                                        <span class="detail-value">200-500ms access time</span>
+                                    </div>
+                                    <div class="detail-item">
+                                        <span class="detail-label">Cost per 1K tokens:</span>
+                                        <span class="detail-value">$0.0008 (optimized)</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="arch-layer">
+                                <h4>Layer 3: Document Archive</h4>
+                                <div class="layer-details">
+                                    <div class="detail-item">
+                                        <span class="detail-label">Capacity:</span>
+                                        <span class="detail-value">10,000,000+ tokens</span>
+                                    </div>
+                                    <div class="detail-item">
+                                        <span class="detail-label">Purpose:</span>
+                                        <span class="detail-value">Long-term knowledge storage</span>
+                                    </div>
+                                    <div class="detail-item">
+                                        <span class="detail-label">Latency:</span>
+                                        <span class="detail-value">500-1000ms access time</span>
+                                    </div>
+                                    <div class="detail-item">
+                                        <span class="detail-label">Cost per 1K tokens:</span>
+                                        <span class="detail-value">$0.0003 (archive rate)</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="glass-card">
+                        <h3 class="card-title">💳 Token Economics Model</h3>
+                        <div class="token-pricing">
+                            <div class="pricing-tier">
+                                <h4>Freelancer Tier</h4>
+                                <div class="tier-details">
+                                    <div class="price">$29/month</div>
+                                    <div class="tokens">500K tokens included</div>
+                                    <div class="overage">$0.05/1K additional tokens</div>
+                                    <div class="features">Basic memory layers, Standard support</div>
+                                </div>
+                            </div>
+                            <div class="pricing-tier">
+                                <h4>Healthcare Tier</h4>
+                                <div class="tier-details">
+                                    <div class="price">$79/month</div>
+                                    <div class="tokens">1.5M tokens included</div>
+                                    <div class="overage">$0.04/1K additional tokens</div>
+                                    <div class="features">Full memory layers, HIPAA compliance, Priority support</div>
+                                </div>
+                            </div>
+                            <div class="pricing-tier">
+                                <h4>Enterprise Tier</h4>
+                                <div class="tier-details">
+                                    <div class="price">$249/month</div>
+                                    <div class="tokens">5M tokens included</div>
+                                    <div class="overage">$0.03/1K additional tokens</div>
+                                    <div class="features">Advanced memory, Custom integrations, Dedicated support</div>
+                                </div>
+                            </div>
+                            <div class="pricing-tier">
+                                <h4>Government Tier</h4>
+                                <div class="tier-details">
+                                    <div class="price">$1,249/month</div>
+                                    <div class="tokens">20M tokens included</div>
+                                    <div class="overage">$0.02/1K additional tokens</div>
+                                    <div class="features">Maximum security, On-premise deployment, White-glove support</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="glass-card">
+                        <h3 class="card-title">⚡ Performance Metrics</h3>
+                        <div class="performance-stats">
+                            <div class="perf-stat">
+                                <div class="perf-value">847ms</div>
+                                <div class="perf-label">Average Response Time</div>
+                                <div class="perf-comparison">vs 2.3s industry average</div>
+                            </div>
+                            <div class="perf-stat">
+                                <div class="perf-value">99.9%</div>
+                                <div class="perf-label">Context Retention</div>
+                                <div class="perf-comparison">Across 10M+ tokens</div>
+                            </div>
+                            <div class="perf-stat">
+                                <div class="perf-value">92%</div>
+                                <div class="perf-label">Accuracy Score</div>
+                                <div class="perf-comparison">vs 76% standard models</div>
+                            </div>
+                            <div class="perf-stat">
+                                <div class="perf-value">50x</div>
+                                <div class="perf-label">Context Advantage</div>
+                                <div class="perf-comparison">Over current AI limits</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Market Analysis Tab -->
+            <section class="tab-content" id="market">
+                <div class="content-grid">
+                    <div class="glass-card full-width">
+                        <h2 class="section-title">📈 Market Analysis & Segmentation</h2>
+                        <div class="market-stats-grid">
+                            <div class="market-segment detailed">
+                                <div class="segment-header">
+                                    <h3>Freelance Writers</h3>
+                                    <div class="tam-badge">$2.3M TAM</div>
+                                </div>
+                                <div class="segment-metrics">
+                                    <div class="metric-row">
+                                        <span class="metric-label">Monthly Pricing:</span>
+                                        <span class="metric-value">$29</span>
+                                    </div>
+                                    <div class="metric-row">
+                                        <span class="metric-label">2030 Projected Users:</span>
+                                        <span class="metric-value">46,000</span>
+                                    </div>
+                                    <div class="metric-row">
+                                        <span class="metric-label">Gross Margin:</span>
+                                        <span class="metric-value success">91.4%</span>
+                                    </div>
+                                    <div class="metric-row">
+                                        <span class="metric-label">Monthly Churn:</span>
+                                        <span class="metric-value">4.2%</span>
+                                    </div>
+                                    <div class="metric-row">
+                                        <span class="metric-label">LTV/CAC Ratio:</span>
+                                        <span class="metric-value">3.2x</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="market-segment detailed">
+                                <div class="segment-header">
+                                    <h3>Healthcare Practices</h3>
+                                    <div class="tam-badge">$850K TAM</div>
+                                </div>
+                                <div class="segment-metrics">
+                                    <div class="metric-row">
+                                        <span class="metric-label">Monthly Pricing:</span>
+                                        <span class="metric-value">$79</span>
+                                    </div>
+                                    <div class="metric-row">
+                                        <span class="metric-label">2030 Projected Users:</span>
+                                        <span class="metric-value">25,500</span>
+                                    </div>
+                                    <div class="metric-row">
+                                        <span class="metric-label">Gross Margin:</span>
+                                        <span class="metric-value success">94.1%</span>
+                                    </div>
+                                    <div class="metric-row">
+                                        <span class="metric-label">Monthly Churn:</span>
+                                        <span class="metric-value">2.8%</span>
+                                    </div>
+                                    <div class="metric-row">
+                                        <span class="metric-label">LTV/CAC Ratio:</span>
+                                        <span class="metric-value">4.1x</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="market-segment detailed">
+                                <div class="segment-header">
+                                    <h3>Enterprise Clients</h3>
+                                    <div class="tam-badge">$125K TAM</div>
+                                </div>
+                                <div class="segment-metrics">
+                                    <div class="metric-row">
+                                        <span class="metric-label">Monthly Pricing:</span>
+                                        <span class="metric-value">$249</span>
+                                    </div>
+                                    <div class="metric-row">
+                                        <span class="metric-label">2030 Projected Users:</span>
+                                        <span class="metric-value">6,250</span>
+                                    </div>
+                                    <div class="metric-row">
+                                        <span class="metric-label">Gross Margin:</span>
+                                        <span class="metric-value success">95.8%</span>
+                                    </div>
+                                    <div class="metric-row">
+                                        <span class="metric-label">Monthly Churn:</span>
+                                        <span class="metric-value">1.5%</span>
+                                    </div>
+                                    <div class="metric-row">
+                                        <span class="metric-label">LTV/CAC Ratio:</span>
+                                        <span class="metric-value">6.2x</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="market-segment detailed">
+                                <div class="segment-header">
+                                    <h3>Government Agencies</h3>
+                                    <div class="tam-badge">$15K TAM</div>
+                                </div>
+                                <div class="segment-metrics">
+                                    <div class="metric-row">
+                                        <span class="metric-label">Monthly Pricing:</span>
+                                        <span class="metric-value">$1,249</span>
+                                    </div>
+                                    <div class="metric-row">
+                                        <span class="metric-label">2030 Projected Users:</span>
+                                        <span class="metric-value">1,200</span>
+                                    </div>
+                                    <div class="metric-row">
+                                        <span class="metric-label">Gross Margin:</span>
+                                        <span class="metric-value success">96.7%</span>
+                                    </div>
+                                    <div class="metric-row">
+                                        <span class="metric-label">Monthly Churn:</span>
+                                        <span class="metric-value">0.8%</span>
+                                    </div>
+                                    <div class="metric-row">
+                                        <span class="metric-label">LTV/CAC Ratio:</span>
+                                        <span class="metric-value">8.7x</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="glass-card">
+                        <h3 class="card-title">📊 Market Visualization</h3>
+                        <canvas id="marketChart" width="400" height="300"></canvas>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Financial Models Tab -->
+            <section class="tab-content" id="financial">
+                <div class="content-grid">
+                    <div class="glass-card controls-panel">
+                        <h3 class="card-title">⚙️ Financial Model Controls</h3>
+                        <div class="controls-grid">
+                            <div class="control-group">
+                                <label for="discount-rate">Discount Rate (WACC):</label>
+                                <input type="range" id="discount-rate" min="8" max="15" value="12" step="0.1">
+                                <span class="control-value" id="discount-rate-value">12.0%</span>
+                            </div>
+                            <div class="control-group">
+                                <label for="growth-rate">Terminal Growth Rate:</label>
+                                <input type="range" id="growth-rate" min="2" max="5" value="3" step="0.1">
+                                <span class="control-value" id="growth-rate-value">3.0%</span>
+                            </div>
+                            <div class="control-group">
+                                <label for="customer-acquisition-cost">Customer Acquisition Cost:</label>
+                                <input type="range" id="customer-acquisition-cost" min="50" max="500" value="150" step="10">
+                                <span class="control-value" id="customer-acquisition-cost-value">$150</span>
+                            </div>
+                            <div class="control-group">
+                                <label for="churn-rate">Average Monthly Churn:</label>
+                                <input type="range" id="churn-rate" min="1" max="10" value="2.8" step="0.1">
+                                <span class="control-value" id="churn-rate-value">2.8%</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="glass-card">
+                        <h3 class="card-title">💰 Key Financial Metrics</h3>
+                        <div class="metrics-display">
+                            <div class="metric-card primary">
+                                <div class="metric-value" id="npv-result">$2.1B</div>
+                                <div class="metric-label">Net Present Value</div>
+                                <div class="metric-sublabel">5-year projection</div>
+                            </div>
+                            <div class="metric-card success">
+                                <div class="metric-value" id="irr-result">847%</div>
+                                <div class="metric-label">Internal Rate of Return</div>
+                                <div class="metric-sublabel">Industry leading</div>
+                            </div>
+                            <div class="metric-card warning">
+                                <div class="metric-value" id="payback-result">2.3</div>
+                                <div class="metric-label">Payback Period (Years)</div>
+                                <div class="metric-sublabel">Investor recovery</div>
+                            </div>
+                            <div class="metric-card info">
+                                <div class="metric-value" id="breakeven-result">19</div>
+                                <div class="metric-label">Break-even (Months)</div>
+                                <div class="metric-sublabel">Profitability timeline</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="glass-card full-width">
+                        <h3 class="card-title">📈 Financial Projections</h3>
+                        <canvas id="financialChart" width="800" height="400"></canvas>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Infrastructure Deep-Dive Tab -->
+            <section class="tab-content" id="infrastructure">
+                <div class="content-grid">
+                    <div class="glass-card controls-panel">
+                        <h3 class="card-title">☁️ Infrastructure Configuration</h3>
+                        <div class="infra-controls">
+                            <div class="control-section">
+                                <label for="cloud-provider">Cloud Provider:</label>
+                                <select id="cloud-provider" class="glass-select">
+                                    <option value="aws">Amazon Web Services</option>
+                                    <option value="gcp">Google Cloud Platform</option>
+                                    <option value="azure">Microsoft Azure</option>
+                                    <option value="on-premise">On-Premise Data Center</option>
+                                    <option value="home-server">Home Server Setup</option>
+                                </select>
+                            </div>
+                            <div class="control-section">
+                                <label for="ai-model">AI Model Strategy:</label>
+                                <select id="ai-model" class="glass-select">
+                                    <option value="foundation">Foundation Models (OpenAI/Anthropic)</option>
+                                    <option value="self-hosted">Self-Hosted Open Source</option>
+                                    <option value="hybrid">Hybrid Approach</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="scale-controls">
+                            <div class="control-group">
+                                <label for="monthly-users">Monthly Active Users:</label>
+                                <input type="range" id="monthly-users" min="1000" max="100000" value="10000" step="1000">
+                                <span class="control-value" id="monthly-users-value">10,000</span>
+                            </div>
+                            <div class="control-group">
+                                <label for="requests-per-user">Requests per User/Month:</label>
+                                <input type="range" id="requests-per-user" min="10" max="1000" value="100" step="10">
+                                <span class="control-value" id="requests-per-user-value">100</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="glass-card">
+                        <h3 class="card-title">💸 Cost Breakdown Analysis</h3>
+                        <div class="cost-breakdown-detailed">
+                            <div class="cost-category">
+                                <div class="cost-header">
+                                    <span class="cost-type">Compute Infrastructure</span>
+                                    <span class="cost-amount" id="compute-cost">$8,500</span>
+                                </div>
+                                <div class="cost-details">
+                                    <small>CPU: 64 cores • RAM: 512GB • GPU: 8x A100</small>
+                                </div>
+                            </div>
+                            <div class="cost-category">
+                                <div class="cost-header">
+                                    <span class="cost-type">AI Model API Costs</span>
+                                    <span class="cost-amount" id="ai-cost">$12,000</span>
+                                </div>
+                                <div class="cost-details">
+                                    <small>Token processing: $0.002/1K tokens • Context caching included</small>
+                                </div>
+                            </div>
+                            <div class="cost-category">
+                                <div class="cost-header">
+                                    <span class="cost-type">Storage & Database</span>
+                                    <span class="cost-amount" id="storage-cost">$1,200</span>
+                                </div>
+                                <div class="cost-details">
+                                    <small>Vector DB: 10TB • Object storage: 50TB • Backups: 3x replication</small>
+                                </div>
+                            </div>
+                            <div class="cost-category">
+                                <div class="cost-header">
+                                    <span class="cost-type">Network & Bandwidth</span>
+                                    <span class="cost-amount" id="bandwidth-cost">$800</span>
+                                </div>
+                                <div class="cost-details">
+                                    <small>CDN: Global edge • Data transfer: 100TB/month • DDoS protection</small>
+                                </div>
+                            </div>
+                            <div class="cost-category total">
+                                <div class="cost-header">
+                                    <span class="cost-type">Total Monthly Infrastructure</span>
+                                    <span class="cost-amount" id="total-infrastructure-cost">$22,500</span>
+                                </div>
+                                <div class="cost-details">
+                                    <small>Per user cost: $2.25/month • Scales with usage patterns</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="glass-card full-width">
+                        <h3 class="card-title">🏗️ Infrastructure Cost Comparison</h3>
+                        <div class="provider-comparison">
+                            <div class="provider-detail">
+                                <h4>☁️ AWS (Current)</h4>
+                                <div class="provider-costs">
+                                    <div class="cost-item">EC2 Instances: <span>$5,200/month</span></div>
+                                    <div class="cost-item">SageMaker: <span>$3,300/month</span></div>
+                                    <div class="cost-item">S3 Storage: <span>$800/month</span></div>
+                                    <div class="cost-item">CloudFront: <span>$400/month</span></div>
+                                    <div class="cost-item">RDS/DynamoDB: <span>$400/month</span></div>
+                                    <div class="total-cost">Total: $10,100/month</div>
+                                </div>
+                            </div>
+                            <div class="provider-detail">
+                                <h4>☁️ Google Cloud</h4>
+                                <div class="provider-costs">
+                                    <div class="cost-item">Compute Engine: <span>$4,700/month</span></div>
+                                    <div class="cost-item">Vertex AI: <span>$3,100/month</span></div>
+                                    <div class="cost-item">Cloud Storage: <span>$750/month</span></div>
+                                    <div class="cost-item">Cloud CDN: <span>$350/month</span></div>
+                                    <div class="cost-item">Cloud SQL: <span>$350/month</span></div>
+                                    <div class="total-cost">Total: $9,250/month</div>
+                                </div>
+                            </div>
+                            <div class="provider-detail">
+                                <h4>☁️ Microsoft Azure</h4>
+                                <div class="provider-costs">
+                                    <div class="cost-item">Virtual Machines: <span>$4,900/month</span></div>
+                                    <div class="cost-item">Azure ML: <span>$3,200/month</span></div>
+                                    <div class="cost-item">Blob Storage: <span>$780/month</span></div>
+                                    <div class="cost-item">Azure CDN: <span>$380/month</span></div>
+                                    <div class="cost-item">Azure SQL: <span>$380/month</span></div>
+                                    <div class="total-cost">Total: $9,640/month</div>
+                                </div>
+                            </div>
+                            <div class="provider-detail">
+                                <h4>🏢 On-Premise</h4>
+                                <div class="provider-costs">
+                                    <div class="cost-item">Hardware Amort: <span>$8,000/month</span></div>
+                                    <div class="cost-item">Power & Cooling: <span>$2,500/month</span></div>
+                                    <div class="cost-item">Network: <span>$1,200/month</span></div>
+                                    <div class="cost-item">Maintenance: <span>$1,800/month</span></div>
+                                    <div class="cost-item">Staff: <span>$6,500/month</span></div>
+                                    <div class="total-cost">Total: $20,000/month</div>
+                                </div>
+                            </div>
+                        </div>
+                        <canvas id="infrastructureChart" width="800" height="400"></canvas>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Revenue Modeling Tab -->
+            <section class="tab-content" id="revenue">
+                <div class="content-grid">
+                    <div class="glass-card">
+                        <h3 class="card-title">💰 Pricing Strategy</h3>
+                        <div class="pricing-controls">
+                            <div class="tier-control">
+                                <label>Freelancer Tier:</label>
+                                <div class="price-input">
+                                    <span>$</span>
+                                    <input type="number" id="freelancer-price" value="29" min="10" max="100">
+                                    <span>/month</span>
+                                </div>
+                            </div>
+                            <div class="tier-control">
+                                <label>Healthcare Tier:</label>
+                                <div class="price-input">
+                                    <span>$</span>
+                                    <input type="number" id="healthcare-price" value="79" min="50" max="200">
+                                    <span>/month</span>
+                                </div>
+                            </div>
+                            <div class="tier-control">
+                                <label>Enterprise Tier:</label>
+                                <div class="price-input">
+                                    <span>$</span>
+                                    <input type="number" id="enterprise-price" value="249" min="100" max="500">
+                                    <span>/month</span>
+                                </div>
+                            </div>
+                            <div class="tier-control">
+                                <label>Government Tier:</label>
+                                <div class="price-input">
+                                    <span>$</span>
+                                    <input type="number" id="government-price" value="1249" min="500" max="2000">
+                                    <span>/month</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="glass-card">
+                        <h3 class="card-title">📢 Customer Acquisition</h3>
+                        <div class="acquisition-controls">
+                            <div class="control-group">
+                                <label for="marketing-spend">Monthly Marketing Spend:</label>
+                                <input type="range" id="marketing-spend" min="10000" max="500000" value="100000" step="10000">
+                                <span class="control-value" id="marketing-spend-value">$100,000</span>
+                            </div>
+                            <div class="control-group">
+                                <label for="conversion-rate">Lead to Customer Conversion:</label>
+                                <input type="range" id="conversion-rate" min="1" max="20" value="5" step="0.5">
+                                <span class="control-value" id="conversion-rate-value">5.0%</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="glass-card">
+                        <h3 class="card-title">📊 Revenue Projections</h3>
+                        <div class="revenue-projections-detailed">
+                            <div class="projection-year">
+                                <div class="year-header">Year 1 (2025)</div>
+                                <div class="year-revenue" id="year1-revenue">$2.1M</div>
+                                <div class="year-details">1,747 total users • Launch phase</div>
+                            </div>
+                            <div class="projection-year">
+                                <div class="year-header">Year 3 (2027)</div>
+                                <div class="year-revenue" id="year3-revenue">$85.4M</div>
+                                <div class="year-details">Market penetration • Scale phase</div>
+                            </div>
+                            <div class="projection-year highlight">
+                                <div class="year-header">Year 5 (2030)</div>
+                                <div class="year-revenue" id="year5-revenue">$723.4M</div>
+                                <div class="year-details">79,000 total users • Market leader</div>
+                            </div>
+                            <div class="projection-year">
+                                <div class="year-header">CAGR</div>
+                                <div class="year-revenue" id="cagr">285%</div>
+                                <div class="year-details">5-year compound growth</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="glass-card full-width">
+                        <h3 class="card-title">📈 Revenue Growth by Segment</h3>
+                        <canvas id="revenueChart" width="800" height="400"></canvas>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Valuation Methods Tab -->
+            <section class="tab-content" id="valuation">
+                <div class="content-grid">
+                    <div class="glass-card">
+                        <h3 class="card-title">💎 Berkus Method</h3>
+                        <div class="valuation-method">
+                            <div class="berkus-factor">
+                                <label>Sound Idea ($0-500K):</label>
+                                <input type="range" id="berkus-idea" min="0" max="500000" value="500000" step="50000">
+                                <span class="factor-value" id="berkus-idea-value">$500K</span>
+                            </div>
+                            <div class="berkus-factor">
+                                <label>Prototype ($0-500K):</label>
+                                <input type="range" id="berkus-prototype" min="0" max="500000" value="500000" step="50000">
+                                <span class="factor-value" id="berkus-prototype-value">$500K</span>
+                            </div>
+                            <div class="berkus-factor">
+                                <label>Quality Management ($0-1M):</label>
+                                <input type="range" id="berkus-management" min="0" max="1000000" value="1000000" step="50000">
+                                <span class="factor-value" id="berkus-management-value">$1M</span>
+                            </div>
+                            <div class="berkus-factor">
+                                <label>Strategic Relationships ($0-1M):</label>
+                                <input type="range" id="berkus-relationships" min="0" max="1000000" value="500000" step="50000">
+                                <span class="factor-value" id="berkus-relationships-value">$500K</span>
+                            </div>
+                            <div class="berkus-factor">
+                                <label>Product Rollout/Sales ($0-1M):</label>
+                                <input type="range" id="berkus-sales" min="0" max="1000000" value="1000000" step="50000">
+                                <span class="factor-value" id="berkus-sales-value">$1M</span>
+                            </div>
+                            <div class="method-total">
+                                <strong>Berkus Total: <span id="berkus-total">$3.5M</span></strong>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="glass-card">
+                        <h3 class="card-title">📋 Scorecard Method</h3>
+                        <div class="valuation-method">
+                            <div class="scorecard-factor">
+                                <label>Management (30%):</label>
+                                <input type="range" id="scorecard-management" min="0.5" max="1.5" value="1.2" step="0.1">
+                                <span class="factor-value" id="scorecard-management-value">1.2x</span>
+                            </div>
+                            <div class="scorecard-factor">
+                                <label>Market Opportunity (25%):</label>
+                                <input type="range" id="scorecard-market" min="0.5" max="1.5" value="1.3" step="0.1">
+                                <span class="factor-value" id="scorecard-market-value">1.3x</span>
+                            </div>
+                            <div class="scorecard-factor">
+                                <label>Product/Technology (15%):</label>
+                                <input type="range" id="scorecard-product" min="0.5" max="1.5" value="1.4" step="0.1">
+                                <span class="factor-value" id="scorecard-product-value">1.4x</span>
+                            </div>
+                            <div class="scorecard-factor">
+                                <label>Competitive Environment (10%):</label>
+                                <input type="range" id="scorecard-competition" min="0.5" max="1.5" value="1.1" step="0.1">
+                                <span class="factor-value" id="scorecard-competition-value">1.1x</span>
+                            </div>
+                            <div class="scorecard-factor">
+                                <label>Marketing/Sales (10%):</label>
+                                <input type="range" id="scorecard-marketing" min="0.5" max="1.5" value="1.0" step="0.1">
+                                <span class="factor-value" id="scorecard-marketing-value">1.0x</span>
+                            </div>
+                            <div class="scorecard-factor">
+                                <label>Need for Financing (10%):</label>
+                                <input type="range" id="scorecard-financials" min="0.5" max="1.5" value="1.1" step="0.1">
+                                <span class="factor-value" id="scorecard-financials-value">1.1x</span>
+                            </div>
+                            <div class="method-total">
+                                <strong>Scorecard Total: <span id="scorecard-total">$42.8M</span></strong>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="glass-card">
+                        <h3 class="card-title">⚠️ Risk Factor Summation</h3>
+                        <div class="valuation-method">
+                            <div class="risk-factor">
+                                <label>Management Risk:</label>
+                                <select id="risk-management" class="glass-select">
+                                    <option value="0">No Risk (+$0)</option>
+                                    <option value="-250000">Low Risk (-$250K)</option>
+                                    <option value="-500000">Normal Risk (-$500K)</option>
+                                    <option value="-750000">High Risk (-$750K)</option>
+                                </select>
+                            </div>
+                            <div class="risk-factor">
+                                <label>Stage of Business:</label>
+                                <select id="risk-stage" class="glass-select">
+                                    <option value="-500000">Idea Stage (-$500K)</option>
+                                    <option value="-250000">Prototype (-$250K)</option>
+                                    <option value="0">Early Revenue (+$0)</option>
+                                    <option value="250000">Growth (+$250K)</option>
+                                </select>
+                            </div>
+                            <div class="method-total">
+                                <strong>Risk-Adjusted: <span id="risk-total">$35.5M</span></strong>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="glass-card">
+                        <h3 class="card-title">🔧 Cost to Duplicate</h3>
+                        <div class="valuation-method">
+                            <div class="cost-factor">
+                                <label>Development Cost:</label>
+                                <input type="number" id="dev-cost" value="2000000" min="500000" max="10000000" step="100000">
+                            </div>
+                            <div class="cost-factor">
+                                <label>Market Premium Multiplier:</label>
+                                <input type="range" id="market-premium" min="1" max="5" value="2.5" step="0.1">
+                                <span class="factor-value" id="market-premium-value">2.5x</span>
+                            </div>
+                            <div class="method-total">
+                                <strong>Cost to Duplicate: <span id="duplicate-total">$5M</span></strong>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="glass-card valuation-summary">
+                        <h3 class="card-title">📊 Valuation Summary</h3>
+                        <div class="summary-methods">
+                            <div class="summary-row">
+                                <span>Berkus Method:</span>
+                                <span id="summary-berkus">$3.5M</span>
+                            </div>
+                            <div class="summary-row">
+                                <span>Scorecard Method:</span>
+                                <span id="summary-scorecard">$42.8M</span>
+                            </div>
+                            <div class="summary-row">
+                                <span>Risk Factor Method:</span>
+                                <span id="summary-risk">$35.5M</span>
+                            </div>
+                            <div class="summary-row">
+                                <span>Cost to Duplicate:</span>
+                                <span id="summary-duplicate">$5M</span>
+                            </div>
+                            <div class="summary-row total">
+                                <span>Weighted Average:</span>
+                                <span id="average-valuation">$21.7M</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- DCF Analysis Tab -->
+            <section class="tab-content" id="dcf">
+                <div class="content-grid">
+                    <div class="glass-card controls-panel">
+                        <h3 class="card-title">📈 DCF Parameters</h3>
+                        <div class="dcf-controls">
+                            <div class="control-group">
+                                <label for="dcf-discount-rate">Discount Rate (WACC):</label>
+                                <input type="range" id="dcf-discount-rate" min="8" max="20" value="12" step="0.5">
+                                <span class="control-value" id="dcf-discount-rate-value">12.0%</span>
+                            </div>
+                            <div class="control-group">
+                                <label for="dcf-terminal-growth">Terminal Growth Rate:</label>
+                                <input type="range" id="dcf-terminal-growth" min="1" max="6" value="3" step="0.1">
+                                <span class="control-value" id="dcf-terminal-growth-value">3.0%</span>
+                            </div>
+                            <div class="control-group">
+                                <label for="dcf-projection-years">Projection Years:</label>
+                                <select id="dcf-projection-years" class="glass-select">
+                                    <option value="5" selected>5 Years</option>
+                                    <option value="7">7 Years</option>
+                                    <option value="10">10 Years</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="glass-card full-width">
+                        <h3 class="card-title">📊 DCF Projection Table</h3>
+                        <div class="dcf-table-container">
+                            <table class="dcf-table" id="dcf-projections">
+                                <thead>
+                                    <tr>
+                                        <th>Year</th>
+                                        <th>Revenue</th>
+                                        <th>EBITDA</th>
+                                        <th>Free Cash Flow</th>
+                                        <th>PV Factor</th>
+                                        <th>Present Value</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="dcf-tbody">
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    
+                    <div class="glass-card">
+                        <h3 class="card-title">💰 DCF Results</h3>
+                        <div class="dcf-results-display">
+                            <div class="dcf-result">
+                                <div class="result-label">Sum of PV Cash Flows:</div>
+                                <div class="result-value" id="pv-cash-flows">$1.8B</div>
+                            </div>
+                            <div class="dcf-result">
+                                <div class="result-label">Terminal Value (PV):</div>
+                                <div class="result-value" id="terminal-value">$1.04B</div>
+                            </div>
+                            <div class="dcf-result highlight">
+                                <div class="result-label">Enterprise Value:</div>
+                                <div class="result-value" id="enterprise-value">$2.84B</div>
+                            </div>
+                            <div class="dcf-result">
+                                <div class="result-label">Equity Value:</div>
+                                <div class="result-value" id="equity-value">$2.84B</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="glass-card full-width">
+                        <h3 class="card-title">📈 DCF Analysis Chart</h3>
+                        <canvas id="dcfChart" width="800" height="400"></canvas>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Funding Strategy Tab -->
+            <section class="tab-content" id="funding">
+                <div class="content-grid">
+                    <div class="glass-card">
+                        <h3 class="card-title">💰 Funding Overview</h3>
+                        <div class="funding-summary">
+                            <div class="funding-item">
+                                <label>Funding Amount:</label>
+                                <div class="funding-input">
+                                    <span>$</span>
+                                    <input type="number" id="funding-request" value="10000000" min="1000000" max="50000000" step="1000000">
+                                </div>
+                            </div>
+                            <div class="funding-metric">
+                                <label>Pre-money Valuation:</label>
+                                <span id="final-pre-money">$40M</span>
+                            </div>
+                            <div class="funding-metric">
+                                <label>Post-money Valuation:</label>
+                                <span id="post-money">$50M</span>
+                            </div>
+                            <div class="funding-metric">
+                                <label>Equity Percentage:</label>
+                                <span id="equity-percentage">20%</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="glass-card">
+                        <h3 class="card-title">💸 Use of Funds</h3>
+                        <div class="funds-allocation">
+                            <div class="allocation-control">
+                                <label>Product Development:</label>
+                                <input type="range" id="product-allocation" min="20" max="60" value="40">
+                                <span id="product-amount">$4M (40%)</span>
+                            </div>
+                            <div class="allocation-control">
+                                <label>Marketing & Sales:</label>
+                                <input type="range" id="marketing-allocation" min="15" max="40" value="25">
+                                <span id="marketing-amount">$2.5M (25%)</span>
+                            </div>
+                            <div class="allocation-control">
+                                <label>Operations & Infrastructure:</label>
+                                <input type="range" id="operations-allocation" min="10" max="30" value="20">
+                                <span id="operations-amount">$2M (20%)</span>
+                            </div>
+                            <div class="allocation-control">
+                                <label>Working Capital:</label>
+                                <input type="range" id="working-capital-allocation" min="5" max="25" value="15">
+                                <span id="working-capital-amount">$1.5M (15%)</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="glass-card full-width">
+                        <h3 class="card-title">🎯 Key Milestones</h3>
+                        <div class="milestone-timeline">
+                            <div class="milestone-item">
+                                <div class="milestone-date">Month 6</div>
+                                <div class="milestone-title">Beta Launch</div>
+                                <div class="milestone-desc">1,000 beta users • Core functionality validated</div>
+                            </div>
+                            <div class="milestone-item">
+                                <div class="milestone-date">Month 12</div>
+                                <div class="milestone-title">Market Entry</div>
+                                <div class="milestone-desc">10,000 paying customers • Product-market fit</div>
+                            </div>
+                            <div class="milestone-item highlight">
+                                <div class="milestone-date">Month 19</div>
+                                <div class="milestone-title">Break-even</div>
+                                <div class="milestone-desc">Monthly recurring revenue exceeds costs</div>
+                            </div>
+                            <div class="milestone-item">
+                                <div class="milestone-date">Month 24</div>
+                                <div class="milestone-title">Scale Phase</div>
+                                <div class="milestone-desc">$50M ARR • Enterprise market penetration</div>
+                            </div>
+                            <div class="milestone-item">
+                                <div class="milestone-date">Month 36</div>
+                                <div class="milestone-title">Series A</div>
+                                <div class="milestone-desc">$200M ARR • Next funding round</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="glass-card">
+                        <h3 class="card-title">🚪 Exit Scenarios</h3>
+                        <div class="exit-scenarios">
+                            <div class="exit-scenario">
+                                <h4>Strategic Acquisition (Year 3-4)</h4>
+                                <div class="scenario-details">
+                                    <div class="detail-row">
+                                        <span>Valuation Range:</span>
+                                        <span>$500M - $1.2B</span>
+                                    </div>
+                                    <div class="detail-row">
+                                        <span>Revenue Multiple:</span>
+                                        <span>6-12x ARR</span>
+                                    </div>
+                                    <div class="detail-row">
+                                        <span>Investor Return:</span>
+                                        <span>12.5x - 30x</span>
+                                    </div>
+                                    <div class="detail-row">
+                                        <span>Potential Acquirers:</span>
+                                        <span>Microsoft, Google, Adobe</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="exit-scenario">
+                                <h4>IPO (Year 5-7)</h4>
+                                <div class="scenario-details">
+                                    <div class="detail-row">
+                                        <span>Valuation Range:</span>
+                                        <span>$2B - $8B</span>
+                                    </div>
+                                    <div class="detail-row">
+                                        <span>Revenue Multiple:</span>
+                                        <span>8-15x ARR</span>
+                                    </div>
+                                    <div class="detail-row">
+                                        <span>Investor Return:</span>
+                                        <span>50x - 200x</span>
+                                    </div>
+                                    <div class="detail-row">
+                                        <span>Market Comparables:</span>
+                                        <span>OpenAI, Anthropic</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="glass-card full-width">
+                        <h3 class="card-title">📊 Funding Allocation</h3>
+                        <canvas id="fundingChart" width="800" height="400"></canvas>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <script src="js/liquid-glass.js"></script>
+    <script src="js/financial-models.js"></script>
+    <script src="js/charts.js"></script>
+</body>
+</html>

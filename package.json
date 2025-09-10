@@ -1,0 +1,28 @@
+{
+  "name": "coauthor-valuation",
+  "version": "1.0.0",
+  "description": "Dynamic investor presentation with financial modeling - Liquid Glass Design",
+  "main": "server.js",
+  "homepage": "https://rahiakil.github.io/coauthor-valuation",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js",
+    "build": "npm run build:static",
+    "build:static": "node build.js",
+    "deploy": "npm run build && gh-pages -d dist",
+    "predeploy": "npm run build"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "path": "^0.12.7",
+    "antd": "^5.12.8",
+    "@ant-design/icons": "^5.2.6",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1",
+    "gh-pages": "^6.1.0",
+    "fs-extra": "^11.2.0"
+  }
+}
