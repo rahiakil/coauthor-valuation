@@ -613,149 +613,365 @@
                         <h3 class="card-title">📈 Financial Projections</h3>
                         <canvas id="financialChart" width="800" height="400"></canvas>
                     </div>
+                    
+                    <!-- Excel-like 8-Year Financial Projections -->
+                    <div class="glass-card full-width compact-card">
+                        <h3 class="card-title">📊 8-Year Financial Model (Excel-like Interface)</h3>
+                        <div class="excel-container">
+                            <table class="excel-financial-table">
+                                <thead>
+                                    <tr>
+                                        <th class="row-header">Financial Model</th>
+                                        <th>2025</th>
+                                        <th>2026</th>
+                                        <th>2027</th>
+                                        <th>2028</th>
+                                        <th>2029</th>
+                                        <th>2030</th>
+                                        <th>2031</th>
+                                        <th>2032</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <!-- Revenue Section -->
+                                    <tr class="section-header">
+                                        <td colspan="9"><strong>REVENUE BREAKDOWN ($M)</strong></td>
+                                    </tr>
+                                    <tr class="data-row freelancer-row">
+                                        <td class="row-label">Freelancer Revenue</td>
+                                        <td class="editable-cell" data-year="2025" data-metric="freelancer-revenue">0.35</td>
+                                        <td class="editable-cell" data-year="2026" data-metric="freelancer-revenue">2.1</td>
+                                        <td class="editable-cell" data-year="2027" data-metric="freelancer-revenue">8.4</td>
+                                        <td class="editable-cell" data-year="2028" data-metric="freelancer-revenue">23.5</td>
+                                        <td class="editable-cell" data-year="2029" data-metric="freelancer-revenue">58.7</td>
+                                        <td class="editable-cell" data-year="2030" data-metric="freelancer-revenue">134.6</td>
+                                        <td class="editable-cell" data-year="2031" data-metric="freelancer-revenue">245.8</td>
+                                        <td class="editable-cell" data-year="2032" data-metric="freelancer-revenue">385.2</td>
+                                    </tr>
+                                    <tr class="data-row healthcare-row">
+                                        <td class="row-label">Healthcare Revenue</td>
+                                        <td class="editable-cell" data-year="2025" data-metric="healthcare-revenue">0.28</td>
+                                        <td class="editable-cell" data-year="2026" data-metric="healthcare-revenue">1.8</td>
+                                        <td class="editable-cell" data-year="2027" data-metric="healthcare-revenue">7.5</td>
+                                        <td class="editable-cell" data-year="2028" data-metric="healthcare-revenue">22.8</td>
+                                        <td class="editable-cell" data-year="2029" data-metric="healthcare-revenue">61.2</td>
+                                        <td class="editable-cell" data-year="2030" data-metric="healthcare-revenue">152.4</td>
+                                        <td class="editable-cell" data-year="2031" data-metric="healthcare-revenue">285.6</td>
+                                        <td class="editable-cell" data-year="2032" data-metric="healthcare-revenue">465.8</td>
+                                    </tr>
+                                    <tr class="data-row enterprise-row">
+                                        <td class="row-label">Enterprise Revenue</td>
+                                        <td class="editable-cell" data-year="2025" data-metric="enterprise-revenue">0.15</td>
+                                        <td class="editable-cell" data-year="2026" data-metric="enterprise-revenue">1.2</td>
+                                        <td class="editable-cell" data-year="2027" data-metric="enterprise-revenue">6.2</td>
+                                        <td class="editable-cell" data-year="2028" data-metric="enterprise-revenue">21.4</td>
+                                        <td class="editable-cell" data-year="2029" data-metric="enterprise-revenue">68.5</td>
+                                        <td class="editable-cell" data-year="2030" data-metric="enterprise-revenue">189.2</td>
+                                        <td class="editable-cell" data-year="2031" data-metric="enterprise-revenue">385.4</td>
+                                        <td class="editable-cell" data-year="2032" data-metric="enterprise-revenue">685.2</td>
+                                    </tr>
+                                    <tr class="data-row government-row">
+                                        <td class="row-label">Government Revenue</td>
+                                        <td class="editable-cell" data-year="2025" data-metric="government-revenue">0.02</td>
+                                        <td class="editable-cell" data-year="2026" data-metric="government-revenue">0.18</td>
+                                        <td class="editable-cell" data-year="2027" data-metric="government-revenue">1.1</td>
+                                        <td class="editable-cell" data-year="2028" data-metric="government-revenue">5.8</td>
+                                        <td class="editable-cell" data-year="2029" data-metric="government-revenue">22.1</td>
+                                        <td class="editable-cell" data-year="2030" data-metric="government-revenue">67.2</td>
+                                        <td class="editable-cell" data-year="2031" data-metric="government-revenue">145.6</td>
+                                        <td class="editable-cell" data-year="2032" data-metric="government-revenue">285.4</td>
+                                    </tr>
+                                    <tr class="total-row">
+                                        <td class="row-label"><strong>Total Revenue</strong></td>
+                                        <td class="calculated-cell" id="total-revenue-2025">0.8</td>
+                                        <td class="calculated-cell" id="total-revenue-2026">5.3</td>
+                                        <td class="calculated-cell" id="total-revenue-2027">23.2</td>
+                                        <td class="calculated-cell" id="total-revenue-2028">73.5</td>
+                                        <td class="calculated-cell" id="total-revenue-2029">210.5</td>
+                                        <td class="calculated-cell" id="total-revenue-2030">543.4</td>
+                                        <td class="calculated-cell" id="total-revenue-2031">1062.4</td>
+                                        <td class="calculated-cell" id="total-revenue-2032">1821.6</td>
+                                    </tr>
+                                    
+                                    <!-- Cost Structure Section -->
+                                    <tr class="section-header">
+                                        <td colspan="9"><strong>COST STRUCTURE ($M)</strong></td>
+                                    </tr>
+                                    <tr class="data-row cost-row">
+                                        <td class="row-label">Infrastructure Costs</td>
+                                        <td class="editable-cell" data-year="2025" data-metric="infrastructure-costs">0.3</td>
+                                        <td class="editable-cell" data-year="2026" data-metric="infrastructure-costs">1.8</td>
+                                        <td class="editable-cell" data-year="2027" data-metric="infrastructure-costs">6.2</td>
+                                        <td class="editable-cell" data-year="2028" data-metric="infrastructure-costs">18.4</td>
+                                        <td class="editable-cell" data-year="2029" data-metric="infrastructure-costs">42.1</td>
+                                        <td class="editable-cell" data-year="2030" data-metric="infrastructure-costs">89.5</td>
+                                        <td class="editable-cell" data-year="2031" data-metric="infrastructure-costs">165.2</td>
+                                        <td class="editable-cell" data-year="2032" data-metric="infrastructure-costs">273.2</td>
+                                    </tr>
+                                    <tr class="data-row cost-row">
+                                        <td class="row-label">R&D Expenses</td>
+                                        <td class="editable-cell" data-year="2025" data-metric="rd-expenses">2.5</td>
+                                        <td class="editable-cell" data-year="2026" data-metric="rd-expenses">4.2</td>
+                                        <td class="editable-cell" data-year="2027" data-metric="rd-expenses">8.5</td>
+                                        <td class="editable-cell" data-year="2028" data-metric="rd-expenses">15.8</td>
+                                        <td class="editable-cell" data-year="2029" data-metric="rd-expenses">28.5</td>
+                                        <td class="editable-cell" data-year="2030" data-metric="rd-expenses">45.2</td>
+                                        <td class="editable-cell" data-year="2031" data-metric="rd-expenses">68.5</td>
+                                        <td class="editable-cell" data-year="2032" data-metric="rd-expenses">95.2</td>
+                                    </tr>
+                                    <tr class="data-row cost-row">
+                                        <td class="row-label">Sales & Marketing</td>
+                                        <td class="editable-cell" data-year="2025" data-metric="sales-marketing">1.8</td>
+                                        <td class="editable-cell" data-year="2026" data-metric="sales-marketing">3.5</td>
+                                        <td class="editable-cell" data-year="2027" data-metric="sales-marketing">8.2</td>
+                                        <td class="editable-cell" data-year="2028" data-metric="sales-marketing">18.5</td>
+                                        <td class="editable-cell" data-year="2029" data-metric="sales-marketing">38.2</td>
+                                        <td class="editable-cell" data-year="2030" data-metric="sales-marketing">72.5</td>
+                                        <td class="editable-cell" data-year="2031" data-metric="sales-marketing">125.8</td>
+                                        <td class="editable-cell" data-year="2032" data-metric="sales-marketing">195.2</td>
+                                    </tr>
+                                    <tr class="data-row cost-row">
+                                        <td class="row-label">General & Admin</td>
+                                        <td class="editable-cell" data-year="2025" data-metric="general-admin">0.8</td>
+                                        <td class="editable-cell" data-year="2026" data-metric="general-admin">1.5</td>
+                                        <td class="editable-cell" data-year="2027" data-metric="general-admin">2.8</td>
+                                        <td class="editable-cell" data-year="2028" data-metric="general-admin">5.2</td>
+                                        <td class="editable-cell" data-year="2029" data-metric="general-admin">8.5</td>
+                                        <td class="editable-cell" data-year="2030" data-metric="general-admin">12.8</td>
+                                        <td class="editable-cell" data-year="2031" data-metric="general-admin">18.5</td>
+                                        <td class="editable-cell" data-year="2032" data-metric="general-admin">25.2</td>
+                                    </tr>
+                                    <tr class="total-row cost-total">
+                                        <td class="row-label"><strong>Total Costs</strong></td>
+                                        <td class="calculated-cell" id="total-costs-2025">5.4</td>
+                                        <td class="calculated-cell" id="total-costs-2026">11.0</td>
+                                        <td class="calculated-cell" id="total-costs-2027">25.7</td>
+                                        <td class="calculated-cell" id="total-costs-2028">57.9</td>
+                                        <td class="calculated-cell" id="total-costs-2029">117.3</td>
+                                        <td class="calculated-cell" id="total-costs-2030">220.0</td>
+                                        <td class="calculated-cell" id="total-costs-2031">378.0</td>
+                                        <td class="calculated-cell" id="total-costs-2032">588.8</td>
+                                    </tr>
+                                    
+                                    <!-- Cash Flow Section -->
+                                    <tr class="section-header">
+                                        <td colspan="9"><strong>CASH FLOW ANALYSIS ($M)</strong></td>
+                                    </tr>
+                                    <tr class="cash-flow-row positive">
+                                        <td class="row-label">Operating Cash Flow</td>
+                                        <td class="calculated-cell cash-negative" id="operating-cf-2025">-4.6</td>
+                                        <td class="calculated-cell cash-negative" id="operating-cf-2026">-5.7</td>
+                                        <td class="calculated-cell cash-negative" id="operating-cf-2027">-2.5</td>
+                                        <td class="calculated-cell cash-positive" id="operating-cf-2028">15.6</td>
+                                        <td class="calculated-cell cash-positive" id="operating-cf-2029">93.2</td>
+                                        <td class="calculated-cell cash-positive" id="operating-cf-2030">323.4</td>
+                                        <td class="calculated-cell cash-positive" id="operating-cf-2031">684.4</td>
+                                        <td class="calculated-cell cash-positive" id="operating-cf-2032">1232.8</td>
+                                    </tr>
+                                    <tr class="cash-flow-row">
+                                        <td class="row-label">Free Cash Flow</td>
+                                        <td class="calculated-cell cash-negative" id="free-cf-2025">-6.8</td>
+                                        <td class="calculated-cell cash-negative" id="free-cf-2026">-8.2</td>
+                                        <td class="calculated-cell cash-negative" id="free-cf-2027">-5.8</td>
+                                        <td class="calculated-cell cash-positive" id="free-cf-2028">8.5</td>
+                                        <td class="calculated-cell cash-positive" id="free-cf-2029">65.8</td>
+                                        <td class="calculated-cell cash-positive" id="free-cf-2030">265.2</td>
+                                        <td class="calculated-cell cash-positive" id="free-cf-2031">595.8</td>
+                                        <td class="calculated-cell cash-positive" id="free-cf-2032">1085.4</td>
+                                    </tr>
+                                    <tr class="cash-flow-row cumulative">
+                                        <td class="row-label"><strong>Cumulative FCF</strong></td>
+                                        <td class="calculated-cell" id="cumulative-fcf-2025">-6.8</td>
+                                        <td class="calculated-cell" id="cumulative-fcf-2026">-15.0</td>
+                                        <td class="calculated-cell" id="cumulative-fcf-2027">-20.8</td>
+                                        <td class="calculated-cell" id="cumulative-fcf-2028">-12.3</td>
+                                        <td class="calculated-cell" id="cumulative-fcf-2029">53.5</td>
+                                        <td class="calculated-cell" id="cumulative-fcf-2030">318.7</td>
+                                        <td class="calculated-cell" id="cumulative-fcf-2031">914.5</td>
+                                        <td class="calculated-cell" id="cumulative-fcf-2032">1999.9</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    
+                    <!-- Per-User Margin Analysis -->
+                    <div class="glass-card full-width compact-card">
+                        <h3 class="card-title">💰 Per-User Economics & Marketing Drivers</h3>
+                        <div class="margin-analysis-grid">
+                            <div class="margin-card">
+                                <h4>📝 Freelancer Segment</h4>
+                                <div class="margin-metrics">
+                                    <div class="metric">Revenue/User: <span class="value">$348/year</span></div>
+                                    <div class="metric">Cost/User: <span class="value">$89/year</span></div>
+                                    <div class="metric">Gross Margin: <span class="value positive">74.4%</span></div>
+                                    <div class="metric">CAC: <span class="value">$45</span></div>
+                                    <div class="metric">LTV/CAC: <span class="value positive">7.7x</span></div>
+                                </div>
+                            </div>
+                            <div class="margin-card">
+                                <h4>⚕️ Healthcare Segment</h4>
+                                <div class="margin-metrics">
+                                    <div class="metric">Revenue/User: <span class="value">$948/year</span></div>
+                                    <div class="metric">Cost/User: <span class="value">$185/year</span></div>
+                                    <div class="metric">Gross Margin: <span class="value positive">80.5%</span></div>
+                                    <div class="metric">CAC: <span class="value">$285</span></div>
+                                    <div class="metric">LTV/CAC: <span class="value positive">3.3x</span></div>
+                                </div>
+                            </div>
+                            <div class="margin-card">
+                                <h4>🏢 Enterprise Segment</h4>
+                                <div class="margin-metrics">
+                                    <div class="metric">Revenue/User: <span class="value">$2,988/year</span></div>
+                                    <div class="metric">Cost/User: <span class="value">$485/year</span></div>
+                                    <div class="metric">Gross Margin: <span class="value positive">83.8%</span></div>
+                                    <div class="metric">CAC: <span class="value">$1,250</span></div>
+                                    <div class="metric">LTV/CAC: <span class="value positive">2.4x</span></div>
+                                </div>
+                            </div>
+                            <div class="margin-card">
+                                <h4>🏛️ Government Segment</h4>
+                                <div class="margin-metrics">
+                                    <div class="metric">Revenue/User: <span class="value">$14,988/year</span></div>
+                                    <div class="metric">Cost/User: <span class="value">$1,850/year</span></div>
+                                    <div class="metric">Gross Margin: <span class="value positive">87.7%</span></div>
+                                    <div class="metric">CAC: <span class="value">$8,500</span></div>
+                                    <div class="metric">LTV/CAC: <span class="value positive">1.8x</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </section>
 
             <!-- Infrastructure Deep-Dive Tab -->
             <section class="tab-content" id="infrastructure">
-                <div class="content-grid">
-                    <div class="glass-card controls-panel">
-                        <h3 class="card-title">☁️ Infrastructure Configuration</h3>
-                        <div class="infra-controls">
-                            <div class="control-section">
-                                <label for="cloud-provider">Cloud Provider:</label>
-                                <select id="cloud-provider" class="glass-select">
-                                    <option value="aws">Amazon Web Services</option>
-                                    <option value="gcp">Google Cloud Platform</option>
-                                    <option value="azure">Microsoft Azure</option>
-                                    <option value="on-premise">On-Premise Data Center</option>
-                                    <option value="home-server">Home Server Setup</option>
-                                </select>
+                <!-- GPU Cost Analysis Section -->
+                <div class="glass-card compact-card">
+                    <h3 class="card-title">🚀 GPU Infrastructure Analysis</h3>
+                    <div class="gpu-comparison-grid">
+                        <div class="gpu-option">
+                            <h4>NVIDIA T4</h4>
+                            <div class="gpu-specs">
+                                <span class="spec">Memory: 16GB</span>
+                                <span class="spec">Cost: $0.35/hr</span>
+                                <span class="spec">Concurrent: 8 users</span>
                             </div>
-                            <div class="control-section">
-                                <label for="ai-model">AI Model Strategy:</label>
-                                <select id="ai-model" class="glass-select">
-                                    <option value="foundation">Foundation Models (OpenAI/Anthropic)</option>
-                                    <option value="self-hosted">Self-Hosted Open Source</option>
-                                    <option value="hybrid">Hybrid Approach</option>
-                                </select>
+                            <div class="cost-monthly">$252/month per GPU</div>
+                        </div>
+                        <div class="gpu-option recommended">
+                            <h4>NVIDIA L4</h4>
+                            <div class="gpu-specs">
+                                <span class="spec">Memory: 24GB</span>
+                                <span class="spec">Cost: $0.60/hr</span>
+                                <span class="spec">Concurrent: 15 users</span>
+                            </div>
+                            <div class="cost-monthly">$432/month per GPU</div>
+                            <div class="recommended-badge">Best ROI</div>
+                        </div>
+                        <div class="gpu-option premium">
+                            <h4>NVIDIA A100</h4>
+                            <div class="gpu-specs">
+                                <span class="spec">Memory: 80GB</span>
+                                <span class="spec">Cost: $3.20/hr</span>
+                                <span class="spec">Concurrent: 45 users</span>
+                            </div>
+                            <div class="cost-monthly">$2,304/month per GPU</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- User Behavior Models Section -->
+                <div class="glass-card compact-card">
+                    <h3 class="card-title">👥 User Behavior & Cost Impact</h3>
+                    <div class="user-behavior-grid">
+                        <div class="behavior-model">
+                            <h4>📝 Content Author</h4>
+                            <div class="behavior-stats">
+                                <div class="stat">Avg Session: 45min</div>
+                                <div class="stat">Tokens/Session: 25K</div>
+                                <div class="stat">Peak Hours: 9AM-5PM</div>
+                                <div class="stat">GPU Cost: $8.5/month</div>
                             </div>
                         </div>
-                        <div class="scale-controls">
-                            <div class="control-group">
-                                <label for="monthly-users">Monthly Active Users:</label>
-                                <input type="range" id="monthly-users" min="1000" max="100000" value="10000" step="1000">
-                                <span class="control-value" id="monthly-users-value">10,000</span>
+                        <div class="behavior-model">
+                            <h4>🔬 Researcher</h4>
+                            <div class="behavior-stats">
+                                <div class="stat">Avg Session: 2.5hrs</div>
+                                <div class="stat">Tokens/Session: 150K</div>
+                                <div class="stat">Peak Hours: 24/7</div>
+                                <div class="stat">GPU Cost: $45/month</div>
                             </div>
-                            <div class="control-group">
-                                <label for="requests-per-user">Requests per User/Month:</label>
-                                <input type="range" id="requests-per-user" min="10" max="1000" value="100" step="10">
-                                <span class="control-value" id="requests-per-user-value">100</span>
+                        </div>
+                        <div class="behavior-model">
+                            <h4>⚕️ Medical Professional</h4>
+                            <div class="behavior-stats">
+                                <div class="stat">Avg Session: 20min</div>
+                                <div class="stat">Tokens/Session: 50K</div>
+                                <div class="stat">Peak Hours: 7AM-7PM</div>
+                                <div class="stat">GPU Cost: $28/month</div>
                             </div>
                         </div>
                     </div>
-                    
-                    <div class="glass-card">
-                        <h3 class="card-title">💸 Cost Breakdown Analysis</h3>
-                        <div class="cost-breakdown-detailed">
-                            <div class="cost-category">
-                                <div class="cost-header">
-                                    <span class="cost-type">Compute Infrastructure</span>
-                                    <span class="cost-amount" id="compute-cost">$8,500</span>
-                                </div>
-                                <div class="cost-details">
-                                    <small>CPU: 64 cores • RAM: 512GB • GPU: 8x A100</small>
-                                </div>
-                            </div>
-                            <div class="cost-category">
-                                <div class="cost-header">
-                                    <span class="cost-type">AI Model API Costs</span>
-                                    <span class="cost-amount" id="ai-cost">$12,000</span>
-                                </div>
-                                <div class="cost-details">
-                                    <small>Token processing: $0.002/1K tokens • Context caching included</small>
-                                </div>
-                            </div>
-                            <div class="cost-category">
-                                <div class="cost-header">
-                                    <span class="cost-type">Storage & Database</span>
-                                    <span class="cost-amount" id="storage-cost">$1,200</span>
-                                </div>
-                                <div class="cost-details">
-                                    <small>Vector DB: 10TB • Object storage: 50TB • Backups: 3x replication</small>
-                                </div>
-                            </div>
-                            <div class="cost-category">
-                                <div class="cost-header">
-                                    <span class="cost-type">Network & Bandwidth</span>
-                                    <span class="cost-amount" id="bandwidth-cost">$800</span>
-                                </div>
-                                <div class="cost-details">
-                                    <small>CDN: Global edge • Data transfer: 100TB/month • DDoS protection</small>
-                                </div>
-                            </div>
-                            <div class="cost-category total">
-                                <div class="cost-header">
-                                    <span class="cost-type">Total Monthly Infrastructure</span>
-                                    <span class="cost-amount" id="total-infrastructure-cost">$22,500</span>
-                                </div>
-                                <div class="cost-details">
-                                    <small>Per user cost: $2.25/month • Scales with usage patterns</small>
-                                </div>
-                            </div>
-                        </div>
+                </div>
+
+                <!-- Cloud Provider Comparison -->
+                <div class="glass-card compact-card">
+                    <h3 class="card-title">☁️ Multi-Cloud Cost Analysis</h3>
+                    <div class="cloud-cost-table">
+                        <table class="excel-table">
+                            <thead>
+                                <tr>
+                                    <th>Provider</th>
+                                    <th>GPU Type</th>
+                                    <th>$/Hour</th>
+                                    <th>Monthly Cost</th>
+                                    <th>Concurrent Users</th>
+                                    <th>Cost/User</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="aws-row">
+                                    <td>AWS</td>
+                                    <td>p4d.24xlarge (8xA100)</td>
+                                    <td>$25.60</td>
+                                    <td>$18,432</td>
+                                    <td>360</td>
+                                    <td>$51.20</td>
+                                </tr>
+                                <tr class="gcp-row">
+                                    <td>GCP</td>
+                                    <td>a2-ultragpu-8g (8xA100)</td>
+                                    <td>$23.04</td>
+                                    <td>$16,589</td>
+                                    <td>360</td>
+                                    <td>$46.08</td>
+                                </tr>
+                                <tr class="azure-row recommended-row">
+                                    <td>Azure</td>
+                                    <td>Standard_NC48ads_A100_v4</td>
+                                    <td>$21.12</td>
+                                    <td>$15,206</td>
+                                    <td>360</td>
+                                    <td>$42.24</td>
+                                </tr>
+                                <tr class="on-premise-row">
+                                    <td>On-Premise</td>
+                                    <td>8xA100 + Infrastructure</td>
+                                    <td>$20.83</td>
+                                    <td>$15,000</td>
+                                    <td>360</td>
+                                    <td>$41.67</td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
-                    
-                    <div class="glass-card full-width">
-                        <h3 class="card-title">🏗️ Infrastructure Cost Comparison</h3>
-                        <div class="provider-comparison">
-                            <div class="provider-detail">
-                                <h4>☁️ AWS (Current)</h4>
-                                <div class="provider-costs">
-                                    <div class="cost-item">EC2 Instances: <span>$5,200/month</span></div>
-                                    <div class="cost-item">SageMaker: <span>$3,300/month</span></div>
-                                    <div class="cost-item">S3 Storage: <span>$800/month</span></div>
-                                    <div class="cost-item">CloudFront: <span>$400/month</span></div>
-                                    <div class="cost-item">RDS/DynamoDB: <span>$400/month</span></div>
-                                    <div class="total-cost">Total: $10,100/month</div>
-                                </div>
-                            </div>
-                            <div class="provider-detail">
-                                <h4>☁️ Google Cloud</h4>
-                                <div class="provider-costs">
-                                    <div class="cost-item">Compute Engine: <span>$4,700/month</span></div>
-                                    <div class="cost-item">Vertex AI: <span>$3,100/month</span></div>
-                                    <div class="cost-item">Cloud Storage: <span>$750/month</span></div>
-                                    <div class="cost-item">Cloud CDN: <span>$350/month</span></div>
-                                    <div class="cost-item">Cloud SQL: <span>$350/month</span></div>
-                                    <div class="total-cost">Total: $9,250/month</div>
-                                </div>
-                            </div>
-                            <div class="provider-detail">
-                                <h4>☁️ Microsoft Azure</h4>
-                                <div class="provider-costs">
-                                    <div class="cost-item">Virtual Machines: <span>$4,900/month</span></div>
-                                    <div class="cost-item">Azure ML: <span>$3,200/month</span></div>
-                                    <div class="cost-item">Blob Storage: <span>$780/month</span></div>
-                                    <div class="cost-item">Azure CDN: <span>$380/month</span></div>
-                                    <div class="cost-item">Azure SQL: <span>$380/month</span></div>
-                                    <div class="total-cost">Total: $9,640/month</div>
-                                </div>
-                            </div>
-                            <div class="provider-detail">
-                                <h4>🏢 On-Premise</h4>
-                                <div class="provider-costs">
-                                    <div class="cost-item">Hardware Amort: <span>$8,000/month</span></div>
-                                    <div class="cost-item">Power & Cooling: <span>$2,500/month</span></div>
-                                    <div class="cost-item">Network: <span>$1,200/month</span></div>
-                                    <div class="cost-item">Maintenance: <span>$1,800/month</span></div>
-                                    <div class="cost-item">Staff: <span>$6,500/month</span></div>
-                                    <div class="total-cost">Total: $20,000/month</div>
-                                </div>
-                            </div>
-                        </div>
-                        <canvas id="infrastructureChart" width="800" height="400"></canvas>
-                    </div>
+                </div>
+
+                <!-- Infrastructure Chart -->
+                <div class="glass-card full-width compact-card">
+                    <h3 class="card-title">🏗️ Infrastructure Scaling Analysis</h3>
+                    <canvas id="infrastructureChart" width="800" height="300"></canvas>
                 </div>
             </section>
 

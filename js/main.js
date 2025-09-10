@@ -586,9 +586,106 @@ class InvestorPresentation {
             element.textContent = value;
         }
     }
+    
+    // Excel-like Financial Model Functions
+    initializeExcelInterface() {
+        // Make cells editable
+        const editableCells = document.querySelectorAll('.editable-cell');
+        editableCells.forEach(cell => {
+            cell.addEventListener('click', this.makeEditable.bind(this));
+            cell.addEventListener('blur', this.updateCalculations.bind(this));
+            cell.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter') {
+                    e.target.blur();
+                }
+            });
+        });
+        
+        this.updateCalculations();
+    }
+    
+    makeEditable(event) {
+        const cell = event.target;
+        if (cell.classList.contains('editing')) return;
+        
+        const originalValue = cell.textContent;
+        cell.classList.add('editing');
+        cell.contentEditable = true;
+        cell.focus();
+        
+        // Select all text
+        const range = document.createRange();
+        range.selectNodeContents(cell);
+        const selection = window.getSelection();
+        selection.removeAllRanges();
+        selection.addRange(range);
+    }
+    
+    updateCalculations() {
+        // Calculate totals for each year
+        const years = ['2025', '2026', '2027', '2028', '2029', '2030', '2031', '2032'];
+        
+        years.forEach(year => {
+            // Calculate total revenue
+            let totalRevenue = 0;
+            ['freelancer', 'healthcare', 'enterprise', 'government'].forEach(segment => {
+                const cell = document.querySelector(`[data-year="${year}"][data-metric="${segment}-revenue"]`);
+                if (cell) {
+                    totalRevenue += parseFloat(cell.textContent) || 0;
+                }
+            });
+            this.updateElement(`total-revenue-${year}`, totalRevenue.toFixed(1));
+            
+            // Calculate total costs
+            let totalCosts = 0;
+            ['infrastructure-costs', 'rd-expenses', 'sales-marketing', 'general-admin'].forEach(metric => {
+                const cell = document.querySelector(`[data-year="${year}"][data-metric="${metric}"]`);
+                if (cell) {
+                    totalCosts += parseFloat(cell.textContent) || 0;
+                }
+            });
+            this.updateElement(`total-costs-${year}`, totalCosts.toFixed(1));
+            
+            // Calculate cash flows
+            const operatingCF = totalRevenue - totalCosts;
+            const freeCF = operatingCF - (totalRevenue * 0.05); // Assume 5% capex
+            
+            this.updateElement(`operating-cf-${year}`, operatingCF.toFixed(1));
+            this.updateElement(`free-cf-${year}`, freeCF.toFixed(1));
+            
+            // Update cash flow styling
+            const opCfElement = document.getElementById(`operating-cf-${year}`);
+            const freeCfElement = document.getElementById(`free-cf-${year}`);
+            
+            if (opCfElement) {
+                opCfElement.className = operatingCF >= 0 ? 'calculated-cell cash-positive' : 'calculated-cell cash-negative';
+            }
+            if (freeCfElement) {
+                freeCfElement.className = freeCF >= 0 ? 'calculated-cell cash-positive' : 'calculated-cell cash-negative';
+            }
+        });
+        
+        // Calculate cumulative FCF
+        let cumulativeFCF = 0;
+        years.forEach(year => {
+            const freeCfElement = document.getElementById(`free-cf-${year}`);
+            if (freeCfElement) {
+                const freeCF = parseFloat(freeCfElement.textContent) || 0;
+                cumulativeFCF += freeCF;
+                this.updateElement(`cumulative-fcf-${year}`, cumulativeFCF.toFixed(1));
+            }
+        });
+    }
 }
 
 // Initialize the application when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
     window.investorPresentation = new InvestorPresentation();
+    
+    // Initialize Excel interface after a short delay to ensure DOM is ready
+    setTimeout(() => {
+        if (window.investorPresentation.initializeExcelInterface) {
+            window.investorPresentation.initializeExcelInterface();
+        }
+    }, 1000);
 });
