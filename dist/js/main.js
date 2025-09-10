@@ -15,11 +15,14 @@ class InvestorPresentation {
     
     init() {
         this.initTabNavigation();
+        this.initBannerInteractions();
         this.initInfrastructureCalculator();
         this.initRevenueModel();
         this.initValuationMethods();
         this.initFundingCalculator();
         this.initTokenUsageCalculators();
+        this.initAICostChart();
+        this.initGeneticAlgorithmDemo();
         this.updateAllMetrics();
     }
     
@@ -676,6 +679,360 @@ class InvestorPresentation {
             }
         });
     }
+
+    initBannerInteractions() {
+        // Add click handlers for banner sections
+        const bannerSections = document.querySelectorAll('.banner-section');
+        const detailSections = document.querySelectorAll('.banner-detail-section');
+        
+        bannerSections.forEach(section => {
+            section.addEventListener('click', () => {
+                const sectionType = section.dataset.section;
+                const detailId = `${sectionType}-detail`;
+                const detailSection = document.getElementById(detailId);
+                
+                if (detailSection) {
+                    // Hide all detail sections first
+                    detailSections.forEach(detail => {
+                        detail.style.display = 'none';
+                    });
+                    
+                    // Show the clicked section's details
+                    if (detailSection.style.display === 'none') {
+                        detailSection.style.display = 'block';
+                        detailSection.scrollIntoView({ 
+                            behavior: 'smooth', 
+                            block: 'start' 
+                        });
+                    }
+                }
+            });
+        });
+        
+        console.log('✅ Banner interactions initialized');
+    }
+
+    initAICostChart() {
+        const canvas = document.getElementById('ai-cost-chart');
+        if (!canvas) return;
+        
+        const ctx = canvas.getContext('2d');
+        
+        // Sample data points for AI cost deflation
+        const years = ['2025', '2026', '2027', '2028', '2029', '2030'];
+        const aiInfrastructureCost = [100, 75, 55, 35, 20, 12]; // Decreasing costs
+        const applicationValue = [100, 140, 200, 320, 450, 630]; // Increasing value
+        
+        // Clear canvas
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        
+        // Set up chart dimensions
+        const padding = 50;
+        const chartWidth = canvas.width - 2 * padding;
+        const chartHeight = canvas.height - 2 * padding;
+        
+        // Draw grid
+        ctx.strokeStyle = 'rgba(255, 255, 255, 0.1)';
+        ctx.lineWidth = 1;
+        
+        for (let i = 0; i <= 5; i++) {
+            const x = padding + (i * chartWidth) / 5;
+            ctx.beginPath();
+            ctx.moveTo(x, padding);
+            ctx.lineTo(x, padding + chartHeight);
+            ctx.stroke();
+            
+            const y = padding + (i * chartHeight) / 5;
+            ctx.beginPath();
+            ctx.moveTo(padding, y);
+            ctx.lineTo(padding + chartWidth, y);
+            ctx.stroke();
+        }
+        
+        // Draw AI Infrastructure Cost line (decreasing)
+        ctx.beginPath();
+        ctx.strokeStyle = '#f56565';
+        ctx.lineWidth = 3;
+        
+        aiInfrastructureCost.forEach((cost, index) => {
+            const x = padding + (index * chartWidth) / (years.length - 1);
+            const y = padding + chartHeight - (cost / 100 * chartHeight);
+            
+            if (index === 0) {
+                ctx.moveTo(x, y);
+            } else {
+                ctx.lineTo(x, y);
+            }
+        });
+        ctx.stroke();
+        
+        // Draw Application Value line (increasing)
+        ctx.beginPath();
+        ctx.strokeStyle = '#48bb78';
+        ctx.lineWidth = 3;
+        
+        applicationValue.forEach((value, index) => {
+            const x = padding + (index * chartWidth) / (years.length - 1);
+            const y = padding + chartHeight - (Math.min(value, 100) / 100 * chartHeight);
+            
+            if (index === 0) {
+                ctx.moveTo(x, y);
+            } else {
+                ctx.lineTo(x, y);
+            }
+        });
+        ctx.stroke();
+        
+        // Draw data points
+        aiInfrastructureCost.forEach((cost, index) => {
+            const x = padding + (index * chartWidth) / (years.length - 1);
+            const y = padding + chartHeight - (cost / 100 * chartHeight);
+            
+            ctx.fillStyle = '#f56565';
+            ctx.beginPath();
+            ctx.arc(x, y, 4, 0, Math.PI * 2);
+            ctx.fill();
+        });
+        
+        applicationValue.forEach((value, index) => {
+            const x = padding + (index * chartWidth) / (years.length - 1);
+            const y = padding + chartHeight - (Math.min(value, 100) / 100 * chartHeight);
+            
+            ctx.fillStyle = '#48bb78';
+            ctx.beginPath();
+            ctx.arc(x, y, 4, 0, Math.PI * 2);
+            ctx.fill();
+        });
+        
+        // Add labels
+        ctx.fillStyle = 'rgba(255, 255, 255, 0.9)';
+        ctx.font = '12px Inter, sans-serif';
+        ctx.textAlign = 'center';
+        
+        years.forEach((year, index) => {
+            const x = padding + (index * chartWidth) / (years.length - 1);
+            ctx.fillText(year, x, canvas.height - 20);
+        });
+        
+        // Add legend
+        ctx.textAlign = 'left';
+        ctx.fillStyle = '#f56565';
+        ctx.fillText('AI Infrastructure Cost', 20, 30);
+        ctx.fillStyle = '#48bb78';
+        ctx.fillText('Application Value', 20, 50);
+        
+        console.log('✅ AI Cost Chart initialized');
+    }
+
+    initGeneticAlgorithmDemo() {
+        const runButton = document.getElementById('run-evolution');
+        const resetButton = document.getElementById('reset-evolution');
+        
+        if (!runButton || !resetButton) return;
+        
+        // Genetic Algorithm simulation data
+        this.evolutionData = {
+            basePrompts: [
+                {
+                    text: "Analyze this document and determine if it contains hospital admission records.",
+                    fitness: 0.42
+                },
+                {
+                    text: "Check if this medical document has patient admission information.",
+                    fitness: 0.38
+                }
+            ],
+            generations: [
+                {
+                    generation: 1,
+                    bestPrompt: "Examine this medical document to identify hospital admission records including patient intake data.",
+                    fitness: 0.51,
+                    avgFitness: 0.47,
+                    mutations: 3,
+                    crossovers: 2
+                },
+                {
+                    generation: 2,
+                    bestPrompt: "Analyze this healthcare document for hospital admission records, including patient intake forms and admission data.",
+                    fitness: 0.58,
+                    avgFitness: 0.52,
+                    mutations: 4,
+                    crossovers: 3
+                },
+                {
+                    generation: 3,
+                    bestPrompt: "Systematically examine this medical document to detect hospital admission records, patient intake information, and related admission documentation.",
+                    fitness: 0.64,
+                    avgFitness: 0.57,
+                    mutations: 2,
+                    crossovers: 4
+                },
+                {
+                    generation: 4,
+                    bestPrompt: "Comprehensively analyze this healthcare document to identify hospital admission records, including patient intake forms, admission dates, and diagnostic information.",
+                    fitness: 0.69,
+                    avgFitness: 0.62,
+                    mutations: 3,
+                    crossovers: 3
+                },
+                {
+                    generation: 5,
+                    bestPrompt: "Methodically examine this medical document for hospital admission records, specifically identifying patient intake data, admission timestamps, diagnostic codes, and related healthcare documentation.",
+                    fitness: 0.74,
+                    avgFitness: 0.67,
+                    mutations: 2,
+                    crossovers: 4
+                },
+                {
+                    generation: 6,
+                    bestPrompt: "Perform detailed analysis of this healthcare document to detect hospital admission records, including comprehensive patient intake information, admission procedures, diagnostic assessments, and associated medical documentation.",
+                    fitness: 0.79,
+                    avgFitness: 0.71,
+                    mutations: 3,
+                    crossovers: 2
+                },
+                {
+                    generation: 7,
+                    bestPrompt: "Systematically analyze this medical document to identify hospital admission records by examining patient intake forms, admission protocols, diagnostic procedures, treatment plans, and comprehensive healthcare documentation patterns.",
+                    fitness: 0.83,
+                    avgFitness: 0.76,
+                    mutations: 2,
+                    crossovers: 3
+                },
+                {
+                    generation: 8,
+                    bestPrompt: "Execute comprehensive medical document analysis to detect hospital admission records through systematic examination of patient intake documentation, admission timestamps, diagnostic assessments, treatment protocols, and associated healthcare administrative records.",
+                    fitness: 0.87,
+                    avgFitness: 0.80,
+                    mutations: 1,
+                    crossovers: 4
+                },
+                {
+                    generation: 9,
+                    bestPrompt: "Conduct thorough medical document examination to identify hospital admission records by analyzing patient intake documentation, admission chronology, diagnostic evaluations, treatment planning, medical history integration, and comprehensive healthcare administrative documentation systems.",
+                    fitness: 0.91,
+                    avgFitness: 0.84,
+                    mutations: 2,
+                    crossovers: 2
+                },
+                {
+                    generation: 10,
+                    bestPrompt: "Execute sophisticated medical document analysis to precisely identify hospital admission records through systematic evaluation of patient intake documentation, admission temporal sequences, comprehensive diagnostic assessments, treatment protocol initialization, medical history correlation, and integrated healthcare administrative documentation frameworks with contextual medical terminology validation.",
+                    fitness: 0.94,
+                    avgFitness: 0.88,
+                    mutations: 1,
+                    crossovers: 3
+                }
+            ]
+        };
+        
+        this.currentGeneration = 0;
+        this.isRunning = false;
+        
+        runButton.addEventListener('click', () => this.runEvolution());
+        resetButton.addEventListener('click', () => this.resetEvolution());
+        
+        console.log('✅ Genetic Algorithm Demo initialized');
+    }
+
+    async runEvolution() {
+        if (this.isRunning) return;
+        
+        this.isRunning = true;
+        const runButton = document.getElementById('run-evolution');
+        const resetButton = document.getElementById('reset-evolution');
+        const evolutionDisplay = document.getElementById('evolution-display');
+        const currentGenSpan = document.getElementById('current-generation');
+        
+        runButton.disabled = true;
+        runButton.textContent = 'Running Evolution...';
+        
+        // Clear previous results
+        evolutionDisplay.innerHTML = '';
+        document.getElementById('final-prompt').style.display = 'none';
+        
+        // Simulate evolution over 10 generations
+        for (let i = 0; i < this.evolutionData.generations.length; i++) {
+            await new Promise(resolve => setTimeout(resolve, 1200)); // Delay for visual effect
+            
+            const generation = this.evolutionData.generations[i];
+            this.currentGeneration = generation.generation;
+            
+            currentGenSpan.textContent = this.currentGeneration;
+            
+            // Create generation display
+            const genDiv = document.createElement('div');
+            genDiv.className = 'generation-step';
+            if (generation.generation === 10) {
+                genDiv.classList.add('best-prompt');
+            }
+            
+            genDiv.innerHTML = `
+                <h5>Generation ${generation.generation}</h5>
+                <div class="evolution-stats">
+                    <div class="stat-item">
+                        <span class="stat-label">Best Fitness:</span>
+                        <span class="stat-value">${generation.fitness.toFixed(2)}</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Avg Fitness:</span>
+                        <span class="stat-value">${generation.avgFitness.toFixed(2)}</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Mutations:</span>
+                        <span class="stat-value">${generation.mutations}</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Crossovers:</span>
+                        <span class="stat-value">${generation.crossovers}</span>
+                    </div>
+                </div>
+                <div class="prompt-text${generation.generation === 10 ? ' optimized' : ''}">
+                    "${generation.bestPrompt}"
+                </div>
+            `;
+            
+            evolutionDisplay.appendChild(genDiv);
+            evolutionDisplay.scrollTop = evolutionDisplay.scrollHeight;
+        }
+        
+        // Show final optimized prompt
+        await new Promise(resolve => setTimeout(resolve, 500));
+        
+        const finalGeneration = this.evolutionData.generations[9]; // Generation 10
+        const initialFitness = Math.max(this.evolutionData.basePrompts[0].fitness, this.evolutionData.basePrompts[1].fitness);
+        const improvement = ((finalGeneration.fitness - initialFitness) / initialFitness * 100).toFixed(0);
+        
+        const finalPromptDiv = document.getElementById('final-prompt');
+        const optimizedPromptText = finalPromptDiv.querySelector('.prompt-text');
+        
+        optimizedPromptText.textContent = `"${finalGeneration.bestPrompt}"`;
+        
+        document.getElementById('final-fitness').textContent = finalGeneration.fitness.toFixed(2);
+        document.getElementById('fitness-improvement').textContent = `+${improvement}%`;
+        document.getElementById('prompt-length').textContent = `${finalGeneration.bestPrompt.length} chars`;
+        
+        finalPromptDiv.style.display = 'block';
+        finalPromptDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        
+        // Reset button states
+        runButton.disabled = false;
+        runButton.textContent = 'Run Evolution';
+        this.isRunning = false;
+        
+        console.log('✅ Evolution completed successfully');
+    }
+
+    resetEvolution() {
+        if (this.isRunning) return;
+        
+        this.currentGeneration = 0;
+        document.getElementById('current-generation').textContent = '0';
+        document.getElementById('evolution-display').innerHTML = '';
+        document.getElementById('final-prompt').style.display = 'none';
+        
+        console.log('✅ Evolution reset');
+    }
 }
 
 // Initialize the application when DOM is loaded
@@ -687,5 +1044,119 @@ document.addEventListener('DOMContentLoaded', () => {
         if (window.investorPresentation.initializeExcelInterface) {
             window.investorPresentation.initializeExcelInterface();
         }
+        
+        // Initialize tooltip system
+        initializeTooltips();
     }, 1000);
 });
+
+// Comprehensive Tooltip System
+function initializeTooltips() {
+    // Financial terms and their explanations
+    const termDefinitions = {
+        'DCF': {
+            title: 'Discounted Cash Flow',
+            content: 'A valuation method that estimates the value of an investment based on its expected future cash flows, discounted back to present value.',
+            basis: 'Uses 12% discount rate (WACC) and 3% terminal growth rate'
+        },
+        'NPV': {
+            title: 'Net Present Value',
+            content: 'The difference between the present value of cash inflows and outflows over a period of time.',
+            basis: 'Calculated using risk-adjusted discount rates based on market conditions'
+        },
+        'IRR': {
+            title: 'Internal Rate of Return',
+            content: 'The discount rate that makes the NPV of all cash flows equal to zero.',
+            basis: '847% based on 5-year projection with $10M initial investment'
+        },
+        'WACC': {
+            title: 'Weighted Average Cost of Capital',
+            content: 'The average rate of return a company is expected to pay its security holders to finance its assets.',
+            basis: '12% based on tech startup benchmarks and risk profile'
+        },
+        'TAM': {
+            title: 'Total Addressable Market',
+            content: 'The total market demand for a product or service, representing the maximum revenue opportunity.',
+            basis: '$49.3B calculated from AI writing assistant market analysis'
+        },
+        'LTV': {
+            title: 'Customer Lifetime Value',
+            content: 'The predicted net profit attributed to the entire future relationship with a customer.',
+            basis: 'Based on average subscription duration and churn rates by segment'
+        },
+        'CAC': {
+            title: 'Customer Acquisition Cost',
+            content: 'The cost associated with convincing a consumer to buy a product/service.',
+            basis: 'Includes marketing spend, sales costs, and onboarding expenses'
+        },
+        'EBITDA': {
+            title: 'Earnings Before Interest, Taxes, Depreciation, and Amortization',
+            content: 'A measure of a company\'s operating performance and profitability.',
+            basis: 'Revenue minus operating expenses, before financial and accounting adjustments'
+        },
+        'CAGR': {
+            title: 'Compound Annual Growth Rate',
+            content: 'The rate of return that would be required for an investment to grow from beginning balance to ending balance.',
+            basis: '285% calculated over 5-year projection period'
+        }
+    };
+
+    // Number basis explanations
+    const numberBasis = {
+        '$2.84B': 'DCF valuation based on 8-year cash flow projections with 12% discount rate',
+        '847%': '5-year IRR calculated from $10M investment to $2.84B valuation',
+        '19 months': 'Break-even point based on revenue growth and cost structure',
+        '$49.3B': 'AI writing market TAM from industry analysis (Gartner, McKinsey)',
+        '285%': 'Revenue CAGR from 2025-2030 projection',
+        '10M+ tokens': 'Context window size enabling large document processing',
+        '$29': 'Freelancer tier pricing optimized for market penetration',
+        '$79': 'Healthcare tier pricing based on ROI analysis',
+        '$249': 'Enterprise tier pricing aligned with value delivered',
+        '$1,249': 'Government tier pricing reflecting compliance costs',
+        '74.4%': 'Freelancer gross margin after infrastructure and operational costs',
+        '80.5%': 'Healthcare gross margin reflecting premium value proposition',
+        '83.8%': 'Enterprise gross margin with economies of scale',
+        '87.7%': 'Government gross margin due to high-value contracts',
+        '7.7x': 'Freelancer LTV/CAC ratio indicating strong unit economics',
+        '3.3x': 'Healthcare LTV/CAC ratio with higher acquisition costs',
+        '2.4x': 'Enterprise LTV/CAC ratio reflecting longer sales cycles',
+        '1.8x': 'Government LTV/CAC ratio with highest acquisition costs'
+    };
+
+    // Add tooltips to financial terms
+    Object.keys(termDefinitions).forEach(term => {
+        const regex = new RegExp(`\\b${term}\\b`, 'gi');
+        const definition = termDefinitions[term];
+        
+        document.querySelectorAll('p, span, div, h1, h2, h3, h4, h5, h6, td, th, label').forEach(element => {
+            if (element.children.length === 0 && element.textContent.includes(term)) {
+                element.innerHTML = element.innerHTML.replace(regex, (match) => {
+                    return `<span class="tooltip-term">${match}<div class="tooltip">
+                        <div class="tooltip-header">${definition.title}</div>
+                        <div class="tooltip-content">${definition.content}</div>
+                        <div class="tooltip-basis">${definition.basis}</div>
+                    </div></span>`;
+                });
+            }
+        });
+    });
+
+    // Add tooltips to specific numbers
+    Object.keys(numberBasis).forEach(number => {
+        const escapedNumber = number.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+        const regex = new RegExp(escapedNumber, 'g');
+        
+        document.querySelectorAll('.stat-value, .metric-value, .result-value, .insight-value, .cost-amount, .calculated-cell, .editable-cell, .price, .funding-metric span').forEach(element => {
+            if (element.textContent.includes(number)) {
+                element.innerHTML = element.innerHTML.replace(regex, (match) => {
+                    return `<span class="tooltip-number">${match}<div class="tooltip">
+                        <div class="tooltip-header">Calculation Basis</div>
+                        <div class="tooltip-content">${numberBasis[number]}</div>
+                    </div></span>`;
+                });
+            }
+        });
+    });
+
+    console.log('✅ Tooltip system initialized with comprehensive term definitions and number explanations');
+}

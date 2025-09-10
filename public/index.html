@@ -6,6 +6,7 @@
     <title>Co-Author AI Platform - Investor Valuation</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/antd/5.12.8/reset.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/antd/5.12.8/antd.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="css/liquid-glass.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -42,20 +43,924 @@
             </div>
         </header>
 
+
+        <!-- Pitch Deck Banner -->
+        <section class="pitch-deck-banner glass-card">
+            <div class="banner-content">
+                <div class="banner-section" data-section="technicals">
+                    <div class="section-icon"><i class="fas fa-bolt"></i></div>
+                    <h3>Technicals</h3>
+                    <p>Hierarchical memory agents with vector databases, key-value caches, Neo4j graphs working in tandem with writing agents</p>
+                </div>
+                <div class="banner-section" data-section="tropes">
+                    <div class="section-icon"><i class="fas fa-theater-masks"></i></div>
+                    <h3>Tropes</h3>
+                    <p>DeepSeek release dropped NVIDIA $600B in 2 days, but AI application software prices increased exponentially</p>
+                </div>
+                <div class="banner-section" data-section="market">
+                    <div class="section-icon"><i class="fas fa-chart-bar"></i></div>
+                    <h3>Market Analysis</h3>
+                    <p>$49.3B TAM with enterprise AI adoption accelerating exponentially</p>
+                </div>
+                <div class="banner-section" data-section="swot">
+                    <div class="section-icon">⚔️</div>
+                    <h3>SWOT</h3>
+                    <p>Competitive advantages in context processing and legal AI applications</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Banner Detail Sections (Initially Hidden) -->
+        <div class="banner-details">
+            <!-- Technical Details Section -->
+            <section class="banner-detail-section" id="technicals-detail" style="display: none;">
+                <div class="glass-card detail-content">
+                    <h2>Co-Author Technical Deep Dive: Revolutionary Writing Intelligence</h2>
+                    
+                    <!-- Section 1: Genetic Algorithm Deep Dive -->
+                    <div class="tech-section">
+                        <h3>🧬 Genetic Algorithm Optimization: Evolution in Action</h3>
+                        <p class="section-intro">Our genetic algorithm system uses biological evolution principles - mutations, crossovers, and epochs - to continuously improve writing prompts and achieve superior performance outcomes.</p>
+                        
+                        <div class="genetic-deep-dive">
+                            <div class="genetic-process">
+                                <div class="process-step">
+                                    <h4>🔬 Mutation Process</h4>
+                                    <p>Random modifications to prompt segments create genetic diversity. We apply controlled mutations to:</p>
+                                    <ul>
+                                        <li><strong>Semantic variations:</strong> Synonym substitution with context preservation</li>
+                                        <li><strong>Structural changes:</strong> Sentence reordering and clause modifications</li>
+                                        <li><strong>Parameter tuning:</strong> Adjusting specificity levels and instruction clarity</li>
+                                        <li><strong>Context additions:</strong> Injecting domain-specific terminology and examples</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="process-step">
+                                    <h4>🔄 Crossover Operations</h4>
+                                    <p>High-performing prompts exchange successful segments to create superior offspring:</p>
+                                    <ul>
+                                        <li><strong>Single-point crossover:</strong> Clean breaks between instruction segments</li>
+                                        <li><strong>Multi-point crossover:</strong> Complex recombination of multiple successful patterns</li>
+                                        <li><strong>Uniform crossover:</strong> Token-level mixing for fine-grained optimization</li>
+                                        <li><strong>Semantic crossover:</strong> Meaning-preserving segment exchanges</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="process-step">
+                                    <h4><i class="fas fa-chart-line"></i> Epoch Training Cycles</h4>
+                                    <p>Each epoch evaluates fitness across multiple dimensions:</p>
+                                    <ul>
+                                        <li><strong>Accuracy Score:</strong> Correctness of task completion</li>
+                                        <li><strong>F1 Performance:</strong> Precision-recall harmonic mean</li>
+                                        <li><strong>Macro-F1:</strong> Class-balanced performance metrics</li>
+                                        <li><strong>Coherence Rating:</strong> Logical flow and consistency measures</li>
+                                    </ul>
+                                    <div class="performance-badge">18% improvement in Accuracy, F1, and Macro-F1 scores</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Section 2: Hierarchical Memory Model -->
+                    <div class="tech-section">
+                        <h3>🧠 Hierarchical Memory Model with Knowledge Graphs</h3>
+                        <p class="section-intro">Our memory architecture creates intelligent abstractions through hierarchical summarization, forming interconnected knowledge graphs that understand relationships, contexts, and narrative threads.</p>
+                        
+                        <div class="memory-architecture">
+                            <div class="memory-tier">
+                                <h4><i class="fas fa-fire"></i> Active Memory Layer (200K tokens)</h4>
+                                <p>Immediate context for current writing session with real-time access</p>
+                                <ul>
+                                    <li>Current chapter/section content</li>
+                                    <li>Recent character interactions</li>
+                                    <li>Active plot threads</li>
+                                    <li>Immediate style patterns</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="memory-tier">
+                                <h4>🧩 Semantic Memory Layer (2M tokens)</h4>
+                                <p>Compressed representations of related content with semantic indexing</p>
+                                <ul>
+                                    <li>Chapter-wise deep summaries</li>
+                                    <li>Character development arcs</li>
+                                    <li>Thematic progressions</li>
+                                    <li>Style evolution tracking</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="memory-tier">
+                                <h4>🗄️ Archive Memory Layer (10M+ tokens)</h4>
+                                <p>Coarse-grained historical summaries with intelligent retrieval triggers</p>
+                                <ul>
+                                    <li>Historical plot summaries</li>
+                                    <li>Character background libraries</li>
+                                    <li>World-building databases</li>
+                                    <li>Legacy style guides</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="knowledge-graph">
+                                <h4>🕸️ Knowledge Graph Connections</h4>
+                                <p>Neo4j-powered relationship mapping creates intelligent context awareness:</p>
+                                <div class="graph-connections">
+                                    <div class="connection-type">
+                                        <strong>Character Relationships:</strong> Family trees, alliances, conflicts, emotional bonds
+                                    </div>
+                                    <div class="connection-type">
+                                        <strong>Plot Dependencies:</strong> Cause-effect chains, foreshadowing, callback references
+                                    </div>
+                                    <div class="connection-type">
+                                        <strong>Thematic Links:</strong> Symbolic connections, metaphorical patterns, recurring motifs
+                                    </div>
+                                    <div class="connection-type">
+                                        <strong>Temporal Sequences:</strong> Timeline consistency, flashback relationships, narrative pacing
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Section 3: Writing Agent vs Coding Agent -->
+                    <div class="tech-section">
+                        <h3>✍️ Writing Agent: The Innovation Beyond Coding</h3>
+                        <p class="section-intro">Unlike coding agents that focus on syntax and logic, our Writing Agent understands narrative flow, emotional arcs, character consistency, and stylistic nuance through specialized reflection mechanisms.</p>
+                        
+                        <div class="agent-comparison">
+                            <div class="agent-type coding-agent">
+                                <h4>💻 Coding Agents (Cursor, Windsurf)</h4>
+                                <ul>
+                                    <li><strong>Syntax Checking:</strong> Grammar and structure validation</li>
+                                    <li><strong>Logic Flow:</strong> Sequential instruction processing</li>
+                                    <li><strong>Error Detection:</strong> Binary success/failure states</li>
+                                    <li><strong>Pattern Matching:</strong> Template and framework recognition</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="agent-type writing-agent">
+                                <h4>✍️ Writing Agent (Co-Author Innovation)</h4>
+                                <ul>
+                                    <li><strong>Narrative Reflection:</strong> Story coherence and plot consistency analysis</li>
+                                    <li><strong>Character Psychology:</strong> Emotional authenticity and development tracking</li>
+                                    <li><strong>Style Preservation:</strong> Voice consistency and tonal maintenance</li>
+                                    <li><strong>Thematic Integration:</strong> Symbolic meaning and metaphorical depth</li>
+                                    <li><strong>Reader Impact:</strong> Emotional resonance and engagement prediction</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="reflection-system">
+                            <h4>🔍 Writing Agent Reflection System</h4>
+                            <p>Our reflection mechanism analyzes multiple dimensions simultaneously:</p>
+                            <div class="reflection-dimensions">
+                                <div class="dimension">
+                                    <strong>Narrative Coherence:</strong> Plot holes, timeline inconsistencies, character contradictions
+                                </div>
+                                <div class="dimension">
+                                    <strong>Emotional Authenticity:</strong> Character motivation alignment, reaction believability
+                                </div>
+                                <div class="dimension">
+                                    <strong>Stylistic Consistency:</strong> Voice maintenance, tonal shifts, writing pattern analysis
+                                </div>
+                                <div class="dimension">
+                                    <strong>Thematic Depth:</strong> Symbolic resonance, metaphorical coherence, meaning layers
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Section 4: Memory Agents with Intelligent Orchestration -->
+                    <div class="tech-section">
+                        <h3><i class="fas fa-brain"></i> Memory Agents: Intelligent Context Orchestration</h3>
+                        <p class="section-intro">Memory Agents use LLM-powered reflection management to intelligently decide which memories to surface in the context window, ensuring optimal relevance and narrative continuity.</p>
+                        
+                        <div class="memory-orchestration">
+                            <div class="orchestration-process">
+                                <h4><i class="fas fa-bullseye"></i> Context Window Optimization</h4>
+                                <p>Memory Agents continuously evaluate and curate context through:</p>
+                                <ul>
+                                    <li><strong>Relevance Scoring:</strong> Semantic similarity to current writing focus</li>
+                                    <li><strong>Recency Weighting:</strong> Temporal importance for narrative flow</li>
+                                    <li><strong>Relationship Mapping:</strong> Character and plot connection strength</li>
+                                    <li><strong>Style Significance:</strong> Impact on voice and tonal consistency</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="memory-intelligence">
+                                <h4>🧠 LLM-Powered Memory Intelligence</h4>
+                                <p>Each Memory Agent uses specialized LLMs to:</p>
+                                <div class="intelligence-features">
+                                    <div class="feature">
+                                        <strong>Contextual Prioritization:</strong> Determine which memories are most crucial for the current writing task
+                                    </div>
+                                    <div class="feature">
+                                        <strong>Narrative Threading:</strong> Identify connections between distant story elements
+                                    </div>
+                                    <div class="feature">
+                                        <strong>Character Consistency:</strong> Flag potential personality or behavioral inconsistencies
+                                    </div>
+                                    <div class="feature">
+                                        <strong>Style Evolution:</strong> Track and maintain author voice development over time
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Section 5: Agent-to-Agent (A2A) Communication -->
+                    <div class="tech-section">
+                        <h3>🔄 Agent-to-Agent (A2A) Communication Protocol</h3>
+                        <p class="section-intro">Seamless communication between Writing Agent and Memory Agent ensures optimal information flow and collaborative intelligence enhancement.</p>
+                        
+                        <div class="a2a-protocol">
+                            <div class="communication-flow">
+                                <div class="flow-step">
+                                    <h4>📤 Writing Agent Requests</h4>
+                                    <ul>
+                                        <li>"Need character backstory for emotional scene"</li>
+                                        <li>"Retrieve similar dialogue patterns from chapters 3-7"</li>
+                                        <li>"Check for plot consistency with earlier foreshadowing"</li>
+                                        <li>"Find thematic parallels for symbolic reinforcement"</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="flow-step">
+                                    <h4>📥 Memory Agent Responses</h4>
+                                    <ul>
+                                        <li>Curated memory packages with relevance scores</li>
+                                        <li>Contextual summaries with relationship mappings</li>
+                                        <li>Style pattern analysis with consistency metrics</li>
+                                        <li>Intelligent warnings about potential conflicts</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="flow-step">
+                                    <h4>🔄 Continuous Feedback Loop</h4>
+                                    <ul>
+                                        <li>Writing Agent updates Memory Agent with new content</li>
+                                        <li>Memory Agent refines future recommendations</li>
+                                        <li>System learns user preferences and patterns</li>
+                                        <li>Collaborative intelligence improves over time</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Section 6: Semantic Narrative Checker -->
+                    <div class="tech-section">
+                        <h3><i class="fas fa-edit"></i> Semantic Narrative Checker: Style Guardian</h3>
+                        <p class="section-intro">Our Semantic Narrative Checker continuously monitors writing style, detecting deviations from author intentions and maintaining narrative integrity throughout long-form content.</p>
+                        
+                        <div class="semantic-checker">
+                            <div class="checker-capabilities">
+                                <h4><i class="fas fa-bullseye"></i> Style Consistency Monitoring</h4>
+                                <ul>
+                                    <li><strong>Voice Drift Detection:</strong> Identifies when writing style deviates from established patterns</li>
+                                    <li><strong>Tonal Shifts:</strong> Monitors emotional register and narrative mood consistency</li>
+                                    <li><strong>Character Voice:</strong> Ensures dialogue remains true to individual character speech patterns</li>
+                                    <li><strong>Narrative Perspective:</strong> Maintains consistent POV and narrative distance</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="intention-alignment">
+                                <h4><i class="fas fa-user-check"></i> Author Intention Alignment</h4>
+                                <p>The system learns and preserves original author intentions through:</p>
+                                <div class="alignment-features">
+                                    <div class="feature">
+                                        <strong>Intent Learning:</strong> Analyzes early chapters to establish author's stylistic DNA
+                                    </div>
+                                    <div class="feature">
+                                        <strong>Deviation Alerts:</strong> Real-time warnings when style begins to drift
+                                    </div>
+                                    <div class="feature">
+                                        <strong>Correction Suggestions:</strong> Intelligent recommendations to realign with original voice
+                                    </div>
+                                    <div class="feature">
+                                        <strong>Evolution Tracking:</strong> Distinguishes natural style growth from unwanted drift
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Section 7: Specialized Libraries -->
+                    <div class="tech-section">
+                        <h3>📚 Specialized Knowledge Libraries</h3>
+                        <p class="section-intro">Co-Author maintains sophisticated libraries that the Memory Manager Agent intelligently accesses and manages for optimal narrative support.</p>
+                        
+                        <div class="knowledge-libraries">
+                            <div class="library-grid">
+                                <div class="library-item">
+                                    <h4>📖 Character Bible</h4>
+                                    <ul>
+                                        <li>Comprehensive character profiles with psychological depth</li>
+                                        <li>Physical descriptions and mannerisms</li>
+                                        <li>Backstory timelines and formative events</li>
+                                        <li>Speech patterns and dialogue quirks</li>
+                                        <li>Relationship dynamics and interaction history</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="library-item">
+                                    <h4>📋 Story Narrative Archive</h4>
+                                    <ul>
+                                        <li>Complete plot summaries by story arc</li>
+                                        <li>Subplot tracking and resolution status</li>
+                                        <li>Foreshadowing elements and payoff tracking</li>
+                                        <li>Theme development progression</li>
+                                        <li>Symbolic motif evolution</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="library-item">
+                                    <h4><i class="fas fa-file-text"></i> Chapter Deep Summaries</h4>
+                                    <ul>
+                                        <li><strong>Nearby Chapters:</strong> Detailed scene-by-scene breakdowns</li>
+                                        <li>Character emotional states and development</li>
+                                        <li>Plot progression and tension curves</li>
+                                        <li>Style and pacing analysis</li>
+                                        <li>Dialogue patterns and voice consistency</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="library-item">
+                                    <h4>🗂️ Historical Chapter Summaries</h4>
+                                    <ul>
+                                        <li><strong>Distant Chapters:</strong> Coarse-grained plot progressions</li>
+                                        <li>Major character developments</li>
+                                        <li>Significant world-building elements</li>
+                                        <li>Theme establishment and evolution</li>
+                                        <li>Critical plot points and turning moments</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="memory-management">
+                            <h4>🧠 Memory Manager Agent Intelligence</h4>
+                            <p>The Memory Manager Agent knows how to intelligently interface with all libraries:</p>
+                            <div class="management-capabilities">
+                                <div class="capability">
+                                    <strong>Contextual Retrieval:</strong> Determines which library information is most relevant for current writing context
+                                </div>
+                                <div class="capability">
+                                    <strong>Cross-Library Synthesis:</strong> Combines information from multiple libraries for comprehensive context
+                                </div>
+                                <div class="capability">
+                                    <strong>Relevance Ranking:</strong> Prioritizes information based on narrative importance and temporal proximity
+                                </div>
+                                <div class="capability">
+                                    <strong>Dynamic Updating:</strong> Continuously updates libraries with new content and insights
+                                </div>
+                                <div class="capability">
+                                    <strong>Intelligent Summarization:</strong> Creates appropriate abstraction levels for different memory tiers
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Tropes Section with Market Analysis -->
+            <section class="banner-detail-section" id="tropes-detail" style="display: none;">
+                <div class="glass-card detail-content">
+                    <h2>Market Tropes: The Documentation Revolution</h2>
+                    <div class="market-insights">
+                        
+                        <!-- Non-Coding Workforce Reality -->
+                        <div class="workforce-reality">
+                            <h3><i class="fas fa-briefcase"></i> The Hidden Truth: Tech Companies Are Not Coding Companies</h3>
+                            <p>Most employees in tech companies are not developers - they're documentation creators, consumers, and managers.</p>
+                            <div class="workforce-stats">
+                                <div class="stat-card highlight">
+                                    <h4>Tech Company Reality</h4>
+                                    <span class="big-number">54%</span>
+                                    <p>of tech company employees are in non-technical roles</p>
+                                    <small>Source: Glassdoor 2024</small>
+                                </div>
+                                <div class="stat-card highlight">
+                                    <h4>Healthcare Crisis</h4>
+                                    <span class="big-number">36.2</span>
+                                    <p>minutes spent on EHR per 30-min patient visit</p>
+                                    <small>Source: AMA 2024</small>
+                                </div>
+                                <div class="stat-card highlight">
+                                    <h4>Document Search Crisis</h4>
+                                    <span class="big-number">83%</span>
+                                    <p>of employees recreate files that already exist</p>
+                                    <small>Source: Nitro Survey 2024</small>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Documentation Burden Analysis -->
+                        <div class="documentation-burden">
+                            <h3>📄 The Universal Documentation Burden</h3>
+                            <div class="burden-breakdown">
+                                <div class="role-analysis">
+                                    <h4>Product Managers</h4>
+                                    <p>Write PRDs, strategy documents, specifications - the backbone of product development</p>
+                                </div>
+                                <div class="role-analysis">
+                                    <h4>Senior Executives</h4>
+                                    <p>Review technical specs, strategic documents, and regulatory compliance materials daily</p>
+                                </div>
+                                <div class="role-analysis">
+                                    <h4>Medical Practitioners</h4>
+                                    <p>Spend 35% of their time on clinical documentation, with infectious disease specialists spending 8.4 hours on EHR per 8-hour workday</p>
+                                </div>
+                                <div class="role-analysis">
+                                    <h4>Engineers (The Minority)</h4>
+                                    <p>Only 46% of tech company workforce, yet they too spend significant time on technical documentation</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Jevons Paradox and AI Agents -->
+                        <div class="jevons-paradox">
+                            <h3><i class="fas fa-bolt"></i> Jevons Paradox: When AI Gets Cheaper, Demand Explodes</h3>
+                            <p>As tweeted by Satya Nadella, the Jevons paradox applied to AI means that as AI tools become cheaper and more efficient, overall consumption and dependency will dramatically increase - not decrease.</p>
+                            <div class="paradox-implications">
+                                <div class="implication">
+                                    <h4>🤖 AI Agents as Commodities</h4>
+                                    <p>Cursor-like tools that actually think will become the standard. Every knowledge worker will use AI agents for document creation, analysis, and management.</p>
+                                </div>
+                                <div class="implication">
+                                    <h4><i class="fas fa-chart-line"></i> Exponential Documentation Demand</h4>
+                                    <p>Cheaper AI = More documents created = Greater need for sophisticated context management and hierarchical knowledge graphs.</p>
+                                </div>
+                                <div class="implication">
+                                    <h4><i class="fas fa-bullseye"></i> The Context Management Opportunity</h4>
+                                    <p>As AI becomes commoditized, the differentiator becomes who can best manage, organize, and utilize the massive context generated.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- DeepSeek Impact -->
+                        <div class="deepseek-impact">
+                            <h3><i class="fas fa-rocket"></i> The DeepSeek Moment: Infrastructure vs. Application Value</h3>
+                            <p>When DeepSeek was released, NVIDIA's market cap dropped by $600 billion in just 2 days, demonstrating the volatility in AI infrastructure. However, this created a massive opportunity for AI application software companies.</p>
+                            <div class="impact-stats">
+                                <div class="stat-card negative">
+                                    <h4>NVIDIA Impact</h4>
+                                    <span class="big-number">-$600B</span>
+                                    <p>Market cap loss in 2 days</p>
+                                </div>
+                                <div class="stat-card positive">
+                                    <h4>AI Apps Software</h4>
+                                    <span class="big-number">+127%</span>
+                                    <p>Price increase opportunity</p>
+                                </div>
+                                <div class="stat-card highlight">
+                                    <h4>Memory Management Value</h4>
+                                    <span class="big-number">∞</span>
+                                    <p>Becomes more valuable as base AI costs approach zero</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Cost Projection Chart -->
+                        <div class="cost-projection">
+                            <h3>📉 AI Cost Deflation vs. Context Management Value</h3>
+                            <div class="chart-container">
+                                <canvas id="ai-cost-chart" width="600" height="300"></canvas>
+                            </div>
+                            <p class="chart-explanation">As AI infrastructure costs decrease over time, context management and hierarchical documentation systems become exponentially more valuable. Our platform captures this value through sophisticated memory architectures that become indispensable as AI becomes commoditized.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Market Analysis Section -->
+            <section class="banner-detail-section" id="market-detail" style="display: none;">
+                <div class="glass-card detail-content">
+                    <h2>Market Analysis: $49.3B TAM & Competitive Landscape</h2>
+                    <div class="market-breakdown">
+                        
+                        <!-- TAM Breakdown -->
+                        <div class="tam-section">
+                            <h3><i class="fas fa-globe"></i> Global Market Opportunity: $112B+ TAM</h3>
+                            <p class="tam-overview">Four massive markets converging around enterprise documentation and AI-powered content creation, with exceptional stickiness potential.</p>
+                            <div class="tam-breakdown">
+                                <div class="market-segment">
+                                    <h4>Legal Technology Market</h4>
+                                    <span class="market-size">$46.8B</span>
+                                    <p>By 2030 • 10.2% CAGR • Contract lifecycle management, compliance automation</p>
+                                    <div class="stickiness-indicator">
+                                        <strong>Stickiness:</strong> High - Mission-critical workflows, regulatory compliance requirements
+                                    </div>
+                                    <cite><a href="https://www.grandviewresearch.com/industry-analysis/legal-technology-market-report" target="_blank">Grand View Research 2024</a></cite>
+                                </div>
+                                <div class="market-segment">
+                                    <h4>Content Writing Services</h4>
+                                    <span class="market-size">$38.6B</span>
+                                    <p>By 2033 • 6.85% CAGR • B2B content creation, marketing automation, technical documentation</p>
+                                    <div class="stickiness-indicator">
+                                        <strong>Stickiness:</strong> Very High - Brand voice consistency, content strategy integration
+                                    </div>
+                                    <cite><a href="https://market.us/report/content-writing-services-market/" target="_blank">Market.us 2024</a></cite>
+                                </div>
+                                <div class="market-segment">
+                                    <h4>Healthcare Documentation</h4>
+                                    <span class="market-size">$9.96B</span>
+                                    <p>By 2032 • 7.66% CAGR • Clinical documentation improvement, EHR optimization, medical coding</p>
+                                    <div class="stickiness-indicator">
+                                        <strong>Stickiness:</strong> Extreme - HIPAA compliance, patient safety, regulatory requirements
+                                    </div>
+                                    <cite><a href="https://www.globenewswire.com/news-release/2024/10/24/2968811/0/en/Clinical-Documentation-Improvement-Market-Size-to-Reach-USD-9-96-Billion-by-2032-Driven-by-EHR-Adoption-and-Regulatory-Compliance-SNS-Insider.html" target="_blank">SNS Insider 2024</a></cite>
+                                </div>
+                                <div class="market-segment">
+                                    <h4>Product Management Tools</h4>
+                                    <span class="market-size">$49.3B</span>
+                                    <p>By 2031 • 7.2% CAGR • PRD creation, strategy documentation, cross-functional collaboration</p>
+                                    <div class="stickiness-indicator">
+                                        <strong>Stickiness:</strong> High - Team workflows, historical context, decision tracking
+                                    </div>
+                                    <cite><a href="https://www.verifiedmarketresearch.com/product/product-management-market/" target="_blank">Verified Market Research 2024</a></cite>
+                                </div>
+                            </div>
+                            
+                            <!-- Back-of-the-Envelope Writer Economy Calculation -->
+                            <div class="envelope-calculation">
+                                <h4><i class="fas fa-calculator"></i> Back-of-the-Envelope: Global Writer Worker Economy</h4>
+                                <div class="calculation-overview">
+                                    <p>Using ILO/World Bank baselines and standard occupation groups to quantify the "office-writing" worker market worldwide.</p>
+                                </div>
+                                
+                                <div class="calculation-breakdown">
+                                    <div class="calc-section">
+                                        <h5>Global Employment Context</h5>
+                                        <div class="calc-stats">
+                                            <div class="calc-stat">
+                                                <span class="calc-number">3.4-3.5B</span>
+                                                <span class="calc-label">Total employed worldwide</span>
+                                                <cite><a href="https://www.ilo.org/global/statistics-and-databases/lang--en/index.htm" target="_blank">ILO modelled estimates</a></cite>
+                                            </div>
+                                            <div class="calc-stat">
+                                                <span class="calc-number">~55%</span>
+                                                <span class="calc-label">Services share of global employment</span>
+                                                <cite><a href="https://data.worldbank.org" target="_blank">World Bank Open Data</a></cite>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="calc-section">
+                                        <h5>"Office-Writing" Workers by ISCO-08 Classification</h5>
+                                        <div class="isco-breakdown">
+                                            <div class="isco-group">
+                                                <span class="isco-label">Managers (M1)</span>
+                                                <span class="isco-percentage">3-5%</span>
+                                                <span class="isco-count">100-170M</span>
+                                            </div>
+                                            <div class="isco-group">
+                                                <span class="isco-label">Professionals (M2)</span>
+                                                <span class="isco-percentage">7-10%</span>
+                                                <span class="isco-count">240-350M</span>
+                                            </div>
+                                            <div class="isco-group">
+                                                <span class="isco-label">Technicians & Assoc. Prof. (M3)</span>
+                                                <span class="isco-percentage">7-9%</span>
+                                                <span class="isco-count">240-310M</span>
+                                            </div>
+                                            <div class="isco-group">
+                                                <span class="isco-label">Clerical Support (M4)</span>
+                                                <span class="isco-percentage">6-8%</span>
+                                                <span class="isco-count">200-280M</span>
+                                            </div>
+                                        </div>
+                                        <div class="calc-total">
+                                            <strong>Total "Office-Writing" Workers: ~1.0 Billion</strong>
+                                            <span class="calc-range">(Range: 0.8-1.1B)</span>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="calc-section highlight">
+                                        <h5>The Coder Reality Check</h5>
+                                        <div class="coder-comparison">
+                                            <div class="comparison-stat">
+                                                <span class="comp-number">27M</span>
+                                                <span class="comp-label">Professional software developers worldwide</span>
+                                                <cite><a href="https://evansdata.com" target="_blank">Evans Data Corporation 2024</a></cite>
+                                            </div>
+                                            <div class="comparison-result">
+                                                <span class="result-percentage">~3%</span>
+                                                <span class="result-text">Coders are only 2.5-3.5% of office-writing workers</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="calc-conclusion">
+                                        <div class="conclusion-box">
+                                            <h6>Market Implication</h6>
+                                            <p>While AI coding tools serve ~27M developers, <strong>~970M+ office workers</strong> need sophisticated writing assistance. This represents a <strong>36x larger addressable market</strong> for writing-focused AI tools.</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="methodology-note">
+                                        <strong>Methodology:</strong> Conservative mapping of "thoughtful writing work" to <span class="isco-hover-trigger" data-tooltip="isco-groups">ISCO 1-4 major groups</span> using ILO employment data (~61% LFPR, ~5% unemployment). Regional variations exist with higher M2-M4 shares in high-income economies.
+                                    </div>
+                                    
+                                    <!-- ISCO Hover Card -->
+                                    <div id="isco-groups" class="hover-card">
+                                        <div class="hover-card-header">
+                                            <h4>ISCO Major Groups 1–4</h4>
+                                        </div>
+                                        <div class="hover-card-content">
+                                            <div class="isco-group">
+                                                <strong>Group 1 - Managers:</strong> 
+                                                <p>Plan, direct, coordinate and evaluate overall activities of organizations and organizational units. Includes legislators, senior government officials, traditional chiefs and heads of villages.</p>
+                                            </div>
+                                            <div class="isco-group">
+                                                <strong>Group 2 - Professionals:</strong> 
+                                                <p>Apply and use substantial theoretical knowledge gained through research and professional development. Includes science, engineering, ICT, health, education, business, legal, social and cultural professionals.</p>
+                                            </div>
+                                            <div class="isco-group">
+                                                <strong>Group 3 - Technicians & Associate Professionals:</strong> 
+                                                <p>Perform mostly technical and related tasks connected with research, concepts, and operational methods. Includes technical support, healthcare assistants, business and sales associates.</p>
+                                            </div>
+                                            <div class="isco-group">
+                                                <strong>Group 4 - Clerical Support Workers:</strong> 
+                                                <p>Record, organize, store, compute and retrieve information. Includes secretaries, keyboard operators, data entry clerks, accounting clerks, and customer service clerks.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Global Adoption Analysis -->
+                            <div class="global-adoption">
+                                <h4>🌍 Global Adoption Potential</h4>
+                                <div class="adoption-stats">
+                                    <div class="adoption-region">
+                                        <h5>Legal Professionals Worldwide</h5>
+                                        <span class="adoption-number">1.35M+</span>
+                                        <p>Lawyers in G20 countries requiring document analysis and contract review</p>
+                                    </div>
+                                    <div class="adoption-region">
+                                        <h5>Medical Practitioners</h5>
+                                        <span class="adoption-number">15M+</span>
+                                        <p>Doctors and nurses globally spending 35% of time on clinical documentation</p>
+                                    </div>
+                                    <div class="adoption-region">
+                                        <h5>Content Creators & Product Managers</h5>
+                                        <span class="adoption-number">8.5M+</span>
+                                        <p>Professional writers and product managers creating technical specifications daily</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- AI Valuation Justification -->
+                        <div class="valuation-justification">
+                            <h3>💎 AI Premium Valuation Rationale</h3>
+                            <div class="valuation-comparison">
+                                <div class="valuation-metric">
+                                    <h4>AI Companies Revenue Multiple</h4>
+                                    <span class="multiple-value">25-30x</span>
+                                    <p>Average revenue multiple for AI startups vs. 6x for traditional SaaS</p>
+                                    <cite><a href="https://aventis-advisors.com/ai-valuation-multiples/" target="_blank">Aventis Advisors 2024</a></cite>
+                                </div>
+                                <div class="valuation-metric">
+                                    <h4>Enterprise AI Premium</h4>
+                                    <span class="multiple-value">17.8x</span>
+                                    <p>Average revenue multiple for AI startups with strong growth potential</p>
+                                    <cite><a href="https://www.finrofca.com/news/ai-multiples-mid-2024-update" target="_blank">Finro Financial 2024</a></cite>
+                                </div>
+                                <div class="valuation-metric">
+                                    <h4>Healthcare AI Multiplier</h4>
+                                    <span class="multiple-value">5-10x</span>
+                                    <p>Additional premium for FDA alignment and reimbursement integration</p>
+                                    <cite><a href="https://www.equidam.com/ai-startup-valuation-revenue-multiples-2025-challenges-insights-2/" target="_blank">Equidam 2024</a></cite>
+                                </div>
+                            </div>
+                            
+                            <div class="valuation-drivers">
+                                <h4><i class="fas fa-trophy"></i> Our Valuation Premium Drivers</h4>
+                                <ul>
+                                    <li><strong>Proprietary Data Moats:</strong> 10M+ token hierarchical memory creates defensible competitive advantage</li>
+                                    <li><strong>Mission-Critical Integration:</strong> Legal and healthcare workflows create extreme customer stickiness</li>
+                                    <li><strong>High Gross Margins:</strong> Software-based delivery with minimal marginal costs</li>
+                                    <li><strong>Capital Efficiency:</strong> Proven unit economics and scalable architecture</li>
+                                    <li><strong>Enterprise Retention:</strong> 95%+ expected retention due to workflow integration</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Competitive Landscape -->
+                        <div class="competitive-landscape">
+                            <h3>🏆 Competitive Positioning Matrix</h3>
+                            <div class="competitor-grid">
+                                <div class="competitor-card leader">
+                                    <div class="competitor-header">
+                                        <h4>Grammarly</h4>
+                                        <span class="valuation">$13.0B</span>
+                                    </div>
+                                    <div class="competitor-metrics">
+                                        <div class="metric">
+                                            <span class="metric-label">Revenue TTM:</span>
+                                            <span class="metric-value">$251.8M</span>
+                                        </div>
+                                        <div class="metric">
+                                            <span class="metric-label">Users:</span>
+                                            <span class="metric-value">30M+ daily</span>
+                                        </div>
+                                        <div class="metric">
+                                            <span class="metric-label">Growth:</span>
+                                            <span class="metric-value">15% YoY</span>
+                                        </div>
+                                    </div>
+                                    <div class="competitor-positioning">
+                                        <strong>Position:</strong> Market Leader - Grammar & Style
+                                        <br><strong>Weakness:</strong> Limited context window, no long-form creation
+                                    </div>
+                                </div>
+
+                                <div class="competitor-card challenger">
+                                    <div class="competitor-header">
+                                        <h4>Writer.com</h4>
+                                        <span class="valuation">$1.9B</span>
+                                    </div>
+                                    <div class="competitor-metrics">
+                                        <div class="metric">
+                                            <span class="metric-label">Growth:</span>
+                                            <span class="metric-value">200% YoY</span>
+                                        </div>
+                                        <div class="metric">
+                                            <span class="metric-label">Focus:</span>
+                                            <span class="metric-value">Enterprise AI</span>
+                                        </div>
+                                        <div class="metric">
+                                            <span class="metric-label">Customers:</span>
+                                            <span class="metric-value">Fortune 500</span>
+                                        </div>
+                                    </div>
+                                    <div class="competitor-positioning">
+                                        <strong>Position:</strong> Enterprise Challenger
+                                        <br><strong>Gap:</strong> No hierarchical memory management
+                                    </div>
+                                </div>
+
+                                <div class="competitor-card declining">
+                                    <div class="competitor-header">
+                                        <h4>Jasper AI</h4>
+                                        <span class="valuation">$1.5B</span>
+                                    </div>
+                                    <div class="competitor-metrics">
+                                        <div class="metric">
+                                            <span class="metric-label">Revenue:</span>
+                                            <span class="metric-value">~$55M</span>
+                                        </div>
+                                        <div class="metric">
+                                            <span class="metric-label">Growth:</span>
+                                            <span class="metric-value negative">-55% YoY</span>
+                                        </div>
+                                        <div class="metric">
+                                            <span class="metric-label">Status:</span>
+                                            <span class="metric-value">Commoditized</span>
+                                        </div>
+                                    </div>
+                                    <div class="competitor-positioning">
+                                        <strong>Position:</strong> Declining - Marketing Focus
+                                        <br><strong>Challenge:</strong> Commodity trap, no differentiation
+                                    </div>
+                                </div>
+
+                                <div class="competitor-card niche">
+                                    <div class="competitor-header">
+                                        <h4>Copy.ai</h4>
+                                        <span class="valuation">~$500M</span>
+                                    </div>
+                                    <div class="competitor-metrics">
+                                        <div class="metric">
+                                            <span class="metric-label">Users:</span>
+                                            <span class="metric-value">10M+ registered</span>
+                                        </div>
+                                        <div class="metric">
+                                            <span class="metric-label">Growth:</span>
+                                            <span class="metric-value">480% YoY</span>
+                                        </div>
+                                        <div class="metric">
+                                            <span class="metric-label">Market:</span>
+                                            <span class="metric-value">SMB focused</span>
+                                        </div>
+                                    </div>
+                                    <div class="competitor-positioning">
+                                        <strong>Position:</strong> Niche Player - SMB
+                                        <br><strong>Limitation:</strong> Simple use cases, no enterprise features
+                                    </div>
+                                </div>
+
+                                <div class="competitor-card our-position">
+                                    <div class="competitor-header">
+                                        <h4>Co-Author AI</h4>
+                                        <span class="valuation">$2.84B</span>
+                                    </div>
+                                    <div class="competitor-metrics">
+                                        <div class="metric">
+                                            <span class="metric-label">Context:</span>
+                                            <span class="metric-value">10M+ tokens</span>
+                                        </div>
+                                        <div class="metric">
+                                            <span class="metric-label">USP:</span>
+                                            <span class="metric-value">Memory Architecture</span>
+                                        </div>
+                                        <div class="metric">
+                                            <span class="metric-label">Target:</span>
+                                            <span class="metric-value">Legal + Healthcare</span>
+                                        </div>
+                                    </div>
+                                    <div class="competitor-positioning">
+                                        <strong>Position:</strong> Visionary - Context Management
+                                        <br><strong>Advantage:</strong> Unique hierarchical memory + genetic optimization
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Market Dynamics -->
+                        <div class="market-dynamics">
+                            <h3><i class="fas fa-chart-line"></i> Market Dynamics & Growth Drivers</h3>
+                            <div class="dynamics-grid">
+                                <div class="dynamic-factor">
+                                    <h4>Total Market Size</h4>
+                                    <span class="big-number">$15.8B</span>
+                                    <p>Projected by 2030 (22.1% CAGR)</p>
+                                </div>
+                                <div class="dynamic-factor">
+                                    <h4>Documentation Crisis</h4>
+                                    <span class="big-number">54%</span>
+                                    <p>of tech workers in non-coding roles</p>
+                                </div>
+                                <div class="dynamic-factor">
+                                    <h4>AI Commoditization</h4>
+                                    <span class="big-number">∞</span>
+                                    <p>Value shifts to context management</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SWOT Analysis Section -->
+            <section class="banner-detail-section" id="swot-detail" style="display: none;">
+                <div class="glass-card detail-content">
+                    <h2>SWOT Analysis</h2>
+                    <div class="swot-grid">
+                        <div class="swot-section strengths">
+                            <h3>💪 Strengths</h3>
+                            <ul>
+                                <li>10M+ token context breakthrough</li>
+                                <li>Proprietary memory architecture</li>
+                                <li>Legal AI domain expertise</li>
+                                <li>Genetic algorithm optimization</li>
+                            </ul>
+                        </div>
+                        <div class="swot-section weaknesses">
+                            <h3>⚠️ Weaknesses</h3>
+                            <ul>
+                                <li>High computational requirements</li>
+                                <li>Complex technical integration</li>
+                                <li>Early market education needed</li>
+                                <li>Scaling challenges</li>
+                            </ul>
+                        </div>
+                        <div class="swot-section opportunities">
+                            <h3><i class="fas fa-rocket"></i> Opportunities</h3>
+                            <ul>
+                                <li>AI infrastructure cost deflation</li>
+                                <li>Enterprise AI adoption acceleration</li>
+                                <li>Legal industry digital transformation</li>
+                                <li>API-first market expansion</li>
+                            </ul>
+                        </div>
+                        <div class="swot-section threats">
+                            <h3>🛡️ Threats</h3>
+                            <ul>
+                                <li>Big tech platform competition</li>
+                                <li>Open source alternatives</li>
+                                <li>Regulatory changes in AI</li>
+                                <li>Market saturation risk</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
         <!-- Navigation Tabs -->
         <nav class="glass-nav">
             <div class="nav-tabs">
-                <button class="nav-tab active" data-tab="executive">Executive Summary</button>
-                <button class="nav-tab" data-tab="tokenomics">Tokenomics & Architecture</button>
-                <button class="nav-tab" data-tab="market">Market Analysis</button>
-                <button class="nav-tab" data-tab="financial">Financial Models</button>
-                <button class="nav-tab" data-tab="infrastructure">Infrastructure Deep-Dive</button>
-                <button class="nav-tab" data-tab="revenue">Revenue Modeling</button>
-                <button class="nav-tab" data-tab="valuation">Valuation Methods</button>
-                <button class="nav-tab" data-tab="dcf">DCF Analysis</button>
-                <button class="nav-tab" data-tab="funding">Funding Strategy</button>
+                <button class="nav-tab active" data-tab="executive">Executive</button>
+                <button class="nav-tab" data-tab="technicals">Technicals</button>
+                <button class="nav-tab" data-tab="tropes">Tropes</button>
+                <button class="nav-tab" data-tab="market">Market</button>
+                <button class="nav-tab" data-tab="swot">SWOT</button>
+                <button class="nav-tab" data-tab="financials">Financials</button>
             </div>
         </nav>
+
 
         <!-- Main Content -->
         <main class="main-content">
@@ -67,7 +972,7 @@
                         <h2 class="section-title">Investment Opportunity</h2>
                         <div class="stats-grid">
                             <div class="stat-item primary">
-                                <div class="stat-value" id="funding-amount">$10M</div>
+                                <div class="stat-value" id="funding-amount">$5M</div>
                                 <div class="stat-label">Pre-seed Investment</div>
                                 <div class="stat-sublabel">20% Equity Stake</div>
                             </div>
@@ -90,7 +995,7 @@
                     </div>
 
                     <div class="glass-card">
-                        <h3 class="card-title">🚀 Revolutionary Technology</h3>
+                        <h3 class="card-title"><i class="fas fa-rocket"></i> Revolutionary Technology</h3>
                         <div class="tech-highlights">
                             <div class="tech-item">
                                 <strong>10M+ Token Context</strong>
@@ -102,7 +1007,7 @@
                             </div>
                             <div class="tech-item">
                                 <strong>Genetic Algorithm Optimization</strong>
-                                <span>847ms average response time with superior accuracy</span>
+                                <span>18% improvement in Accuracy, F1, and Macro-F1 scores • 847ms response time</span>
                             </div>
                             <div class="tech-item">
                                 <strong>Reactive Reasoning Engine</strong>
@@ -112,7 +1017,7 @@
                     </div>
 
                     <div class="glass-card">
-                        <h3 class="card-title">📊 Market Opportunity</h3>
+                        <h3 class="card-title"><i class="fas fa-chart-line"></i> Market Opportunity</h3>
                         <div class="market-overview">
                             <div class="market-stat">
                                 <div class="market-value">$49.3B</div>
@@ -128,7 +1033,7 @@
                     </div>
 
                     <div class="glass-card">
-                        <h3 class="card-title">💰 Financial Projections</h3>
+                        <h3 class="card-title"><i class="fas fa-dollar-sign"></i> Financial Projections</h3>
                         <div class="financial-preview">
                             <div class="year-projection">
                                 <span class="year">2025</span>
@@ -144,6 +1049,77 @@
                                 <span class="year">2030</span>
                                 <span class="revenue">$723.4M</span>
                                 <span class="growth">65.9% EBITDA</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="glass-card">
+                        <h3 class="card-title"><i class="fas fa-server"></i> Multi-Cloud Infrastructure Strategy</h3>
+                        <div class="infrastructure-overview">
+                            <p>Scalable, cost-optimized deployment across all major cloud providers with tiered pricing for individual writers to enterprise clients.</p>
+                            
+                            <div class="cloud-comparison">
+                                <div class="cost-tier">
+                                    <h4>Enterprise Tier (8xA100 GPUs)</h4>
+                                    <div class="provider-grid">
+                                        <div class="provider-option">
+                                            <span class="provider-name">AWS p4d.24xlarge</span>
+                                            <span class="provider-cost">$51.20/user</span>
+                                            <span class="provider-detail">360 concurrent users</span>
+                                        </div>
+                                        <div class="provider-option">
+                                            <span class="provider-name">GCP a2-ultragpu-8g</span>
+                                            <span class="provider-cost">$46.08/user</span>
+                                            <span class="provider-detail">360 concurrent users</span>
+                                        </div>
+                                        <div class="provider-option best">
+                                            <span class="provider-name">Azure Standard_NC48ads</span>
+                                            <span class="provider-cost">$42.24/user</span>
+                                            <span class="provider-detail">360 concurrent users • Best Value</span>
+                                        </div>
+                                        <div class="provider-option">
+                                            <span class="provider-name">On-Premise 8xA100</span>
+                                            <span class="provider-cost">$41.67/user</span>
+                                            <span class="provider-detail">360 concurrent users</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="cost-tier">
+                                    <h4>Individual Writer Tier (Optimized Instances)</h4>
+                                    <div class="provider-grid small-tier">
+                                        <div class="provider-option">
+                                            <span class="provider-name">AWS g4dn.xlarge</span>
+                                            <span class="provider-cost">$0.98/hour</span>
+                                            <span class="provider-detail">T4 GPU • $29/month for 30hrs</span>
+                                        </div>
+                                        <div class="provider-option">
+                                            <span class="provider-name">GCP n1-standard-4 + T4</span>
+                                            <span class="provider-cost">$0.85/hour</span>
+                                            <span class="provider-detail">T4 GPU • $25.50/month for 30hrs</span>
+                                        </div>
+                                        <div class="provider-option best">
+                                            <span class="provider-name">Azure NC4as T4 v3</span>
+                                            <span class="provider-cost">$0.79/hour</span>
+                                            <span class="provider-detail">T4 GPU • $23.70/month for 30hrs • Best Value</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="infrastructure-advantages">
+                                <div class="advantage-item">
+                                    <i class="fas fa-globe"></i>
+                                    <span>Multi-region deployment for 99.99% uptime</span>
+                                </div>
+                                <div class="advantage-item">
+                                    <i class="fas fa-chart-line"></i>
+                                    <span>Auto-scaling based on demand patterns</span>
+                                </div>
+                                <div class="advantage-item">
+                                    <i class="fas fa-shield-alt"></i>
+                                    <span>Enterprise-grade security and compliance</span>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -301,7 +1277,7 @@
                             </div>
 
                             <div class="usage-scenario">
-                                <h4>Enterprise Content Creation 📝</h4>
+                                <h4>Enterprise Content Creation <i class="fas fa-building"></i></h4>
                                 <div class="usage-controls">
                                     <div class="usage-control">
                                         <label>Articles per Month:</label>
@@ -381,7 +1357,7 @@
                     </div>
 
                     <div class="glass-card">
-                        <h3 class="card-title">⚡ Performance Metrics</h3>
+                        <h3 class="card-title"><i class="fas fa-tachometer-alt"></i> Performance Metrics</h3>
                         <div class="performance-stats">
                             <div class="perf-stat">
                                 <div class="perf-value">847ms</div>
@@ -408,11 +1384,790 @@
                 </div>
             </section>
 
+            <!-- Technicals Tab -->
+            <section class="tab-content" id="technicals">
+                <div class="sub-nav">
+                    <button class="sub-tab active" data-subtab="genetic-algorithm">Genetic Algorithm</button>
+                    <button class="sub-tab" data-subtab="memory-architecture">Memory Architecture</button>
+                    <button class="sub-tab" data-subtab="memory-agent">Memory Agent</button>
+                    <button class="sub-tab" data-subtab="agent-communication">Agent-to-Agent</button>
+                    <button class="sub-tab" data-subtab="writing-agents">Writing Agents</button>
+                    <button class="sub-tab" data-subtab="knowledge-libraries">Knowledge Libraries</button>
+                    <button class="sub-tab" data-subtab="semantic-checker">Semantic Checker</button>
+                </div>
+                
+                <div class="sub-content active" id="genetic-algorithm">
+                    <div class="content-grid">
+                        <div class="glass-card full-width">
+                            <h2 class="section-title"><i class="fas fa-dna"></i> Genetic Algorithm Optimization</h2>
+                            <p>Advanced genetic algorithm implementation for prompt optimization with 18% improvement in Accuracy, F1, and Macro-F1 scores.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="sub-content" id="memory-architecture">
+                    <div class="content-grid">
+                        <div class="glass-card full-width">
+                            <h2 class="section-title"><i class="fas fa-memory"></i> Memory Architecture Comparison</h2>
+                            <p>Revolutionary memory hierarchy design inspired by CPU cache architecture, optimized for long-context writing applications.</p>
+                        </div>
+                        
+                        <div class="glass-card">
+                            <h3><i class="fas fa-microchip"></i> Traditional CPU Memory Hierarchy</h3>
+                            <div class="memory-hierarchy-diagram">
+                                <div class="memory-level l1">
+                                    <div class="level-label">L1 Cache</div>
+                                    <div class="level-specs">32KB • 1 cycle • Fastest</div>
+                                </div>
+                                <div class="memory-arrow">↓</div>
+                                <div class="memory-level l2">
+                                    <div class="level-label">L2 Cache</div>
+                                    <div class="level-specs">256KB • 3-10 cycles</div>
+                                </div>
+                                <div class="memory-arrow">↓</div>
+                                <div class="memory-level l3">
+                                    <div class="level-label">L3 Cache</div>
+                                    <div class="level-specs">8MB • 10-50 cycles</div>
+                                </div>
+                                <div class="memory-arrow">↓</div>
+                                <div class="memory-level ram">
+                                    <div class="level-label">RAM</div>
+                                    <div class="level-specs">16GB • 100-300 cycles</div>
+                                </div>
+                                <div class="memory-arrow">↓</div>
+                                <div class="memory-level ssd">
+                                    <div class="level-label">SSD</div>
+                                    <div class="level-specs">1TB • 25,000+ cycles</div>
+                                </div>
+                                <div class="memory-arrow">↓</div>
+                                <div class="memory-level hdd">
+                                    <div class="level-label">Hard Disk</div>
+                                    <div class="level-specs">4TB • 10M+ cycles</div>
+                                </div>
+                                <div class="memory-arrow">↓</div>
+                                <div class="memory-level cloud">
+                                    <div class="level-label">Cloud Storage</div>
+                                    <div class="level-specs">Unlimited • Network latency</div>
+                                </div>
+                                <div class="memory-arrow">↓</div>
+                                <div class="memory-level archive">
+                                    <div class="level-label">Archive</div>
+                                    <div class="level-specs">Petabytes • Minutes to restore</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="glass-card">
+                            <h3><i class="fas fa-brain"></i> Co-Author Memory Hierarchy</h3>
+                            <div class="memory-hierarchy-diagram writing-context">
+                                <div class="memory-level immediate">
+                                    <div class="level-label">Current Context</div>
+                                    <div class="level-specs">4K tokens • Instant access • Chapter 8 focus</div>
+                                </div>
+                                <div class="memory-arrow">↓</div>
+                                <div class="memory-level nearby">
+                                    <div class="level-label">Nearby Chapters</div>
+                                    <div class="level-specs">Granular summaries • Ch 6-7, 9-10</div>
+                                </div>
+                                <div class="memory-arrow">↓</div>
+                                <div class="memory-level distant">
+                                    <div class="level-label">Previous Chapters</div>
+                                    <div class="level-specs">Coarser summaries • Ch 1-5</div>
+                                </div>
+                                <div class="memory-arrow">↓</div>
+                                <div class="memory-level vectorized">
+                                    <div class="level-label">Qdrant Vector DB</div>
+                                    <div class="level-specs">Writing style • Character arcs • Plot threads</div>
+                                </div>
+                                <div class="memory-arrow">↓</div>
+                                <div class="memory-level research">
+                                    <div class="level-label">Research Material</div>
+                                    <div class="level-specs">Sources • References • World-building</div>
+                                </div>
+                                <div class="memory-arrow">↓</div>
+                                <div class="memory-level historical">
+                                    <div class="level-label">Previous Stories</div>
+                                    <div class="level-specs">Author's portfolio • Style patterns</div>
+                                </div>
+                                <div class="memory-arrow">↓</div>
+                                <div class="memory-level universe">
+                                    <div class="level-label">Story Universe</div>
+                                    <div class="level-specs">Shared worlds • Cross-references</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="glass-card full-width">
+                            <h3><i class="fas fa-balance-scale"></i> Architecture Benefits</h3>
+                            <div class="benefits-grid">
+                                <div class="benefit-item">
+                                    <i class="fas fa-tachometer-alt"></i>
+                                    <h4>Context-Aware Access</h4>
+                                    <p>Intelligent prefetching based on current writing position, similar to CPU cache prediction</p>
+                                </div>
+                                <div class="benefit-item">
+                                    <i class="fas fa-layer-group"></i>
+                                    <h4>Hierarchical Summarization</h4>
+                                    <p>Progressive detail reduction as distance from current context increases</p>
+                                </div>
+                                <div class="benefit-item">
+                                    <i class="fas fa-search"></i>
+                                    <h4>Vector-Based Retrieval</h4>
+                                    <p>Semantic similarity search across entire knowledge base</p>
+                                </div>
+                                <div class="benefit-item">
+                                    <i class="fas fa-clock"></i>
+                                    <h4>Temporal Consistency</h4>
+                                    <p>Maintains narrative coherence across long-form content</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="sub-content" id="memory-agent">
+                    <div class="content-grid">
+                        <div class="glass-card full-width">
+                            <h2 class="section-title"><i class="fas fa-robot"></i> Memory Agent System</h2>
+                            <p>Intelligent memory management agent that plans, extracts, and synthesizes contextual information for optimal writing assistance.</p>
+                        </div>
+                        
+                        <div class="glass-card">
+                            <h3><i class="fas fa-brain"></i> Memory Planning Intelligence</h3>
+                            <div class="agent-workflow">
+                                <div class="workflow-step">
+                                    <div class="step-icon"><i class="fas fa-search"></i></div>
+                                    <div class="step-content">
+                                        <h4>Context Analysis</h4>
+                                        <p>Analyzes current writing position and determines relevant memory requirements</p>
+                                    </div>
+                                </div>
+                                <div class="workflow-arrow">→</div>
+                                <div class="workflow-step">
+                                    <div class="step-icon"><i class="fas fa-filter"></i></div>
+                                    <div class="step-content">
+                                        <h4>Memory Extraction</h4>
+                                        <p>Strategically selects and extracts relevant information from hierarchical memory</p>
+                                    </div>
+                                </div>
+                                <div class="workflow-arrow">→</div>
+                                <div class="workflow-step">
+                                    <div class="step-icon"><i class="fas fa-compress"></i></div>
+                                    <div class="step-content">
+                                        <h4>Vector Synthesis</h4>
+                                        <p>Creates optimized memory vectors that fit seamlessly with current context</p>
+                                    </div>
+                                </div>
+                                <div class="workflow-arrow">→</div>
+                                <div class="workflow-step">
+                                    <div class="step-icon"><i class="fas fa-paper-plane"></i></div>
+                                    <div class="step-content">
+                                        <h4>Context Delivery</h4>
+                                        <p>Delivers tailored memory summaries to the writing agent in real-time</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="glass-card">
+                            <h3><i class="fas fa-cogs"></i> Memory Operations</h3>
+                            <div class="memory-operations">
+                                <div class="operation-category">
+                                    <h4><i class="fas fa-map"></i> Contextual Mapping</h4>
+                                    <ul>
+                                        <li>Chapter proximity analysis</li>
+                                        <li>Character relationship tracking</li>
+                                        <li>Plot thread correlation</li>
+                                        <li>Theme consistency monitoring</li>
+                                    </ul>
+                                </div>
+                                <div class="operation-category">
+                                    <h4><i class="fas fa-compress-alt"></i> Smart Summarization</h4>
+                                    <ul>
+                                        <li>Adaptive granularity control</li>
+                                        <li>Key event preservation</li>
+                                        <li>Character arc continuity</li>
+                                        <li>Emotional tone maintenance</li>
+                                    </ul>
+                                </div>
+                                <div class="operation-category">
+                                    <h4><i class="fas fa-sync"></i> Dynamic Updates</h4>
+                                    <ul>
+                                        <li>Real-time memory refreshing</li>
+                                        <li>Context window optimization</li>
+                                        <li>Priority-based caching</li>
+                                        <li>Predictive prefetching</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="glass-card full-width">
+                            <h3><i class="fas fa-chart-line"></i> Memory Agent Performance</h3>
+                            <div class="performance-metrics">
+                                <div class="metric-card">
+                                    <div class="metric-value">2.3s</div>
+                                    <div class="metric-label">Average Context Assembly</div>
+                                    <div class="metric-description">From memory query to vector delivery</div>
+                                </div>
+                                <div class="metric-card">
+                                    <div class="metric-value">94%</div>
+                                    <div class="metric-label">Relevance Accuracy</div>
+                                    <div class="metric-description">Contextual information precision</div>
+                                </div>
+                                <div class="metric-card">
+                                    <div class="metric-value">8.7x</div>
+                                    <div class="metric-label">Context Compression</div>
+                                    <div class="metric-description">Information density improvement</div>
+                                </div>
+                                <div class="metric-card">
+                                    <div class="metric-value">99.2%</div>
+                                    <div class="metric-label">Memory Consistency</div>
+                                    <div class="metric-description">Narrative coherence preservation</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="sub-content" id="agent-communication">
+                    <div class="content-grid">
+                        <div class="glass-card full-width">
+                            <h2 class="section-title"><i class="fas fa-exchange-alt"></i> Agent-to-Agent Communication</h2>
+                            <p>Revolutionary multi-agent collaboration system enabling Memory Agent and Writing Agent to work in perfect synchronization.</p>
+                        </div>
+                        
+                        <div class="glass-card">
+                            <h3><i class="fas fa-comments"></i> Communication Protocol</h3>
+                            <div class="comm-diagram">
+                                <div class="agent-box memory-agent">
+                                    <i class="fas fa-brain"></i>
+                                    <h4>Memory Agent</h4>
+                                    <div class="agent-capabilities">
+                                        <span class="capability">Context Analysis</span>
+                                        <span class="capability">Memory Extraction</span>
+                                        <span class="capability">Vector Synthesis</span>
+                                    </div>
+                                </div>
+                                <div class="comm-channel">
+                                    <div class="message-flow">
+                                        <div class="message request">
+                                            <span class="message-type">Memory Request</span>
+                                            <span class="message-content">Chapter 8, Character: Sarah, Context: Conflict resolution</span>
+                                        </div>
+                                        <div class="message response">
+                                            <span class="message-type">Context Vector</span>
+                                            <span class="message-content">Sarah's history, previous conflicts, character growth, relationships</span>
+                                        </div>
+                                        <div class="message feedback">
+                                            <span class="message-type">Usage Feedback</span>
+                                            <span class="message-content">High relevance, need more emotional context</span>
+                                        </div>
+                                    </div>
+                                    <div class="comm-arrows">
+                                        <i class="fas fa-arrow-right request-arrow"></i>
+                                        <i class="fas fa-arrow-left response-arrow"></i>
+                                        <i class="fas fa-arrow-right feedback-arrow"></i>
+                                    </div>
+                                </div>
+                                <div class="agent-box writing-agent">
+                                    <i class="fas fa-pen-fancy"></i>
+                                    <h4>Writing Agent</h4>
+                                    <div class="agent-capabilities">
+                                        <span class="capability">Narrative Planning</span>
+                                        <span class="capability">Content Generation</span>
+                                        <span class="capability">Style Consistency</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="glass-card">
+                            <h3><i class="fas fa-network-wired"></i> Unique Multi-Agent Features</h3>
+                            <div class="unique-features">
+                                <div class="feature-item">
+                                    <i class="fas fa-handshake"></i>
+                                    <h4>Collaborative Planning</h4>
+                                    <p>Both agents jointly plan the writing session, with Memory Agent predicting information needs</p>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fas fa-sync-alt"></i>
+                                    <h4>Real-time Adaptation</h4>
+                                    <p>Writing Agent provides feedback to Memory Agent, enabling dynamic memory prioritization</p>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fas fa-brain"></i>
+                                    <h4>Shared Context Understanding</h4>
+                                    <p>Both agents maintain synchronized understanding of narrative state and character development</p>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fas fa-history"></i>
+                                    <h4>Version Control Integration</h4>
+                                    <p>Memory Agent tracks writing iterations, enabling rollback and alternative exploration</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="glass-card full-width">
+                            <h3><i class="fas fa-star"></i> Industry-First Innovation</h3>
+                            <div class="innovation-highlight">
+                                <div class="innovation-content">
+                                    <div class="innovation-badge">
+                                        <i class="fas fa-trophy"></i>
+                                        <span>WORLD'S FIRST</span>
+                                    </div>
+                                    <h4>Memory-Writing Agent Collaboration</h4>
+                                    <p>While CodeAction agents exist for software development (planning → coding → tool usage → reflection), <strong>no comparable system exists for creative writing</strong>. Our Memory Agent ↔ Writing Agent collaboration represents a breakthrough in AI-assisted creative workflows.</p>
+                                    <div class="comparison-table">
+                                        <div class="comparison-row header">
+                                            <div class="comparison-cell">Domain</div>
+                                            <div class="comparison-cell">Existing Systems</div>
+                                            <div class="comparison-cell">Co-Author Innovation</div>
+                                        </div>
+                                        <div class="comparison-row">
+                                            <div class="comparison-cell">Software Development</div>
+                                            <div class="comparison-cell">CodeAction agents, GitHub Copilot</div>
+                                            <div class="comparison-cell">—</div>
+                                        </div>
+                                        <div class="comparison-row">
+                                            <div class="comparison-cell">Creative Writing</div>
+                                            <div class="comparison-cell">None with agent-to-agent communication</div>
+                                            <div class="comparison-cell"><strong>Memory ↔ Writing Agent System</strong></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="sub-content" id="writing-agents">
+                    <div class="content-grid">
+                        <div class="glass-card full-width">
+                            <h2 class="section-title"><i class="fas fa-pen"></i> Writing Agent Innovation</h2>
+                            <p>Specialized writing agents with narrative flow understanding and character consistency tracking.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="sub-content" id="semantic-checker">
+                    <div class="content-grid">
+                        <div class="glass-card full-width">
+                            <h2 class="section-title"><i class="fas fa-check-circle"></i> Semantic Narrative Checker</h2>
+                            <p>Advanced AI linting system for creative writing - like Python's syntax checker or TypeScript's linter, but for narrative consistency, character evolution, and story guidance compliance.</p>
+                        </div>
+                        
+                        <div class="glass-card">
+                            <h3><i class="fas fa-code"></i> Programming vs Writing Linters</h3>
+                            <div class="linter-comparison">
+                                <div class="linter-column">
+                                    <h4><i class="fab fa-python"></i> Python Syntax Checker</h4>
+                                    <div class="linter-checks">
+                                        <div class="check-item">
+                                            <i class="fas fa-check"></i>
+                                            <span>Syntax errors</span>
+                                        </div>
+                                        <div class="check-item">
+                                            <i class="fas fa-check"></i>
+                                            <span>Indentation issues</span>
+                                        </div>
+                                        <div class="check-item">
+                                            <i class="fas fa-check"></i>
+                                            <span>Variable scope</span>
+                                        </div>
+                                        <div class="check-item">
+                                            <i class="fas fa-check"></i>
+                                            <span>Type consistency</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="linter-column">
+                                    <h4><i class="fab fa-node-js"></i> TypeScript Linter</h4>
+                                    <div class="linter-checks">
+                                        <div class="check-item">
+                                            <i class="fas fa-check"></i>
+                                            <span>Type mismatches</span>
+                                        </div>
+                                        <div class="check-item">
+                                            <i class="fas fa-check"></i>
+                                            <span>Unused variables</span>
+                                        </div>
+                                        <div class="check-item">
+                                            <i class="fas fa-check"></i>
+                                            <span>Code style</span>
+                                        </div>
+                                        <div class="check-item">
+                                            <i class="fas fa-check"></i>
+                                            <span>Best practices</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="linter-column semantic">
+                                    <h4><i class="fas fa-feather-alt"></i> Co-Author Semantic Checker</h4>
+                                    <div class="linter-checks">
+                                        <div class="check-item">
+                                            <i class="fas fa-check"></i>
+                                            <span>Character consistency</span>
+                                        </div>
+                                        <div class="check-item">
+                                            <i class="fas fa-check"></i>
+                                            <span>Timeline coherence</span>
+                                        </div>
+                                        <div class="check-item">
+                                            <i class="fas fa-check"></i>
+                                            <span>Narrative arc integrity</span>
+                                        </div>
+                                        <div class="check-item">
+                                            <i class="fas fa-check"></i>
+                                            <span>Style guide compliance</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="glass-card">
+                            <h3><i class="fas fa-exclamation-triangle"></i> Narrative Validation Rules</h3>
+                            <div class="validation-categories">
+                                <div class="validation-category">
+                                    <h4><i class="fas fa-user"></i> Character Evolution</h4>
+                                    <div class="validation-rules">
+                                        <div class="rule-item">
+                                            <span class="rule-type error">Error</span>
+                                            <span class="rule-desc">Character acts against established personality without motivation</span>
+                                        </div>
+                                        <div class="rule-item">
+                                            <span class="rule-type warning">Warning</span>
+                                            <span class="rule-desc">Rapid character change without development arc</span>
+                                        </div>
+                                        <div class="rule-item">
+                                            <span class="rule-type info">Info</span>
+                                            <span class="rule-desc">Character trait mentioned but not demonstrated recently</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="validation-category">
+                                    <h4><i class="fas fa-route"></i> Narrative Arc</h4>
+                                    <div class="validation-rules">
+                                        <div class="rule-item">
+                                            <span class="rule-type error">Error</span>
+                                            <span class="rule-desc">Plot thread introduced but never resolved</span>
+                                        </div>
+                                        <div class="rule-item">
+                                            <span class="rule-type warning">Warning</span>
+                                            <span class="rule-desc">Pacing inconsistent with story structure guidelines</span>
+                                        </div>
+                                        <div class="rule-item">
+                                            <span class="rule-type info">Info</span>
+                                            <span class="rule-desc">Opportunity for callback to earlier scene</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="validation-category">
+                                    <h4><i class="fas fa-clock"></i> Timeline Consistency</h4>
+                                    <div class="validation-rules">
+                                        <div class="rule-item">
+                                            <span class="rule-type error">Error</span>
+                                            <span class="rule-desc">Event sequence contradicts established timeline</span>
+                                        </div>
+                                        <div class="rule-item">
+                                            <span class="rule-type warning">Warning</span>
+                                            <span class="rule-desc">Character age/experience inconsistent with timeframe</span>
+                                        </div>
+                                        <div class="rule-item">
+                                            <span class="rule-type info">Info</span>
+                                            <span class="rule-desc">Time jump could benefit from transition</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="glass-card">
+                            <h3><i class="fas fa-robot"></i> AI-Powered Analysis</h3>
+                            <div class="analysis-features">
+                                <div class="feature-item">
+                                    <i class="fas fa-search"></i>
+                                    <h4>Deep Semantic Understanding</h4>
+                                    <p>Analyzes context, subtext, and implicit meaning beyond surface-level text patterns</p>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fas fa-history"></i>
+                                    <h4>Historical Context Awareness</h4>
+                                    <p>Maintains memory of character states, relationships, and plot developments across entire story</p>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fas fa-chart-line"></i>
+                                    <h4>Emotional Arc Tracking</h4>
+                                    <p>Monitors character emotional journeys and flags inconsistent emotional responses</p>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fas fa-palette"></i>
+                                    <h4>Style Consistency</h4>
+                                    <p>Ensures narrative voice, tone, and stylistic elements remain consistent throughout</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="glass-card full-width">
+                            <h3><i class="fas fa-terminal"></i> Real-time Feedback Interface</h3>
+                            <div class="checker-interface">
+                                <div class="code-editor-mockup">
+                                    <div class="editor-header">
+                                        <div class="editor-tabs">
+                                            <span class="editor-tab active">Chapter8.story</span>
+                                        </div>
+                                        <div class="editor-status">
+                                            <span class="status-item">3 warnings</span>
+                                            <span class="status-item">1 suggestion</span>
+                                        </div>
+                                    </div>
+                                    <div class="editor-content">
+                                        <div class="line-number">42</div>
+                                        <div class="code-line">Sarah slammed the door angrily, her usually calm demeanor completely gone.</div>
+                                        <div class="error-underline"></div>
+                                        <div class="error-popup">
+                                            <div class="error-header">
+                                                <i class="fas fa-exclamation-triangle"></i>
+                                                <span>Character Consistency Warning</span>
+                                            </div>
+                                            <div class="error-message">
+                                                Sarah has been consistently portrayed as someone who "never raises her voice" (Ch 2, Ch 5). 
+                                                This sudden anger needs either:
+                                                <ul>
+                                                    <li>Preceding emotional buildup</li>
+                                                    <li>Character development justification</li>
+                                                    <li>Acknowledgment of the personality change</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="glass-card">
+                            <h3><i class="fas fa-cog"></i> Customizable Rules Engine</h3>
+                            <div class="rules-engine">
+                                <div class="rule-category">
+                                    <h4>Story Guidelines</h4>
+                                    <div class="rule-toggles">
+                                        <div class="toggle-item">
+                                            <input type="checkbox" checked>
+                                            <span>Enforce 3-act structure</span>
+                                        </div>
+                                        <div class="toggle-item">
+                                            <input type="checkbox" checked>
+                                            <span>Character arc completion</span>
+                                        </div>
+                                        <div class="toggle-item">
+                                            <input type="checkbox">
+                                            <span>Show don't tell reminders</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="rule-category">
+                                    <h4>Style Preferences</h4>
+                                    <div class="rule-toggles">
+                                        <div class="toggle-item">
+                                            <input type="checkbox" checked>
+                                            <span>Maintain POV consistency</span>
+                                        </div>
+                                        <div class="toggle-item">
+                                            <input type="checkbox" checked>
+                                            <span>Detect passive voice overuse</span>
+                                        </div>
+                                        <div class="toggle-item">
+                                            <input type="checkbox">
+                                            <span>Flag repetitive phrases</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="sub-content" id="knowledge-libraries">
+                    <div class="content-grid">
+                        <div class="glass-card full-width">
+                            <h2 class="section-title"><i class="fas fa-book"></i> Knowledge Libraries & Chapter Graphs</h2>
+                            <p>Advanced graph-based knowledge representation system that maps narrative structure, character relationships, and thematic connections across the entire story universe.</p>
+                        </div>
+                        
+                        <div class="glass-card">
+                            <h3><i class="fas fa-project-diagram"></i> Chapter Graph Architecture</h3>
+                            <div class="chapter-graph-demo">
+                                <div class="graph-container">
+                                    <div class="chapter-node chapter-1">
+                                        <div class="node-label">Ch 1</div>
+                                        <div class="node-details">Introduction</div>
+                                    </div>
+                                    <div class="chapter-node chapter-2">
+                                        <div class="node-label">Ch 2</div>
+                                        <div class="node-details">Conflict Setup</div>
+                                    </div>
+                                    <div class="chapter-node chapter-3 current">
+                                        <div class="node-label">Ch 3</div>
+                                        <div class="node-details">Rising Action</div>
+                                    </div>
+                                    <div class="chapter-node chapter-4">
+                                        <div class="node-label">Ch 4</div>
+                                        <div class="node-details">Complication</div>
+                                    </div>
+                                    
+                                    <!-- Character relationships -->
+                                    <div class="character-thread sarah">
+                                        <div class="thread-label">Sarah Arc</div>
+                                    </div>
+                                    <div class="character-thread james">
+                                        <div class="thread-label">James Arc</div>
+                                    </div>
+                                    <div class="character-thread mystery">
+                                        <div class="thread-label">Mystery Plot</div>
+                                    </div>
+                                    
+                                    <!-- Connections -->
+                                    <svg class="graph-connections">
+                                        <path class="connection" d="M 80 60 Q 120 80 160 60" stroke="#10b981" stroke-width="2" fill="none"/>
+                                        <path class="connection" d="M 160 60 Q 200 80 240 60" stroke="#10b981" stroke-width="2" fill="none"/>
+                                        <path class="connection" d="M 240 60 Q 280 80 320 60" stroke="#10b981" stroke-width="2" fill="none"/>
+                                        
+                                        <path class="character-connection" d="M 80 120 L 240 120" stroke="#34d399" stroke-width="2" fill="none"/>
+                                        <path class="character-connection" d="M 160 140 L 320 140" stroke="#059669" stroke-width="2" fill="none"/>
+                                        <path class="character-connection" d="M 80 160 L 320 160" stroke="#065f46" stroke-width="3" fill="none"/>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="glass-card">
+                            <h3><i class="fas fa-sitemap"></i> Knowledge Graph Components</h3>
+                            <div class="knowledge-components">
+                                <div class="component-item">
+                                    <i class="fas fa-users"></i>
+                                    <h4>Character Networks</h4>
+                                    <p>Dynamic relationship mapping with emotional states, conflict history, and character growth trajectories</p>
+                                    <div class="component-details">
+                                        <span class="detail-tag">Relationship Strength</span>
+                                        <span class="detail-tag">Emotional Valence</span>
+                                        <span class="detail-tag">Historical Interactions</span>
+                                    </div>
+                                </div>
+                                <div class="component-item">
+                                    <i class="fas fa-map-marked"></i>
+                                    <h4>Plot Thread Tracking</h4>
+                                    <p>Multi-layered story arc visualization showing main plot, subplots, and thematic threads</p>
+                                    <div class="component-details">
+                                        <span class="detail-tag">Main Arc</span>
+                                        <span class="detail-tag">Subplots</span>
+                                        <span class="detail-tag">Thematic Lines</span>
+                                    </div>
+                                </div>
+                                <div class="component-item">
+                                    <i class="fas fa-clock"></i>
+                                    <h4>Temporal Dependencies</h4>
+                                    <p>Timeline consistency tracking with event causality and narrative pacing analysis</p>
+                                    <div class="component-details">
+                                        <span class="detail-tag">Chronological Order</span>
+                                        <span class="detail-tag">Cause-Effect</span>
+                                        <span class="detail-tag">Pacing Rhythm</span>
+                                    </div>
+                                </div>
+                                <div class="component-item">
+                                    <i class="fas fa-palette"></i>
+                                    <h4>Thematic Connections</h4>
+                                    <p>Cross-chapter theme tracking with motif development and symbolic consistency</p>
+                                    <div class="component-details">
+                                        <span class="detail-tag">Core Themes</span>
+                                        <span class="detail-tag">Recurring Motifs</span>
+                                        <span class="detail-tag">Symbol Evolution</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="glass-card full-width">
+                            <h3><i class="fas fa-chart-network"></i> Dynamic Knowledge Retrieval</h3>
+                            <div class="retrieval-process">
+                                <div class="process-step">
+                                    <div class="step-number">1</div>
+                                    <h4>Context Query</h4>
+                                    <p>User writes: "Sarah confronts James about the missing letter"</p>
+                                </div>
+                                <div class="process-arrow">→</div>
+                                <div class="process-step">
+                                    <div class="step-number">2</div>
+                                    <h4>Graph Traversal</h4>
+                                    <p>System identifies Sarah-James relationship history and letter subplot</p>
+                                </div>
+                                <div class="process-arrow">→</div>
+                                <div class="process-step">
+                                    <div class="step-number">3</div>
+                                    <h4>Context Assembly</h4>
+                                    <p>Retrieves: Previous confrontations, emotional states, letter importance</p>
+                                </div>
+                                <div class="process-arrow">→</div>
+                                <div class="process-step">
+                                    <div class="step-number">4</div>
+                                    <h4>Contextual Writing</h4>
+                                    <p>AI generates scene with full character and plot consistency</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="glass-card">
+                            <h3><i class="fas fa-brain"></i> Graph Intelligence Features</h3>
+                            <div class="intelligence-features">
+                                <div class="feature-row">
+                                    <i class="fas fa-link"></i>
+                                    <div class="feature-content">
+                                        <h4>Automatic Link Discovery</h4>
+                                        <p>AI identifies implicit connections between characters, events, and themes</p>
+                                    </div>
+                                </div>
+                                <div class="feature-row">
+                                    <i class="fas fa-exclamation-triangle"></i>
+                                    <div class="feature-content">
+                                        <h4>Inconsistency Detection</h4>
+                                        <p>Graph analysis flags potential narrative contradictions and plot holes</p>
+                                    </div>
+                                </div>
+                                <div class="feature-row">
+                                    <i class="fas fa-route"></i>
+                                    <div class="feature-content">
+                                        <h4>Narrative Path Optimization</h4>
+                                        <p>Suggests optimal story progression based on established relationships</p>
+                                    </div>
+                                </div>
+                                <div class="feature-row">
+                                    <i class="fas fa-expand-arrows-alt"></i>
+                                    <div class="feature-content">
+                                        <h4>Multi-Story Universe</h4>
+                                        <p>Cross-references characters and events across multiple related stories</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Market Tropes Tab -->
+            <section class="tab-content" id="tropes">
+                <div class="content-grid">
+                    <div class="glass-card full-width">
+                        <h2 class="section-title"><i class="fas fa-theater-masks"></i> Market Tropes & Documentation Revolution</h2>
+                        <p>Understanding the hidden market dynamics and enterprise documentation challenges.</p>
+                    </div>
+                </div>
+            </section>
+
             <!-- Market Analysis Tab -->
             <section class="tab-content" id="market">
                 <div class="content-grid">
                     <div class="glass-card full-width">
-                        <h2 class="section-title">📈 Market Analysis & Segmentation</h2>
+                        <h2 class="section-title"><i class="fas fa-chart-line"></i> Market Analysis & Segmentation</h2>
                         <div class="market-stats-grid">
                             <div class="market-segment detailed">
                                 <div class="segment-header">
@@ -533,7 +2288,7 @@
                     </div>
                     
                     <div class="glass-card">
-                        <h3 class="card-title">📊 Market Visualization</h3>
+                        <h3 class="card-title"><i class="fas fa-chart-bar"></i> Market Visualization</h3>
                         <canvas id="marketChart" width="400" height="300"></canvas>
                     </div>
 
@@ -549,8 +2304,63 @@
                 </div>
             </section>
 
-            <!-- Financial Models Tab -->
-            <section class="tab-content" id="financial">
+            <!-- SWOT Analysis Tab -->
+            <section class="tab-content" id="swot">
+                <div class="content-grid">
+                    <div class="glass-card full-width">
+                        <h2 class="section-title"><i class="fas fa-balance-scale"></i> SWOT Analysis</h2>
+                        <div class="swot-grid">
+                            <div class="swot-section strengths">
+                                <h3><i class="fas fa-plus-circle"></i> Strengths</h3>
+                                <ul>
+                                    <li>First-mover advantage in AI writing tools</li>
+                                    <li>Advanced genetic algorithm optimization</li>
+                                    <li>Hierarchical memory architecture</li>
+                                    <li>Enterprise-grade security</li>
+                                </ul>
+                            </div>
+                            <div class="swot-section weaknesses">
+                                <h3><i class="fas fa-minus-circle"></i> Weaknesses</h3>
+                                <ul>
+                                    <li>Early-stage company with limited resources</li>
+                                    <li>Need for significant technical team scaling</li>
+                                    <li>Market education required</li>
+                                </ul>
+                            </div>
+                            <div class="swot-section opportunities">
+                                <h3><i class="fas fa-arrow-up"></i> Opportunities</h3>
+                                <ul>
+                                    <li>$1B+ addressable market for writing tools</li>
+                                    <li>Enterprise AI adoption acceleration</li>
+                                    <li>Partnership opportunities with major platforms</li>
+                                    <li>International market expansion</li>
+                                </ul>
+                            </div>
+                            <div class="swot-section threats">
+                                <h3><i class="fas fa-exclamation-triangle"></i> Threats</h3>
+                                <ul>
+                                    <li>Competition from established AI companies</li>
+                                    <li>Rapid technology obsolescence risk</li>
+                                    <li>Regulatory changes in AI industry</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Financials Tab -->
+            <section class="tab-content" id="financials">
+                <div class="sub-nav">
+                    <button class="sub-tab active" data-subtab="models">Models</button>
+                    <button class="sub-tab" data-subtab="infrastructure">Infrastructure</button>
+                    <button class="sub-tab" data-subtab="revenue">Revenue</button>
+                    <button class="sub-tab" data-subtab="valuation">Valuation</button>
+                    <button class="sub-tab" data-subtab="dcf">DCF</button>
+                    <button class="sub-tab" data-subtab="funding">Funding</button>
+                </div>
+                
+                <div class="sub-content active" id="models">
                 <div class="content-grid">
                     <div class="glass-card controls-panel">
                         <h3 class="card-title">⚙️ Financial Model Controls</h3>
@@ -579,7 +2389,7 @@
                     </div>
                     
                     <div class="glass-card">
-                        <h3 class="card-title">💰 Key Financial Metrics 
+                        <h3 class="card-title"><i class="fas fa-dollar-sign"></i> Key Financial Metrics 
                             <a href="#financial-assumptions" class="reference-link">⁵</a>
                         </h3>
                         <div class="metrics-display">
@@ -610,13 +2420,13 @@
                     </div>
                     
                     <div class="glass-card full-width">
-                        <h3 class="card-title">📈 Financial Projections</h3>
+                        <h3 class="card-title"><i class="fas fa-chart-line"></i> Financial Projections</h3>
                         <canvas id="financialChart" width="800" height="400"></canvas>
                     </div>
                     
                     <!-- Excel-like 8-Year Financial Projections -->
                     <div class="glass-card full-width compact-card">
-                        <h3 class="card-title">📊 8-Year Financial Model (Excel-like Interface)</h3>
+                        <h3 class="card-title"><i class="fas fa-table"></i> 8-Year Financial Model (Excel-like Interface)</h3>
                         <div class="excel-container">
                             <table class="excel-financial-table">
                                 <thead>
@@ -797,10 +2607,10 @@
                     
                     <!-- Per-User Margin Analysis -->
                     <div class="glass-card full-width compact-card">
-                        <h3 class="card-title">💰 Per-User Economics & Marketing Drivers</h3>
+                        <h3 class="card-title"><i class="fas fa-user-dollar"></i> Per-User Economics & Marketing Drivers</h3>
                         <div class="margin-analysis-grid">
                             <div class="margin-card">
-                                <h4>📝 Freelancer Segment</h4>
+                                <h4><i class="fas fa-user-edit"></i> Freelancer Segment</h4>
                                 <div class="margin-metrics">
                                     <div class="metric">Revenue/User: <span class="value">$348/year</span></div>
                                     <div class="metric">Cost/User: <span class="value">$89/year</span></div>
@@ -848,7 +2658,7 @@
             <section class="tab-content" id="infrastructure">
                 <!-- GPU Cost Analysis Section -->
                 <div class="glass-card compact-card">
-                    <h3 class="card-title">🚀 GPU Infrastructure Analysis</h3>
+                    <h3 class="card-title"><i class="fas fa-server"></i> GPU Infrastructure Analysis</h3>
                     <div class="gpu-comparison-grid">
                         <div class="gpu-option">
                             <h4>NVIDIA T4</h4>
@@ -886,7 +2696,7 @@
                     <h3 class="card-title">👥 User Behavior & Cost Impact</h3>
                     <div class="user-behavior-grid">
                         <div class="behavior-model">
-                            <h4>📝 Content Author</h4>
+                            <h4><i class="fas fa-pen"></i> Content Author</h4>
                             <div class="behavior-stats">
                                 <div class="stat">Avg Session: 45min</div>
                                 <div class="stat">Tokens/Session: 25K</div>
@@ -979,7 +2789,7 @@
             <section class="tab-content" id="revenue">
                 <div class="content-grid">
                     <div class="glass-card">
-                        <h3 class="card-title">💰 Pricing Strategy</h3>
+                        <h3 class="card-title"><i class="fas fa-tag"></i> Pricing Strategy</h3>
                         <div class="pricing-controls">
                             <div class="tier-control">
                                 <label>Freelancer Tier:</label>
@@ -1033,7 +2843,7 @@
                     </div>
                     
                     <div class="glass-card">
-                        <h3 class="card-title">📊 Revenue Projections</h3>
+                        <h3 class="card-title"><i class="fas fa-chart-bar"></i> Revenue Projections</h3>
                         <div class="revenue-projections-detailed">
                             <div class="projection-year">
                                 <div class="year-header">Year 1 (2025)</div>
@@ -1059,7 +2869,7 @@
                     </div>
                     
                     <div class="glass-card full-width">
-                        <h3 class="card-title">📈 Revenue Growth by Segment</h3>
+                        <h3 class="card-title"><i class="fas fa-chart-line"></i> Revenue Growth by Segment</h3>
                         <canvas id="revenueChart" width="800" height="400"></canvas>
                     </div>
                 </div>
@@ -1187,7 +2997,7 @@
                     </div>
                     
                     <div class="glass-card valuation-summary">
-                        <h3 class="card-title">📊 Valuation Summary 
+                        <h3 class="card-title"><i class="fas fa-calculator"></i> Valuation Summary 
                             <a href="https://www.berkonomics.com/" class="reference-link" target="_blank">³</a>
                         </h3>
                         <div class="summary-methods">
@@ -1218,7 +3028,7 @@
                     </div>
 
                     <div class="glass-card full-width">
-                        <h3 class="card-title">📈 Comprehensive Valuation Path 
+                        <h3 class="card-title"><i class="fas fa-route"></i> Comprehensive Valuation Path 
                             <a href="#valuation-methodology" class="reference-link">⁴</a>
                         </h3>
                         <div class="valuation-path">
@@ -1284,7 +3094,7 @@
             <section class="tab-content" id="dcf">
                 <div class="content-grid">
                     <div class="glass-card controls-panel">
-                        <h3 class="card-title">📈 DCF Parameters</h3>
+                        <h3 class="card-title"><i class="fas fa-sliders-h"></i> DCF Parameters</h3>
                         <div class="dcf-controls">
                             <div class="control-group">
                                 <label for="dcf-discount-rate">Discount Rate (WACC):</label>
@@ -1308,7 +3118,7 @@
                     </div>
                     
                     <div class="glass-card full-width">
-                        <h3 class="card-title">📊 DCF Projection Table</h3>
+                        <h3 class="card-title"><i class="fas fa-table"></i> DCF Projection Table</h3>
                         <div class="dcf-table-container">
                             <table class="dcf-table" id="dcf-projections">
                                 <thead>
@@ -1328,7 +3138,7 @@
                     </div>
                     
                     <div class="glass-card">
-                        <h3 class="card-title">💰 DCF Results</h3>
+                        <h3 class="card-title"><i class="fas fa-calculator"></i> DCF Results</h3>
                         <div class="dcf-results-display">
                             <div class="dcf-result">
                                 <div class="result-label">Sum of PV Cash Flows:</div>
@@ -1350,13 +3160,13 @@
                     </div>
                     
                     <div class="glass-card full-width">
-                        <h3 class="card-title">📈 DCF Analysis Chart</h3>
+                        <h3 class="card-title"><i class="fas fa-chart-area"></i> DCF Analysis Chart</h3>
                         <canvas id="dcfChart" width="800" height="400"></canvas>
                     </div>
                     
                     <!-- NPV Over Time Visualization -->
                     <div class="glass-card full-width compact-card">
-                        <h3 class="card-title">📊 NPV Evolution Over Time</h3>
+                        <h3 class="card-title"><i class="fas fa-chart-line"></i> NPV Evolution Over Time</h3>
                         <div class="npv-timeline-container">
                             <canvas id="npvTimelineChart" width="800" height="300"></canvas>
                         </div>
@@ -1382,13 +3192,13 @@
             <section class="tab-content" id="funding">
                 <div class="content-grid">
                     <div class="glass-card">
-                        <h3 class="card-title">💰 Funding Overview</h3>
+                        <h3 class="card-title"><i class="fas fa-hand-holding-usd"></i> Funding Overview</h3>
                         <div class="funding-summary">
                             <div class="funding-item">
                                 <label>Funding Amount:</label>
                                 <div class="funding-input">
                                     <span>$</span>
-                                    <input type="number" id="funding-request" value="10000000" min="1000000" max="50000000" step="1000000">
+                                    <input type="number" id="funding-request" value="5000000" min="1000000" max="50000000" step="1000000">
                                 </div>
                             </div>
                             <div class="funding-metric">
@@ -1409,31 +3219,51 @@
                     <div class="glass-card">
                         <h3 class="card-title">💸 Use of Funds</h3>
                         <div class="funds-allocation">
-                            <div class="allocation-control">
+                            <div class="allocation-control tooltip-term">
                                 <label>Product Development:</label>
                                 <input type="range" id="product-allocation" min="20" max="60" value="40">
                                 <span id="product-amount">$4M (40%)</span>
+                                <div class="tooltip">
+                                    <div class="tooltip-header">Product Development</div>
+                                    <div class="tooltip-content">Core AI platform development, context management system, user interface, and API development.</div>
+                                    <div class="tooltip-basis">Includes 15 engineers, infrastructure, and development tools over 18 months</div>
+                                </div>
                             </div>
-                            <div class="allocation-control">
+                            <div class="allocation-control tooltip-term">
                                 <label>Marketing & Sales:</label>
                                 <input type="range" id="marketing-allocation" min="15" max="40" value="25">
                                 <span id="marketing-amount">$2.5M (25%)</span>
+                                <div class="tooltip">
+                                    <div class="tooltip-header">Marketing & Sales</div>
+                                    <div class="tooltip-content">Customer acquisition, brand building, sales team, partnerships, and go-to-market strategy execution.</div>
+                                    <div class="tooltip-basis">Target CAC of $45-$8500 per customer across segments with 3.3x average LTV/CAC</div>
+                                </div>
                             </div>
-                            <div class="allocation-control">
+                            <div class="allocation-control tooltip-term">
                                 <label>Operations & Infrastructure:</label>
                                 <input type="range" id="operations-allocation" min="10" max="30" value="20">
                                 <span id="operations-amount">$2M (20%)</span>
+                                <div class="tooltip">
+                                    <div class="tooltip-header">Operations & Infrastructure</div>
+                                    <div class="tooltip-content">Cloud infrastructure (AWS/Azure), security, compliance, customer support, and operational scaling.</div>
+                                    <div class="tooltip-basis">Supports 100K+ users with 10M+ token processing capability and 99.9% uptime</div>
+                                </div>
                             </div>
-                            <div class="allocation-control">
+                            <div class="allocation-control tooltip-term">
                                 <label>Working Capital:</label>
                                 <input type="range" id="working-capital-allocation" min="5" max="25" value="15">
                                 <span id="working-capital-amount">$1.5M (15%)</span>
+                                <div class="tooltip">
+                                    <div class="tooltip-header">Working Capital</div>
+                                    <div class="tooltip-content">Cash buffer for operational expenses, legal fees, accounting, insurance, and unexpected opportunities.</div>
+                                    <div class="tooltip-basis">6 months operating expenses buffer plus strategic reserves for market opportunities</div>
+                                </div>
                             </div>
                         </div>
                     </div>
                     
                     <div class="glass-card full-width">
-                        <h3 class="card-title">🎯 Key Milestones</h3>
+                        <h3 class="card-title"><i class="fas fa-flag-checkered"></i> Key Milestones</h3>
                         <div class="milestone-timeline">
                             <div class="milestone-item">
                                 <div class="milestone-date">Month 6</div>
@@ -1512,7 +3342,7 @@
                     </div>
                     
                     <div class="glass-card full-width">
-                        <h3 class="card-title">📊 Funding Allocation</h3>
+                        <h3 class="card-title"><i class="fas fa-pie-chart"></i> Funding Allocation</h3>
                         <canvas id="fundingChart" width="800" height="400"></canvas>
                     </div>
                 </div>

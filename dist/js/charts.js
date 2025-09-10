@@ -300,6 +300,110 @@ class Charts {
                         }
                     }
                 }
+            },
+            npvTimeline: {
+                type: 'line',
+                data: {
+                    labels: ['2025', '2026', '2027', '2028', '2029', '2030', '2031', '2032'],
+                    datasets: [
+                        {
+                            label: 'NPV ($M)',
+                            data: [180, 285, 425, 685, 1250, 1840, 2450, 2840],
+                            borderColor: '#667eea',
+                            backgroundColor: 'rgba(102, 126, 234, 0.1)',
+                            fill: true,
+                            tension: 0.4,
+                            pointRadius: 6,
+                            pointHoverRadius: 8
+                        },
+                        {
+                            label: 'Cumulative Cash Flow ($M)',
+                            data: [-68, -82, -58, 85, 658, 1652, 2958, 4854],
+                            borderColor: '#4CAF50',
+                            backgroundColor: 'rgba(76, 175, 80, 0.1)',
+                            fill: false,
+                            tension: 0.4,
+                            pointRadius: 4,
+                            pointHoverRadius: 6,
+                            borderDash: [5, 5]
+                        },
+                        {
+                            label: 'Risk-Adjusted NPV ($M)',
+                            data: [145, 225, 340, 515, 875, 1280, 1650, 1920],
+                            borderColor: '#FF6B6B',
+                            backgroundColor: 'rgba(255, 107, 107, 0.1)',
+                            fill: false,
+                            tension: 0.4,
+                            pointRadius: 4,
+                            pointHoverRadius: 6,
+                            borderDash: [10, 3]
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        title: {
+                            display: true,
+                            text: 'NPV Evolution & Risk Analysis Over Time'
+                        },
+                        legend: {
+                            position: 'bottom'
+                        },
+                        tooltip: {
+                            mode: 'index',
+                            intersect: false,
+                            backgroundColor: 'rgba(255, 255, 255, 0.95)',
+                            titleColor: '#1a202c',
+                            bodyColor: '#2d3748',
+                            borderColor: 'rgba(102, 126, 234, 0.3)',
+                            borderWidth: 1,
+                            callbacks: {
+                                afterBody: function(context) {
+                                    const year = context[0].label;
+                                    const npv = context[0].parsed.y;
+                                    const basis = {
+                                        '2025': 'Initial investment phase with limited revenue',
+                                        '2026': 'Early traction in freelancer segment',
+                                        '2027': 'Multi-segment expansion drives growth',
+                                        '2028': 'Enterprise adoption accelerates',
+                                        '2029': 'Market leadership position established',
+                                        '2030': 'Peak operational efficiency achieved',
+                                        '2031': 'Mature market with steady growth',
+                                        '2032': 'Sustainable competitive advantage'
+                                    };
+                                    return ['', `Basis: ${basis[year]}`];
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: false,
+                            title: {
+                                display: true,
+                                text: 'Value ($M)'
+                            },
+                            grid: {
+                                color: 'rgba(0, 0, 0, 0.05)'
+                            }
+                        },
+                        x: {
+                            title: {
+                                display: true,
+                                text: 'Year'
+                            },
+                            grid: {
+                                color: 'rgba(0, 0, 0, 0.05)'
+                            }
+                        }
+                    },
+                    interaction: {
+                        mode: 'nearest',
+                        axis: 'x',
+                        intersect: false
+                    }
+                }
             }
         };
         
