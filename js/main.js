@@ -15,6 +15,8 @@ class InvestorPresentation {
     
     init() {
         this.initTabNavigation();
+        this.initSubTabNavigation();
+        this.initCollapsibleBanner();
         this.initBannerInteractions();
         this.initInfrastructureCalculator();
         this.initRevenueModel();
@@ -23,15 +25,17 @@ class InvestorPresentation {
         this.initTokenUsageCalculators();
         this.initAICostChart();
         this.initGeneticAlgorithmDemo();
+        this.initHoverCards();
         this.updateAllMetrics();
     }
     
     initTabNavigation() {
-        const tabButtons = document.querySelectorAll('.tab-btn');
+        const tabButtons = document.querySelectorAll('.nav-tab');
         const tabContents = document.querySelectorAll('.tab-content');
         
         tabButtons.forEach(button => {
-            button.addEventListener('click', () => {
+            button.addEventListener('click', (e) => {
+                e.preventDefault();
                 const tabId = button.dataset.tab;
                 
                 // Remove active class from all tabs and contents
@@ -46,6 +50,57 @@ class InvestorPresentation {
                 this.updateChartsForTab(tabId);
             });
         });
+    }
+    
+    initSubTabNavigation() {
+        const subTabButtons = document.querySelectorAll('.sub-tab');
+        const subContents = document.querySelectorAll('.sub-content');
+        
+        subTabButtons.forEach(button => {
+            button.addEventListener('click', (e) => {
+                e.preventDefault();
+                const subTabId = button.dataset.subtab;
+                
+                // Get the parent tab to only affect sub-tabs within the same main tab
+                const parentTab = button.closest('.tab-content');
+                if (!parentTab) return;
+                
+                // Remove active class from all sub-tabs and sub-contents within this parent
+                parentTab.querySelectorAll('.sub-tab').forEach(btn => btn.classList.remove('active'));
+                parentTab.querySelectorAll('.sub-content').forEach(content => content.classList.remove('active'));
+                
+                // Add active class to clicked sub-tab and corresponding sub-content
+                button.classList.add('active');
+                const subContent = document.getElementById(subTabId);
+                if (subContent) {
+                    subContent.classList.add('active');
+                }
+            });
+        });
+    }
+    
+    initCollapsibleBanner() {
+        const banner = document.getElementById('market-gap-banner');
+        if (!banner) return;
+        
+        let lastScrollY = window.scrollY;
+        
+        const handleScroll = () => {
+            const currentScrollY = window.scrollY;
+            
+            // Collapse banner when scrolling down past 100px
+            if (currentScrollY > 100 && currentScrollY > lastScrollY) {
+                banner.classList.add('collapsed');
+            } 
+            // Show banner when scrolling up or at top
+            else if (currentScrollY < 50 || currentScrollY < lastScrollY) {
+                banner.classList.remove('collapsed');
+            }
+            
+            lastScrollY = currentScrollY;
+        };
+        
+        window.addEventListener('scroll', handleScroll, { passive: true });
     }
     
     initInfrastructureCalculator() {
@@ -681,35 +736,139 @@ class InvestorPresentation {
     }
 
     initBannerInteractions() {
-        // Add click handlers for banner sections
+        // Add click handlers for banner sections to navigate to separate pages
         const bannerSections = document.querySelectorAll('.banner-section');
-        const detailSections = document.querySelectorAll('.banner-detail-section');
         
         bannerSections.forEach(section => {
             section.addEventListener('click', () => {
                 const sectionType = section.dataset.section;
-                const detailId = `${sectionType}-detail`;
-                const detailSection = document.getElementById(detailId);
                 
-                if (detailSection) {
-                    // Hide all detail sections first
-                    detailSections.forEach(detail => {
-                        detail.style.display = 'none';
-                    });
-                    
-                    // Show the clicked section's details
-                    if (detailSection.style.display === 'none') {
-                        detailSection.style.display = 'block';
-                        detailSection.scrollIntoView({ 
-                            behavior: 'smooth', 
-                            block: 'start' 
-                        });
-                    }
+                // Navigate to dedicated page based on section type
+                switch(sectionType) {
+                    case 'technicals':
+                        this.showDedicatedPage('technicals');
+                        break;
+                    case 'tropes':
+                        this.showDedicatedPage('tropes');
+                        break;
+                    case 'market':
+                        this.showDedicatedPage('market');
+                        break;
+                    case 'swot':
+                        this.showDedicatedPage('swot');
+                        break;
+                    default:
+                        console.log('Unknown section:', sectionType);
                 }
             });
         });
         
         console.log('✅ Banner interactions initialized');
+    }
+
+    showDedicatedPage(pageType) {
+        // Hide all main content
+        const mainContent = document.querySelector('.main-content');
+        const header = document.querySelector('.glass-header');
+        const marketGapBanner = document.querySelector('.market-gap-banner');
+        const pitchDeckBanner = document.querySelector('.pitch-deck-banner');
+        
+        // Hide main elements
+        if (mainContent) mainContent.style.display = 'none';
+        if (marketGapBanner) marketGapBanner.style.display = 'none';
+        if (pitchDeckBanner) pitchDeckBanner.style.display = 'none';
+        
+        // Create dedicated page content
+        this.createDedicatedPageContent(pageType);
+        
+        // Add back button functionality
+        this.addBackButtonHandler();
+    }
+
+    createDedicatedPageContent(pageType) {
+        // Remove existing dedicated page if present
+        const existingPage = document.getElementById('dedicated-page');
+        if (existingPage) {
+            existingPage.remove();
+        }
+        
+        // Create new dedicated page container
+        const dedicatedPage = document.createElement('div');
+        dedicatedPage.id = 'dedicated-page';
+        dedicatedPage.className = 'dedicated-page-container';
+        
+        // Get content based on page type
+        let pageContent = '';
+        switch(pageType) {
+            case 'technicals':
+                pageContent = document.getElementById('technicals-detail').innerHTML;
+                break;
+            case 'tropes':
+                pageContent = document.getElementById('tropes-detail').innerHTML;
+                break;
+            case 'market':
+                pageContent = document.getElementById('market-detail').innerHTML;
+                break;
+            case 'swot':
+                pageContent = document.getElementById('swot-detail').innerHTML;
+                break;
+        }
+        
+        dedicatedPage.innerHTML = `
+            <div class="dedicated-page-header">
+                <button class="back-btn">← Back to Main</button>
+                <h1 class="page-title">${this.getPageTitle(pageType)}</h1>
+            </div>
+            <div class="dedicated-page-content">
+                ${pageContent}
+            </div>
+        `;
+        
+        // Insert after header
+        const header = document.querySelector('.glass-header');
+        header.parentNode.insertBefore(dedicatedPage, header.nextSibling);
+        
+        // Show the page content that was initially hidden
+        const detailSection = dedicatedPage.querySelector('.banner-detail-section');
+        if (detailSection) {
+            detailSection.style.display = 'block';
+        }
+    }
+
+    getPageTitle(pageType) {
+        const titles = {
+            'technicals': 'Technical Architecture Deep Dive',
+            'tropes': 'Market Tropes & Documentation Revolution',
+            'market': 'Market Analysis & Competitive Landscape',
+            'swot': 'SWOT Analysis & Strategic Assessment'
+        };
+        return titles[pageType] || 'Detailed Analysis';
+    }
+
+    addBackButtonHandler() {
+        const backBtn = document.querySelector('.back-btn');
+        if (backBtn) {
+            backBtn.addEventListener('click', () => {
+                this.returnToMain();
+            });
+        }
+    }
+
+    returnToMain() {
+        // Remove dedicated page
+        const dedicatedPage = document.getElementById('dedicated-page');
+        if (dedicatedPage) {
+            dedicatedPage.remove();
+        }
+        
+        // Show main content
+        const mainContent = document.querySelector('.main-content');
+        const marketGapBanner = document.querySelector('.market-gap-banner');
+        const pitchDeckBanner = document.querySelector('.pitch-deck-banner');
+        
+        if (mainContent) mainContent.style.display = 'block';
+        if (marketGapBanner) marketGapBanner.style.display = 'block';
+        if (pitchDeckBanner) pitchDeckBanner.style.display = 'block';
     }
 
     initAICostChart() {
@@ -1032,6 +1191,89 @@ class InvestorPresentation {
         document.getElementById('final-prompt').style.display = 'none';
         
         console.log('✅ Evolution reset');
+    }
+    
+    initHoverCards() {
+        // Initialize ISCO hover card functionality
+        const hoverTriggers = document.querySelectorAll('.isco-hover-trigger');
+        const hoverCards = document.querySelectorAll('.hover-card');
+        
+        hoverTriggers.forEach(trigger => {
+            const tooltipId = trigger.getAttribute('data-tooltip');
+            const hoverCard = document.getElementById(tooltipId);
+            
+            if (hoverCard) {
+                let hoverTimeout;
+                
+                // Show hover card on mouseenter
+                trigger.addEventListener('mouseenter', (e) => {
+                    clearTimeout(hoverTimeout);
+                    
+                    // Hide all other hover cards
+                    hoverCards.forEach(card => card.classList.remove('active'));
+                    
+                    // Position and show the relevant hover card
+                    const rect = trigger.getBoundingClientRect();
+                    const cardRect = hoverCard.getBoundingClientRect();
+                    const viewportWidth = window.innerWidth;
+                    
+                    // Reset positioning
+                    hoverCard.style.left = '';
+                    hoverCard.style.right = '';
+                    hoverCard.style.transform = '';
+                    
+                    // Calculate optimal position
+                    let leftPosition = rect.left + (rect.width / 2) - (420 / 2); // 420px is card width
+                    
+                    // Adjust if card would go off-screen
+                    if (leftPosition < 10) {
+                        hoverCard.style.left = '10px';
+                        hoverCard.style.transform = 'none';
+                    } else if (leftPosition + 420 > viewportWidth - 10) {
+                        hoverCard.style.right = '10px';
+                        hoverCard.style.left = 'auto';
+                        hoverCard.style.transform = 'none';
+                    } else {
+                        hoverCard.style.left = `${leftPosition}px`;
+                        hoverCard.style.transform = 'none';
+                    }
+                    
+                    // Position vertically
+                    hoverCard.style.top = `${rect.bottom + 8}px`;
+                    hoverCard.style.position = 'fixed';
+                    
+                    // Show the card
+                    setTimeout(() => {
+                        hoverCard.classList.add('active');
+                    }, 10);
+                });
+                
+                // Hide hover card on mouseleave with delay
+                trigger.addEventListener('mouseleave', () => {
+                    hoverTimeout = setTimeout(() => {
+                        hoverCard.classList.remove('active');
+                    }, 200);
+                });
+                
+                // Keep hover card open when hovering over it
+                hoverCard.addEventListener('mouseenter', () => {
+                    clearTimeout(hoverTimeout);
+                });
+                
+                hoverCard.addEventListener('mouseleave', () => {
+                    hoverCard.classList.remove('active');
+                });
+            }
+        });
+        
+        // Close hover cards when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.isco-hover-trigger') && !e.target.closest('.hover-card')) {
+                hoverCards.forEach(card => card.classList.remove('active'));
+            }
+        });
+        
+        console.log('✅ ISCO hover cards initialized');
     }
 }
 
