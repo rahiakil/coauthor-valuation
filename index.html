@@ -1353,6 +1353,28 @@
                         <h3 class="card-title">📈 DCF Analysis Chart</h3>
                         <canvas id="dcfChart" width="800" height="400"></canvas>
                     </div>
+                    
+                    <!-- NPV Over Time Visualization -->
+                    <div class="glass-card full-width compact-card">
+                        <h3 class="card-title">📊 NPV Evolution Over Time</h3>
+                        <div class="npv-timeline-container">
+                            <canvas id="npvTimelineChart" width="800" height="300"></canvas>
+                        </div>
+                        <div class="npv-insights">
+                            <div class="insight-card">
+                                <div class="insight-label">Peak NPV Year</div>
+                                <div class="insight-value" id="peak-npv-year">2030</div>
+                            </div>
+                            <div class="insight-card">
+                                <div class="insight-label">NPV Growth Rate</div>
+                                <div class="insight-value" id="npv-growth-rate">285%</div>
+                            </div>
+                            <div class="insight-card">
+                                <div class="insight-label">Break-even NPV</div>
+                                <div class="insight-value" id="breakeven-npv-year">2027</div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </section>
 
