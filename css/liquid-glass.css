@@ -34,6 +34,8 @@
     --text-white: #ffffff;
     --text-contrast: #000000;
     --text-dark: #1a202c;
+    --text-black: #000000;
+    --text-dark-blue: #1e3a8a;
     
     /* Background */
     --bg-gradient: linear-gradient(135deg, 
@@ -211,12 +213,10 @@ body {
 .main-title {
     font-size: clamp(2rem, 4vw, 3.5rem);
     font-weight: 700;
-    background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 50%, var(--accent) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: var(--text-black);
     margin-bottom: 0.5rem;
     letter-spacing: -0.02em;
+    text-shadow: 0 2px 4px rgba(255, 255, 255, 0.3);
 }
 
 .subtitle {
@@ -242,12 +242,12 @@ body {
 .glass-select {
     width: 100%;
     padding: 0.75rem 1rem;
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.9);
     border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: 12px;
-    color: var(--text-white);
+    color: var(--text-dark-blue);
     font-size: 0.95rem;
-    font-weight: 500;
+    font-weight: 600;
     backdrop-filter: blur(10px);
     cursor: pointer;
     transition: all 0.3s ease;
@@ -260,9 +260,10 @@ body {
 }
 
 .glass-select option {
-    background: var(--text-primary);
-    color: white;
+    background: rgba(255, 255, 255, 0.95);
+    color: var(--text-dark-blue);
     padding: 0.5rem;
+    font-weight: 600;
 }
 
 /* Pitch Deck Banner */
@@ -460,6 +461,96 @@ body {
 
 .writing-agent strong {
     color: var(--accent);
+    font-weight: 600;
+}
+
+.tech-link {
+    color: var(--primary);
+    text-decoration: none;
+    border-bottom: 1px dotted var(--primary);
+    transition: all 0.3s ease;
+}
+
+.tech-link:hover {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
+}
+
+/* Technical Links Section */
+.technical-links {
+    margin-top: 2rem;
+    padding: 2rem;
+    background: rgba(102, 126, 234, 0.06);
+    border-radius: 16px;
+    border: 1px solid rgba(102, 126, 234, 0.15);
+}
+
+.technical-links h4 {
+    color: var(--text-white);
+    font-size: 1.3rem;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+    text-align: center;
+}
+
+.tech-links-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.tech-link-item {
+    background: rgba(255, 255, 255, 0.08);
+    padding: 1.5rem;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.tech-link-item:hover {
+    background: rgba(255, 255, 255, 0.12);
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.2);
+}
+
+.tech-link-item h5 {
+    color: var(--primary);
+    font-size: 1.1rem;
+    margin-bottom: 0.75rem;
+    font-weight: 600;
+}
+
+.tech-link-item p {
+    color: var(--text-white);
+    opacity: 0.9;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+}
+
+.internal-link {
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.internal-link:hover {
+    color: var(--primary);
+    text-decoration: underline;
+}
+
+.tech-badge {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: linear-gradient(135deg, var(--warning) 0%, var(--accent) 100%);
+    color: white;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.75rem;
     font-weight: 600;
 }
 
@@ -811,9 +902,216 @@ body {
 
 .market-segment p {
     color: var(--text-white);
-    opacity: 0.7;
+    opacity: 0.8;
     font-size: 0.9rem;
     margin-top: 0.5rem;
+    line-height: 1.4;
+}
+
+.tam-overview {
+    color: var(--text-white);
+    opacity: 0.9;
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    font-style: italic;
+}
+
+.stickiness-indicator {
+    background: rgba(72, 187, 120, 0.1);
+    border-left: 3px solid var(--success);
+    padding: 0.75rem;
+    margin: 1rem 0;
+    border-radius: 4px;
+    font-size: 0.85rem;
+}
+
+.stickiness-indicator strong {
+    color: var(--success);
+    font-weight: 600;
+}
+
+cite {
+    display: block;
+    font-size: 0.75rem;
+    color: var(--text-white);
+    opacity: 0.6;
+    margin-top: 0.75rem;
+    font-style: italic;
+}
+
+cite a {
+    color: var(--info);
+    text-decoration: none;
+}
+
+cite a:hover {
+    text-decoration: underline;
+}
+
+/* Global Adoption Styles */
+.global-adoption {
+    margin-top: 2rem;
+    padding: 2rem;
+    background: rgba(66, 153, 225, 0.06);
+    border-radius: 16px;
+    border: 1px solid rgba(66, 153, 225, 0.15);
+}
+
+.global-adoption h4 {
+    color: var(--text-white);
+    font-size: 1.3rem;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+    text-align: center;
+}
+
+.adoption-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.adoption-region {
+    text-align: center;
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.adoption-region:hover {
+    background: rgba(255, 255, 255, 0.08);
+    transform: translateY(-4px);
+}
+
+.adoption-region h5 {
+    color: var(--info);
+    font-size: 1rem;
+    margin-bottom: 0.75rem;
+    font-weight: 600;
+}
+
+.adoption-number {
+    display: block;
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--accent);
+    margin-bottom: 0.5rem;
+}
+
+.adoption-region p {
+    color: var(--text-white);
+    opacity: 0.8;
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+/* Valuation Justification Styles */
+.valuation-justification {
+    margin-top: 3rem;
+    padding: 2rem;
+    background: linear-gradient(135deg, rgba(240, 147, 251, 0.06) 0%, rgba(102, 126, 234, 0.04) 100%);
+    border-radius: 16px;
+    border: 1px solid rgba(240, 147, 251, 0.15);
+}
+
+.valuation-justification h3 {
+    color: var(--text-white);
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+    text-align: center;
+}
+
+.valuation-comparison {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.valuation-metric {
+    text-align: center;
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.valuation-metric:hover {
+    background: rgba(255, 255, 255, 0.08);
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px rgba(240, 147, 251, 0.15);
+}
+
+.valuation-metric h4 {
+    color: var(--accent);
+    font-size: 1.1rem;
+    margin-bottom: 0.75rem;
+    font-weight: 600;
+}
+
+.multiple-value {
+    display: block;
+    font-size: 2.5rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 0.5rem;
+}
+
+.valuation-metric p {
+    color: var(--text-white);
+    opacity: 0.8;
+    font-size: 0.9rem;
+    line-height: 1.4;
+    margin-bottom: 0.75rem;
+}
+
+.valuation-drivers {
+    background: rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.valuation-drivers h4 {
+    color: var(--accent);
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+}
+
+.valuation-drivers ul {
+    list-style: none;
+    padding: 0;
+}
+
+.valuation-drivers li {
+    color: var(--text-white);
+    opacity: 0.9;
+    margin-bottom: 1rem;
+    padding-left: 1.5rem;
+    position: relative;
+    line-height: 1.6;
+}
+
+.valuation-drivers li::before {
+    content: '💎';
+    position: absolute;
+    left: 0;
+    font-size: 1rem;
+}
+
+.valuation-drivers strong {
+    color: var(--accent);
+    font-weight: 600;
 }
 
 .market-size {
