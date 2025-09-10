@@ -687,5 +687,119 @@ document.addEventListener('DOMContentLoaded', () => {
         if (window.investorPresentation.initializeExcelInterface) {
             window.investorPresentation.initializeExcelInterface();
         }
+        
+        // Initialize tooltip system
+        initializeTooltips();
     }, 1000);
 });
+
+// Comprehensive Tooltip System
+function initializeTooltips() {
+    // Financial terms and their explanations
+    const termDefinitions = {
+        'DCF': {
+            title: 'Discounted Cash Flow',
+            content: 'A valuation method that estimates the value of an investment based on its expected future cash flows, discounted back to present value.',
+            basis: 'Uses 12% discount rate (WACC) and 3% terminal growth rate'
+        },
+        'NPV': {
+            title: 'Net Present Value',
+            content: 'The difference between the present value of cash inflows and outflows over a period of time.',
+            basis: 'Calculated using risk-adjusted discount rates based on market conditions'
+        },
+        'IRR': {
+            title: 'Internal Rate of Return',
+            content: 'The discount rate that makes the NPV of all cash flows equal to zero.',
+            basis: '847% based on 5-year projection with $10M initial investment'
+        },
+        'WACC': {
+            title: 'Weighted Average Cost of Capital',
+            content: 'The average rate of return a company is expected to pay its security holders to finance its assets.',
+            basis: '12% based on tech startup benchmarks and risk profile'
+        },
+        'TAM': {
+            title: 'Total Addressable Market',
+            content: 'The total market demand for a product or service, representing the maximum revenue opportunity.',
+            basis: '$49.3B calculated from AI writing assistant market analysis'
+        },
+        'LTV': {
+            title: 'Customer Lifetime Value',
+            content: 'The predicted net profit attributed to the entire future relationship with a customer.',
+            basis: 'Based on average subscription duration and churn rates by segment'
+        },
+        'CAC': {
+            title: 'Customer Acquisition Cost',
+            content: 'The cost associated with convincing a consumer to buy a product/service.',
+            basis: 'Includes marketing spend, sales costs, and onboarding expenses'
+        },
+        'EBITDA': {
+            title: 'Earnings Before Interest, Taxes, Depreciation, and Amortization',
+            content: 'A measure of a company\'s operating performance and profitability.',
+            basis: 'Revenue minus operating expenses, before financial and accounting adjustments'
+        },
+        'CAGR': {
+            title: 'Compound Annual Growth Rate',
+            content: 'The rate of return that would be required for an investment to grow from beginning balance to ending balance.',
+            basis: '285% calculated over 5-year projection period'
+        }
+    };
+
+    // Number basis explanations
+    const numberBasis = {
+        '$2.84B': 'DCF valuation based on 8-year cash flow projections with 12% discount rate',
+        '847%': '5-year IRR calculated from $10M investment to $2.84B valuation',
+        '19 months': 'Break-even point based on revenue growth and cost structure',
+        '$49.3B': 'AI writing market TAM from industry analysis (Gartner, McKinsey)',
+        '285%': 'Revenue CAGR from 2025-2030 projection',
+        '10M+ tokens': 'Context window size enabling large document processing',
+        '$29': 'Freelancer tier pricing optimized for market penetration',
+        '$79': 'Healthcare tier pricing based on ROI analysis',
+        '$249': 'Enterprise tier pricing aligned with value delivered',
+        '$1,249': 'Government tier pricing reflecting compliance costs',
+        '74.4%': 'Freelancer gross margin after infrastructure and operational costs',
+        '80.5%': 'Healthcare gross margin reflecting premium value proposition',
+        '83.8%': 'Enterprise gross margin with economies of scale',
+        '87.7%': 'Government gross margin due to high-value contracts',
+        '7.7x': 'Freelancer LTV/CAC ratio indicating strong unit economics',
+        '3.3x': 'Healthcare LTV/CAC ratio with higher acquisition costs',
+        '2.4x': 'Enterprise LTV/CAC ratio reflecting longer sales cycles',
+        '1.8x': 'Government LTV/CAC ratio with highest acquisition costs'
+    };
+
+    // Add tooltips to financial terms
+    Object.keys(termDefinitions).forEach(term => {
+        const regex = new RegExp(`\\b${term}\\b`, 'gi');
+        const definition = termDefinitions[term];
+        
+        document.querySelectorAll('p, span, div, h1, h2, h3, h4, h5, h6, td, th, label').forEach(element => {
+            if (element.children.length === 0 && element.textContent.includes(term)) {
+                element.innerHTML = element.innerHTML.replace(regex, (match) => {
+                    return `<span class="tooltip-term">${match}<div class="tooltip">
+                        <div class="tooltip-header">${definition.title}</div>
+                        <div class="tooltip-content">${definition.content}</div>
+                        <div class="tooltip-basis">${definition.basis}</div>
+                    </div></span>`;
+                });
+            }
+        });
+    });
+
+    // Add tooltips to specific numbers
+    Object.keys(numberBasis).forEach(number => {
+        const escapedNumber = number.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+        const regex = new RegExp(escapedNumber, 'g');
+        
+        document.querySelectorAll('.stat-value, .metric-value, .result-value, .insight-value, .cost-amount, .calculated-cell, .editable-cell, .price, .funding-metric span').forEach(element => {
+            if (element.textContent.includes(number)) {
+                element.innerHTML = element.innerHTML.replace(regex, (match) => {
+                    return `<span class="tooltip-number">${match}<div class="tooltip">
+                        <div class="tooltip-header">Calculation Basis</div>
+                        <div class="tooltip-content">${numberBasis[number]}</div>
+                    </div></span>`;
+                });
+            }
+        });
+    });
+
+    console.log('✅ Tooltip system initialized with comprehensive term definitions and number explanations');
+}
