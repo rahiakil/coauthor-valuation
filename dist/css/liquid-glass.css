@@ -26,12 +26,13 @@
     --info: #4299e1;
     --danger: #f56565;
     
-    /* Text Colors */
-    --text-primary: #2d3748;
-    --text-secondary: #4a5568;
-    --text-muted: #718096;
-    --text-light: #a0aec0;
+    /* Text Colors - Enhanced Contrast */
+    --text-primary: #1a202c;
+    --text-secondary: #2d3748;
+    --text-muted: #4a5568;
+    --text-light: #718096;
     --text-white: #ffffff;
+    --text-contrast: #000000;
     
     /* Background */
     --bg-gradient: linear-gradient(135deg, 
@@ -139,22 +140,22 @@ body {
 
 /* Glass Effects */
 .glass-card {
-    background: var(--glass-bg);
+    background: rgba(255, 255, 255, 0.85);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    border: 1px solid var(--glass-border);
+    border: 1px solid rgba(255, 255, 255, 0.9);
     border-radius: 20px;
-    box-shadow: 0 8px 32px var(--glass-shadow);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
     overflow: hidden;
 }
 
 .glass-card:hover {
-    background: var(--glass-hover);
+    background: rgba(255, 255, 255, 0.92);
     transform: translateY(-2px);
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
-    border-color: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
+    border-color: rgba(255, 255, 255, 0.95);
 }
 
 .glass-card::before {
@@ -1322,38 +1323,47 @@ body {
 .dcf-table {
     width: 100%;
     border-collapse: collapse;
-    font-size: 0.9rem;
+    font-size: 0.75rem;
+    background: rgba(255, 255, 255, 0.95);
 }
 
 .dcf-table th,
 .dcf-table td {
-    padding: 1rem;
+    padding: 0.6rem 0.8rem;
     text-align: right;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    border-right: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 .dcf-table th {
-    background: rgba(45, 55, 72, 0.8);
+    background: rgba(45, 55, 72, 0.95);
     color: var(--text-white);
-    font-weight: 600;
-    font-size: 0.85rem;
+    font-weight: 700;
+    font-size: 0.7rem;
     text-transform: uppercase;
     letter-spacing: 0.5px;
+    white-space: nowrap;
 }
 
 .dcf-table th:first-child,
 .dcf-table td:first-child {
     text-align: left;
+    font-weight: 600;
 }
 
 .dcf-table td {
-    color: var(--text-primary);
+    color: var(--text-contrast);
     font-family: var(--font-mono);
     font-weight: 500;
+    font-size: 0.7rem;
 }
 
 .dcf-table tbody tr:hover {
-    background: rgba(255, 255, 255, 0.05);
+    background: rgba(102, 126, 234, 0.1);
+}
+
+.dcf-table tbody tr:nth-child(even) {
+    background: rgba(0, 0, 0, 0.02);
 }
 
 .dcf-results-display {
@@ -1816,6 +1826,191 @@ canvas {
         border: 1px solid #ddd;
         box-shadow: none;
     }
+}
+
+/* Reference Links */
+.reference-link {
+    font-size: 0.7rem;
+    color: var(--primary);
+    text-decoration: none;
+    vertical-align: super;
+    margin-left: 0.2rem;
+    padding: 0.1rem 0.3rem;
+    background: rgba(102, 126, 234, 0.1);
+    border-radius: 4px;
+    transition: all 0.2s ease;
+}
+
+.reference-link:hover {
+    background: rgba(102, 126, 234, 0.2);
+    color: var(--primary-dark);
+    transform: scale(1.1);
+}
+
+.reference-subscript {
+    vertical-align: sub;
+}
+
+/* NPV Display Component */
+.npv-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: linear-gradient(135deg, var(--success) 0%, var(--primary) 100%);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 12px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    font-family: var(--font-mono);
+    margin: 0.5rem 0;
+}
+
+.npv-badge::before {
+    content: '📈';
+    font-size: 1rem;
+}
+
+/* Valuation Path Visualization */
+.valuation-path {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    position: relative;
+    padding: 1rem 0;
+}
+
+.valuation-step {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    border-left: 4px solid var(--primary);
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.valuation-step:hover {
+    background: rgba(255, 255, 255, 0.12);
+    transform: translateX(10px);
+}
+
+.valuation-step-number {
+    background: var(--primary);
+    color: white;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.valuation-step-content {
+    flex: 1;
+}
+
+.valuation-step-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 0.25rem;
+}
+
+.valuation-step-desc {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    line-height: 1.4;
+}
+
+.valuation-step-value {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--primary);
+    font-family: var(--font-mono);
+}
+
+/* Token Usage Breakdown */
+.token-usage-breakdown {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.usage-scenario {
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    padding: 1.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    transition: all 0.3s ease;
+}
+
+.usage-scenario:hover {
+    background: rgba(255, 255, 255, 0.12);
+    transform: translateY(-3px);
+}
+
+.usage-scenario h4 {
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.usage-controls {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+}
+
+.usage-control {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.85rem;
+}
+
+.usage-control label {
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+.usage-control input {
+    width: 80px;
+    padding: 0.25rem 0.5rem;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 6px;
+    color: var(--text-primary);
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    text-align: right;
+}
+
+.usage-result {
+    background: rgba(102, 126, 234, 0.1);
+    padding: 0.75rem;
+    border-radius: 8px;
+    border-left: 3px solid var(--primary);
+}
+
+.usage-result-title {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin-bottom: 0.25rem;
+}
+
+.usage-result-value {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--primary);
+    font-family: var(--font-mono);
 }
 
 /* High DPI Support */

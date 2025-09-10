@@ -61,29 +61,54 @@ class Charts {
                 }
             },
             infrastructure: {
-                type: 'bar',
+                type: 'line',
                 data: {
-                    labels: ['AWS', 'GCP', 'Azure', 'On-Premise', 'Home Server'],
+                    labels: ['100 Users', '500 Users', '1K Users', '5K Users', '10K Users', '50K Users', '100K Users'],
                     datasets: [
                         {
-                            label: 'Compute',
-                            data: [8.5, 7.8, 8.2, 15.0, 3.0],
-                            backgroundColor: '#FF6384'
+                            label: 'T4 GPUs (Cost/Month)',
+                            data: [1.26, 6.3, 12.6, 63, 126, 630, 1260],
+                            borderColor: '#FF6384',
+                            backgroundColor: 'rgba(255, 99, 132, 0.1)',
+                            fill: false
                         },
                         {
-                            label: 'AI/ML',
-                            data: [12.0, 11.0, 11.5, 5.0, 8.0],
-                            backgroundColor: '#36A2EB'
+                            label: 'L4 GPUs (Cost/Month)',
+                            data: [2.16, 10.8, 21.6, 108, 216, 1080, 2160],
+                            borderColor: '#4CAF50',
+                            backgroundColor: 'rgba(76, 175, 80, 0.1)',
+                            fill: false
                         },
                         {
-                            label: 'Storage',
-                            data: [1.2, 1.1, 1.15, 2.0, 0.5],
-                            backgroundColor: '#FFCE56'
+                            label: 'A100 GPUs (Cost/Month)',
+                            data: [5.12, 25.6, 51.2, 256, 512, 2560, 5120],
+                            borderColor: '#FF9800',
+                            backgroundColor: 'rgba(255, 152, 0, 0.1)',
+                            fill: false
                         },
                         {
-                            label: 'Bandwidth',
-                            data: [0.8, 0.7, 0.75, 0.5, 0.2],
-                            backgroundColor: '#4BC0C0'
+                            label: 'Author Behavior Cost',
+                            data: [0.85, 4.25, 8.5, 42.5, 85, 425, 850],
+                            borderColor: '#9C27B0',
+                            backgroundColor: 'rgba(156, 39, 176, 0.1)',
+                            fill: false,
+                            borderDash: [5, 5]
+                        },
+                        {
+                            label: 'Researcher Behavior Cost',
+                            data: [4.5, 22.5, 45, 225, 450, 2250, 4500],
+                            borderColor: '#00BCD4',
+                            backgroundColor: 'rgba(0, 188, 212, 0.1)',
+                            fill: false,
+                            borderDash: [10, 5]
+                        },
+                        {
+                            label: 'Medical Behavior Cost',
+                            data: [2.8, 14, 28, 140, 280, 1400, 2800],
+                            borderColor: '#607D8B',
+                            backgroundColor: 'rgba(96, 125, 139, 0.1)',
+                            fill: false,
+                            borderDash: [3, 3]
                         }
                     ]
                 },
@@ -92,16 +117,25 @@ class Charts {
                     plugins: {
                         title: {
                             display: true,
-                            text: 'Monthly Infrastructure Costs ($K)'
+                            text: 'GPU Infrastructure Scaling vs User Behavior Patterns ($K)'
+                        },
+                        legend: {
+                            position: 'bottom'
                         }
                     },
                     scales: {
-                        x: {
-                            stacked: true
-                        },
                         y: {
-                            stacked: true,
-                            beginAtZero: true
+                            beginAtZero: true,
+                            title: {
+                                display: true,
+                                text: 'Monthly Cost ($K)'
+                            }
+                        },
+                        x: {
+                            title: {
+                                display: true,
+                                text: 'User Scale'
+                            }
                         }
                     }
                 }
