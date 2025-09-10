@@ -19,7 +19,6 @@ class InvestorPresentation {
         this.initRevenueModel();
         this.initValuationMethods();
         this.initFundingCalculator();
-        this.initTokenUsageCalculators();
         this.updateAllMetrics();
     }
     
@@ -125,12 +124,6 @@ class InvestorPresentation {
         const enterprisePrice = parseFloat(document.getElementById('enterprise-price')?.value || 249);
         const governmentPrice = parseFloat(document.getElementById('government-price')?.value || 1249);
         
-        // Update display prices in tokenomics section
-        this.updateElement('freelancer-display-price', freelancerPrice);
-        this.updateElement('healthcare-display-price', healthcarePrice);
-        this.updateElement('enterprise-display-price', enterprisePrice);
-        this.updateElement('government-display-price', governmentPrice);
-        
         // Get marketing parameters
         const marketingSpend = parseFloat(document.getElementById('marketing-spend')?.value || 100000);
         const conversionRate = parseFloat(document.getElementById('conversion-rate')?.value || 5) / 100;
@@ -139,31 +132,26 @@ class InvestorPresentation {
         this.updateElement('conversion-rate-value', `${(conversionRate * 100).toFixed(1)}%`);
         
         // Calculate user projections (simplified model)
-        const baseUsers = {
-            freelancer: Math.floor(marketingSpend * conversionRate * 0.6 / 150), // 60% to freelancers
-            healthcare: Math.floor(marketingSpend * conversionRate * 0.25 / 300), // 25% to healthcare  
-            enterprise: Math.floor(marketingSpend * conversionRate * 0.12 / 800), // 12% to enterprise
-            government: Math.floor(marketingSpend * conversionRate * 0.03 / 2000) // 3% to government
+        const year1Users = {
+            freelancer: 1000,
+            healthcare: 300,
+            enterprise: 50,
+            government: 10
         };
         
-        const growthRates = { 
-            freelancer: 2.8 + (conversionRate * 10), 
-            healthcare: 3.2 + (conversionRate * 8), 
-            enterprise: 4.1 + (conversionRate * 12), 
-            government: 5.8 + (conversionRate * 15) 
-        };
+        const growthRates = { freelancer: 3.5, healthcare: 4.2, enterprise: 5.1, government: 6.8 };
         
         let year1Revenue = 0;
         let year3Revenue = 0;
         let year5Revenue = 0;
         
         // Calculate revenues for each segment
-        Object.keys(baseUsers).forEach(segment => {
+        Object.keys(year1Users).forEach(segment => {
             const price = segment === 'freelancer' ? freelancerPrice :
                          segment === 'healthcare' ? healthcarePrice :
                          segment === 'enterprise' ? enterprisePrice : governmentPrice;
             
-            const y1Users = Math.max(baseUsers[segment], 10); // Minimum users
+            const y1Users = year1Users[segment];
             const y3Users = y1Users * Math.pow(growthRates[segment], 2);
             const y5Users = y1Users * Math.pow(growthRates[segment], 4);
             
@@ -172,9 +160,6 @@ class InvestorPresentation {
             year5Revenue += y5Users * price * 12;
         });
         
-        // Store revenue data for other calculations
-        this.revenueData = { year1Revenue, year3Revenue, year5Revenue };
-        
         // Calculate CAGR
         const cagr = Math.pow(year5Revenue / year1Revenue, 1/4) - 1;
         
@@ -182,59 +167,6 @@ class InvestorPresentation {
         this.updateElement('year3-revenue', `$${(year3Revenue / 1000000).toFixed(1)}M`);
         this.updateElement('year5-revenue', `$${(year5Revenue / 1000000).toFixed(1)}M`);
         this.updateElement('cagr', `${(cagr * 100).toFixed(0)}%`);
-        
-        // Update NPV calculations
-        this.updateNPVDisplays();
-        
-        // Update financial models if available
-        if (window.financialModels && window.financialModels.updateAllCalculations) {
-            window.financialModels.updateAllCalculations();
-        }
-        
-        // Update charts with new revenue data
-        if (window.charts && window.charts.updateRevenueChart) {
-            window.charts.updateRevenueChart();
-        }
-    }
-    
-    updateNPVDisplays() {
-        const discountRate = parseFloat(document.getElementById('discount-rate')?.value || 12) / 100;
-        const npv = this.calculateNPV(discountRate);
-        
-        // Update all NPV badges
-        this.updateElement('financial-npv', `Real-time NPV: $${(npv / 1000000000).toFixed(2)}B (at ${(discountRate * 100).toFixed(1)}% discount)`);
-        this.updateElement('valuation-npv', `NPV: $${(npv / 1000000000).toFixed(2)}B (at ${(discountRate * 100).toFixed(1)}% discount)`);
-    }
-    
-    calculateNPV(discountRate) {
-        if (!this.revenueData) {
-            return 2100000000; // Default NPV
-        }
-        
-        const { year1Revenue, year3Revenue, year5Revenue } = this.revenueData;
-        const revenues = [
-            year1Revenue,
-            year1Revenue * 1.8, // Interpolated year 2
-            year3Revenue,
-            year3Revenue * 2.1, // Interpolated year 4  
-            year5Revenue
-        ];
-        
-        let npv = 0;
-        revenues.forEach((revenue, index) => {
-            const year = index + 1;
-            const ebitda = revenue * (0.3 + (year * 0.08)); // Growing EBITDA margin
-            const fcf = ebitda * 0.75; // Free cash flow conversion
-            const pv = fcf / Math.pow(1 + discountRate, year);
-            npv += pv;
-        });
-        
-        // Add terminal value
-        const terminalFCF = revenues[4] * 0.65 * 1.03; // Terminal growth
-        const terminalValue = terminalFCF / (discountRate - 0.03);
-        const terminalPV = terminalValue / Math.pow(1 + discountRate, 5);
-        
-        return npv + terminalPV;
     }
     
     initValuationMethods() {
@@ -373,161 +305,6 @@ class InvestorPresentation {
         
         this.updateFundingMetrics();
         this.updateFundingAllocation();
-    }
-    
-    initTokenUsageCalculators() {
-        // Legal scenario
-        const legalInputs = ['legal-pages', 'legal-docs', 'legal-tokens-per-page'];
-        legalInputs.forEach(id => {
-            const element = document.getElementById(id);
-            if (element) {
-                element.addEventListener('input', () => this.updateTokenUsage('legal'));
-            }
-        });
-        
-        // Enterprise scenario  
-        const enterpriseInputs = ['enterprise-articles', 'enterprise-words', 'enterprise-research'];
-        enterpriseInputs.forEach(id => {
-            const element = document.getElementById(id);
-            if (element) {
-                element.addEventListener('input', () => this.updateTokenUsage('enterprise'));
-            }
-        });
-        
-        // Government scenario
-        const govInputs = ['gov-policies', 'gov-pages', 'gov-cross-ref'];
-        govInputs.forEach(id => {
-            const element = document.getElementById(id);
-            if (element) {
-                element.addEventListener('input', () => this.updateTokenUsage('gov'));
-            }
-        });
-        
-        // Healthcare scenario
-        const healthInputs = ['health-records', 'health-pages', 'health-context'];
-        healthInputs.forEach(id => {
-            const element = document.getElementById(id);
-            if (element) {
-                element.addEventListener('input', () => this.updateTokenUsage('health'));
-            }
-        });
-        
-        // Initialize all calculations
-        this.updateTokenUsage('legal');
-        this.updateTokenUsage('enterprise');
-        this.updateTokenUsage('gov');
-        this.updateTokenUsage('health');
-    }
-    
-    updateTokenUsage(scenario) {
-        let tokens = 0;
-        let tier = '';
-        let tierPrice = '';
-        
-        switch(scenario) {
-            case 'legal':
-                const legalPages = parseFloat(document.getElementById('legal-pages')?.value || 50);
-                const legalDocs = parseFloat(document.getElementById('legal-docs')?.value || 20);
-                const legalTokensPerPage = parseFloat(document.getElementById('legal-tokens-per-page')?.value || 750);
-                
-                tokens = legalPages * legalDocs * legalTokensPerPage;
-                
-                if (tokens <= 500000) {
-                    tier = 'Freelancer';
-                    tierPrice = document.getElementById('freelancer-price')?.value || 29;
-                } else if (tokens <= 1500000) {
-                    tier = 'Healthcare';  
-                    tierPrice = document.getElementById('healthcare-price')?.value || 79;
-                } else if (tokens <= 5000000) {
-                    tier = 'Enterprise';
-                    tierPrice = document.getElementById('enterprise-price')?.value || 249;
-                } else {
-                    tier = 'Government';
-                    tierPrice = document.getElementById('government-price')?.value || 1249;
-                }
-                
-                this.updateElement('legal-tokens-result', `${(tokens / 1000).toFixed(0)}K`);
-                this.updateElement('legal-tier-result', `${tier} ($${tierPrice})`);
-                break;
-                
-            case 'enterprise':
-                const articles = parseFloat(document.getElementById('enterprise-articles')?.value || 100);
-                const wordsPerArticle = parseFloat(document.getElementById('enterprise-words')?.value || 2000);
-                const researchPages = parseFloat(document.getElementById('enterprise-research')?.value || 30);
-                
-                // 1.5 tokens per word + research context (750 tokens per research page)
-                tokens = (articles * wordsPerArticle * 1.5) + (articles * researchPages * 750);
-                
-                if (tokens <= 500000) {
-                    tier = 'Freelancer';
-                    tierPrice = document.getElementById('freelancer-price')?.value || 29;
-                } else if (tokens <= 1500000) {
-                    tier = 'Healthcare';
-                    tierPrice = document.getElementById('healthcare-price')?.value || 79;
-                } else if (tokens <= 5000000) {
-                    tier = 'Enterprise';
-                    tierPrice = document.getElementById('enterprise-price')?.value || 249;
-                } else {
-                    tier = 'Government';
-                    tierPrice = document.getElementById('government-price')?.value || 1249;
-                }
-                
-                this.updateElement('enterprise-tokens-result', `${(tokens / 1000000).toFixed(1)}M`);
-                this.updateElement('enterprise-tier-result', `${tier} ($${tierPrice})`);
-                break;
-                
-            case 'gov':
-                const policies = parseFloat(document.getElementById('gov-policies')?.value || 10);
-                const pagesPerPolicy = parseFloat(document.getElementById('gov-pages')?.value || 200);
-                const crossRefs = parseFloat(document.getElementById('gov-cross-ref')?.value || 500);
-                
-                // Policy pages (750 tokens/page) + cross-references (1000 tokens each)
-                tokens = (policies * pagesPerPolicy * 750) + (crossRefs * 1000);
-                
-                if (tokens <= 500000) {
-                    tier = 'Freelancer';
-                    tierPrice = document.getElementById('freelancer-price')?.value || 29;
-                } else if (tokens <= 1500000) {
-                    tier = 'Healthcare';
-                    tierPrice = document.getElementById('healthcare-price')?.value || 79;
-                } else if (tokens <= 5000000) {
-                    tier = 'Enterprise';
-                    tierPrice = document.getElementById('enterprise-price')?.value || 249;
-                } else {
-                    tier = 'Government';
-                    tierPrice = document.getElementById('government-price')?.value || 1249;
-                }
-                
-                this.updateElement('gov-tokens-result', `${(tokens / 1000000).toFixed(1)}M`);
-                this.updateElement('gov-tier-result', `${tier} ($${tierPrice})`);
-                break;
-                
-            case 'health':
-                const records = parseFloat(document.getElementById('health-records')?.value || 500);
-                const pagesPerRecord = parseFloat(document.getElementById('health-pages')?.value || 15);
-                const contextPages = parseFloat(document.getElementById('health-context')?.value || 50);
-                
-                // Patient records (600 tokens/page) + medical context (800 tokens/page)
-                tokens = (records * pagesPerRecord * 600) + (contextPages * 800);
-                
-                if (tokens <= 500000) {
-                    tier = 'Freelancer';
-                    tierPrice = document.getElementById('freelancer-price')?.value || 29;
-                } else if (tokens <= 1500000) {
-                    tier = 'Healthcare';
-                    tierPrice = document.getElementById('healthcare-price')?.value || 79;
-                } else if (tokens <= 5000000) {
-                    tier = 'Enterprise';
-                    tierPrice = document.getElementById('enterprise-price')?.value || 249;
-                } else {
-                    tier = 'Government';
-                    tierPrice = document.getElementById('government-price')?.value || 1249;
-                }
-                
-                this.updateElement('health-tokens-result', `${(tokens / 1000000).toFixed(1)}M`);
-                this.updateElement('health-tier-result', `${tier} ($${tierPrice})`);
-                break;
-        }
     }
     
     updateFundingMetrics() {

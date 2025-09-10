@@ -209,63 +209,6 @@ class Charts {
                         }
                     }
                 }
-            },
-            userPreference: {
-                type: 'radar',
-                data: {
-                    labels: ['Cost-Effectiveness', 'Context Size', 'Security', 'Compliance', 'Performance', 'Support'],
-                    datasets: [
-                        {
-                            label: 'Freelancers',
-                            data: [95, 60, 40, 30, 75, 45],
-                            borderColor: '#FF6384',
-                            backgroundColor: 'rgba(255, 99, 132, 0.2)',
-                            pointBackgroundColor: '#FF6384'
-                        },
-                        {
-                            label: 'Healthcare',
-                            data: [65, 85, 90, 95, 80, 85],
-                            borderColor: '#36A2EB',
-                            backgroundColor: 'rgba(54, 162, 235, 0.2)',
-                            pointBackgroundColor: '#36A2EB'
-                        },
-                        {
-                            label: 'Enterprise',
-                            data: [70, 95, 85, 75, 90, 90],
-                            borderColor: '#FFCE56',
-                            backgroundColor: 'rgba(255, 206, 86, 0.2)',
-                            pointBackgroundColor: '#FFCE56'
-                        },
-                        {
-                            label: 'Government',
-                            data: [50, 80, 100, 85, 85, 95],
-                            borderColor: '#4BC0C0',
-                            backgroundColor: 'rgba(75, 192, 192, 0.2)',
-                            pointBackgroundColor: '#4BC0C0'
-                        }
-                    ]
-                },
-                options: {
-                    responsive: true,
-                    plugins: {
-                        title: {
-                            display: true,
-                            text: 'User Segment Preferences (0-100 Scale)'
-                        },
-                        legend: {
-                            position: 'bottom'
-                        }
-                    },
-                    scales: {
-                        r: {
-                            beginAtZero: true,
-                            max: 100,
-                            ticks: {
-                                stepSize: 20
-                            }
-                        }
-                    }
-                }
             }
         };
         
